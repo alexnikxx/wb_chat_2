@@ -12,6 +12,16 @@
 		2AAC07512C674DC400D712BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAC07502C674DC400D712BF /* ContentView.swift */; };
 		2AAC07532C674DC500D712BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAC07522C674DC500D712BF /* Assets.xcassets */; };
 		2AAC07562C674DC500D712BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAC07552C674DC500D712BF /* Preview Assets.xcassets */; };
+		2AD0664B2C67DD2B0015ECFB /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0664A2C67DD2B0015ECFB /* OnboardingView.swift */; };
+		2AD0664D2C67DD830015ECFB /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0664C2C67DD830015ECFB /* ButtonModifier.swift */; };
+		2AD0664F2C67DD920015ECFB /* BackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0664E2C67DD920015ECFB /* BackgroundModifier.swift */; };
+		2AD066512C67DDAC0015ECFB /* Font+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD066502C67DDAC0015ECFB /* Font+.swift */; };
+		2AD066532C67DF320015ECFB /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD066522C67DF320015ECFB /* TermsView.swift */; };
+		2AD066552C67DF810015ECFB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD066542C67DF810015ECFB /* LoginView.swift */; };
+		2AD066592C67DFB80015ECFB /* OnboardingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD066582C67DFB80015ECFB /* OnboardingInfo.swift */; };
+		2AD0665D2C67DFF70015ECFB /* ShakeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */; };
+		2AD0665F2C67E01D0015ECFB /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0665E2C67E01D0015ECFB /* CustomBackButton.swift */; };
+		2AD066612C67E05F0015ECFB /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD066602C67E05F0015ECFB /* String+.swift */; };
 		65C98F8D2C6777EB00E54C0E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C98F8B2C6777EB00E54C0E /* Localizable.strings */; };
 		65C98F902C677B4500E54C0E /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C98F8F2C677B4500E54C0E /* LocalizedStrings.swift */; };
 /* End PBXBuildFile section */
@@ -23,6 +33,16 @@
 		2AAC07502C674DC400D712BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2AAC07522C674DC500D712BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AAC07552C674DC500D712BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2AD0664A2C67DD2B0015ECFB /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		2AD0664C2C67DD830015ECFB /* ButtonModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
+		2AD0664E2C67DD920015ECFB /* BackgroundModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundModifier.swift; sourceTree = "<group>"; };
+		2AD066502C67DDAC0015ECFB /* Font+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+.swift"; sourceTree = "<group>"; };
+		2AD066522C67DF320015ECFB /* TermsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
+		2AD066542C67DF810015ECFB /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2AD066582C67DFB80015ECFB /* OnboardingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingInfo.swift; sourceTree = "<group>"; };
+		2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeAnimation.swift; sourceTree = "<group>"; };
+		2AD0665E2C67E01D0015ECFB /* CustomBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
+		2AD066602C67E05F0015ECFB /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		65C98F8C2C6777EB00E54C0E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		65C98F8E2C67784200E54C0E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		65C98F8F2C677B4500E54C0E /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
@@ -71,6 +91,16 @@
 				65C98F8A2C67746600E54C0E /* Localizable */,
 				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
 				2AAC07502C674DC400D712BF /* ContentView.swift */,
+				2AD0664A2C67DD2B0015ECFB /* OnboardingView.swift */,
+				2AD0664C2C67DD830015ECFB /* ButtonModifier.swift */,
+				2AD0664E2C67DD920015ECFB /* BackgroundModifier.swift */,
+				2AD066542C67DF810015ECFB /* LoginView.swift */,
+				2AD066582C67DFB80015ECFB /* OnboardingInfo.swift */,
+				2AD066602C67E05F0015ECFB /* String+.swift */,
+				2AD066502C67DDAC0015ECFB /* Font+.swift */,
+				2AD066522C67DF320015ECFB /* TermsView.swift */,
+				2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */,
+				2AD0665E2C67E01D0015ECFB /* CustomBackButton.swift */,
 				2AAC07522C674DC500D712BF /* Assets.xcassets */,
 				2AAC07542C674DC500D712BF /* Preview Content */,
 			);
@@ -169,9 +199,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD066532C67DF320015ECFB /* TermsView.swift in Sources */,
 				2AAC07512C674DC400D712BF /* ContentView.swift in Sources */,
+				2AD066512C67DDAC0015ECFB /* Font+.swift in Sources */,
+				2AD066552C67DF810015ECFB /* LoginView.swift in Sources */,
+				2AD0664B2C67DD2B0015ECFB /* OnboardingView.swift in Sources */,
 				65C98F902C677B4500E54C0E /* LocalizedStrings.swift in Sources */,
+				2AD066592C67DFB80015ECFB /* OnboardingInfo.swift in Sources */,
 				2AAC074F2C674DC400D712BF /* wb_chat_2App.swift in Sources */,
+				2AD0664F2C67DD920015ECFB /* BackgroundModifier.swift in Sources */,
+				2AD0664D2C67DD830015ECFB /* ButtonModifier.swift in Sources */,
+				2AD0665F2C67E01D0015ECFB /* CustomBackButton.swift in Sources */,
+				2AD066612C67E05F0015ECFB /* String+.swift in Sources */,
+				2AD0665D2C67DFF70015ECFB /* ShakeAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +282,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -299,7 +339,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -325,6 +365,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,6 +395,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
