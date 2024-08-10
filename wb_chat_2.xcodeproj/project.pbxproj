@@ -12,6 +12,8 @@
 		2AAC07532C674DC500D712BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAC07522C674DC500D712BF /* Assets.xcassets */; };
 		2AAC07562C674DC500D712BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAC07552C674DC500D712BF /* Preview Assets.xcassets */; };
 		65C98F892C6758BE00E54C0E /* UISystem in Frameworks */ = {isa = PBXBuildFile; productRef = 65C98F882C6758BE00E54C0E /* UISystem */; };
+		65C98F8D2C6777EB00E54C0E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C98F8B2C6777EB00E54C0E /* Localizable.strings */; };
+		65C98F902C677B4500E54C0E /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C98F8F2C677B4500E54C0E /* LocalizedStrings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,9 @@
 		2AAC07522C674DC500D712BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AAC07552C674DC500D712BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		65C98F862C67587700E54C0E /* UISystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UISystem; path = Modules/UISystem; sourceTree = SOURCE_ROOT; };
+		65C98F8C2C6777EB00E54C0E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		65C98F8E2C67784200E54C0E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		65C98F8F2C677B4500E54C0E /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				65C98F862C67587700E54C0E /* UISystem */,
+				65C98F8A2C67746600E54C0E /* Localizable */,
 				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
 				2AAC07502C674DC400D712BF /* ContentView.swift */,
 				2AAC07522C674DC500D712BF /* Assets.xcassets */,
@@ -77,6 +83,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		65C98F8A2C67746600E54C0E /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				65C98F8B2C6777EB00E54C0E /* Localizable.strings */,
+				65C98F8F2C677B4500E54C0E /* LocalizedStrings.swift */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,11 +134,12 @@
 			};
 			buildConfigurationList = 2AAC07462C674DC400D712BF /* Build configuration list for PBXProject "wb_chat_2" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ru;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 2AAC07422C674DC400D712BF;
 			productRefGroup = 2AAC074C2C674DC400D712BF /* Products */;
@@ -141,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AAC07562C674DC500D712BF /* Preview Assets.xcassets in Resources */,
+				65C98F8D2C6777EB00E54C0E /* Localizable.strings in Resources */,
 				2AAC07532C674DC500D712BF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,11 +170,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AAC07512C674DC400D712BF /* ContentView.swift in Sources */,
+				65C98F902C677B4500E54C0E /* LocalizedStrings.swift in Sources */,
 				2AAC074F2C674DC400D712BF /* wb_chat_2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		65C98F8B2C6777EB00E54C0E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65C98F8C2C6777EB00E54C0E /* ru */,
+				65C98F8E2C67784200E54C0E /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2AAC07572C674DC500D712BF /* Debug */ = {
