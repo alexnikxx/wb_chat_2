@@ -11,6 +11,7 @@
 		2AAC07512C674DC400D712BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAC07502C674DC400D712BF /* ContentView.swift */; };
 		2AAC07532C674DC500D712BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAC07522C674DC500D712BF /* Assets.xcassets */; };
 		2AAC07562C674DC500D712BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAC07552C674DC500D712BF /* Preview Assets.xcassets */; };
+		65C98F892C6758BE00E54C0E /* UISystem in Frameworks */ = {isa = PBXBuildFile; productRef = 65C98F882C6758BE00E54C0E /* UISystem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		2AAC07502C674DC400D712BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2AAC07522C674DC500D712BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AAC07552C674DC500D712BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		65C98F862C67587700E54C0E /* UISystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UISystem; path = Modules/UISystem; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C98F892C6758BE00E54C0E /* UISystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +40,7 @@
 			children = (
 				2AAC074D2C674DC400D712BF /* wb_chat_2 */,
 				2AAC074C2C674DC400D712BF /* Products */,
+				65C98F872C6758BE00E54C0E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +55,7 @@
 		2AAC074D2C674DC400D712BF /* wb_chat_2 */ = {
 			isa = PBXGroup;
 			children = (
+				65C98F862C67587700E54C0E /* UISystem */,
 				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
 				2AAC07502C674DC400D712BF /* ContentView.swift */,
 				2AAC07522C674DC500D712BF /* Assets.xcassets */,
@@ -65,6 +70,13 @@
 				2AAC07552C674DC500D712BF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		65C98F872C6758BE00E54C0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +95,9 @@
 			dependencies = (
 			);
 			name = wb_chat_2;
+			packageProductDependencies = (
+				65C98F882C6758BE00E54C0E /* UISystem */,
+			);
 			productName = wb_chat_2;
 			productReference = 2AAC074B2C674DC400D712BF /* wb_chat_2.app */;
 			productType = "com.apple.product-type.application";
@@ -344,6 +359,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		65C98F882C6758BE00E54C0E /* UISystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UISystem;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2AAC07432C674DC400D712BF /* Project object */;
 }
