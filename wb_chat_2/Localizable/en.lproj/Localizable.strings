@@ -1,11 +1,10 @@
-/* 
-  Localizable.strings
-  wb_chat_2
 
-  Created by Halil Yavuz on 10.08.2024.
+// Localizable.strings
+//  wb_chat_2
+
+//  Created by Halil Yavuz on 10.08.2024.
   
-*/
-
+/*
 "communicate_with_friends" = "Communicate with friends and loved ones easily";
 "pressing_button_continue" = "By pressing the continue button, I agree to the";
 "pricacy_policy" = "Privacy Policy and Terms of Useя";
@@ -25,3 +24,4 @@
 "contacts" = "Contacts";
 "chats" = "Chats";
 "profile" = "Profile"
+*/
