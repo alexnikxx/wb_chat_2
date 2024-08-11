@@ -22,6 +22,11 @@
 		2AD0665D2C67DFF70015ECFB /* ShakeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */; };
 		2AD0665F2C67E01D0015ECFB /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0665E2C67E01D0015ECFB /* CustomBackButton.swift */; };
 		2AD066612C67E05F0015ECFB /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD066602C67E05F0015ECFB /* String+.swift */; };
+		650BF2FD2C68A8D50046B496 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF2FC2C68A8D50046B496 /* NotificationManager.swift */; };
+		650BF2FF2C68A96D0046B496 /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF2FE2C68A96D0046B496 /* Extension + View.swift */; };
+		650BF3012C68AA770046B496 /* CodeVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF3002C68AA770046B496 /* CodeVerificationViewModel.swift */; };
+		650BF3042C68AC710046B496 /* RandomDigitSequnce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF3032C68AC710046B496 /* RandomDigitSequnce.swift */; };
+		650BF3062C68AEF90046B496 /* CodeVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF3052C68AEF90046B496 /* CodeVerificationView.swift */; };
 		65C98F8D2C6777EB00E54C0E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C98F8B2C6777EB00E54C0E /* Localizable.strings */; };
 		65C98F902C677B4500E54C0E /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C98F8F2C677B4500E54C0E /* LocalizedStrings.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +48,11 @@
 		2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeAnimation.swift; sourceTree = "<group>"; };
 		2AD0665E2C67E01D0015ECFB /* CustomBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		2AD066602C67E05F0015ECFB /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		650BF2FC2C68A8D50046B496 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		650BF2FE2C68A96D0046B496 /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
+		650BF3002C68AA770046B496 /* CodeVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationViewModel.swift; sourceTree = "<group>"; };
+		650BF3032C68AC710046B496 /* RandomDigitSequnce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDigitSequnce.swift; sourceTree = "<group>"; };
+		650BF3052C68AEF90046B496 /* CodeVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationView.swift; sourceTree = "<group>"; };
 		65C98F8C2C6777EB00E54C0E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		65C98F8E2C67784200E54C0E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		65C98F8F2C677B4500E54C0E /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
@@ -101,6 +111,9 @@
 				2AD066522C67DF320015ECFB /* TermsView.swift */,
 				2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */,
 				2AD0665E2C67E01D0015ECFB /* CustomBackButton.swift */,
+				650BF2F92C68A59F0046B496 /* CodeVerification */,
+				650BF2FA2C68A64E0046B496 /* Extension */,
+				650BF2FB2C68A6D20046B496 /* Services */,
 				2AAC07522C674DC500D712BF /* Assets.xcassets */,
 				2AAC07542C674DC500D712BF /* Preview Content */,
 			);
@@ -113,6 +126,32 @@
 				2AAC07552C674DC500D712BF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		650BF2F92C68A59F0046B496 /* CodeVerification */ = {
+			isa = PBXGroup;
+			children = (
+				650BF3002C68AA770046B496 /* CodeVerificationViewModel.swift */,
+				650BF3052C68AEF90046B496 /* CodeVerificationView.swift */,
+				650BF3032C68AC710046B496 /* RandomDigitSequnce.swift */,
+			);
+			path = CodeVerification;
+			sourceTree = "<group>";
+		};
+		650BF2FA2C68A64E0046B496 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				650BF2FE2C68A96D0046B496 /* Extension + View.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		650BF2FB2C68A6D20046B496 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				650BF2FC2C68A8D50046B496 /* NotificationManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		65C98F8A2C67746600E54C0E /* Localizable */ = {
@@ -203,6 +242,10 @@
 				2AAC07512C674DC400D712BF /* ContentView.swift in Sources */,
 				2AD066512C67DDAC0015ECFB /* Font+.swift in Sources */,
 				2AD066552C67DF810015ECFB /* LoginView.swift in Sources */,
+				650BF3012C68AA770046B496 /* CodeVerificationViewModel.swift in Sources */,
+				650BF2FF2C68A96D0046B496 /* Extension + View.swift in Sources */,
+				650BF3062C68AEF90046B496 /* CodeVerificationView.swift in Sources */,
+				650BF2FD2C68A8D50046B496 /* NotificationManager.swift in Sources */,
 				2AD0664B2C67DD2B0015ECFB /* OnboardingView.swift in Sources */,
 				65C98F902C677B4500E54C0E /* LocalizedStrings.swift in Sources */,
 				2AD066592C67DFB80015ECFB /* OnboardingInfo.swift in Sources */,
@@ -210,6 +253,7 @@
 				2AD0664F2C67DD920015ECFB /* BackgroundModifier.swift in Sources */,
 				2AD0664D2C67DD830015ECFB /* ButtonModifier.swift in Sources */,
 				2AD0665F2C67E01D0015ECFB /* CustomBackButton.swift in Sources */,
+				650BF3042C68AC710046B496 /* RandomDigitSequnce.swift in Sources */,
 				2AD066612C67E05F0015ECFB /* String+.swift in Sources */,
 				2AD0665D2C67DFF70015ECFB /* ShakeAnimation.swift in Sources */,
 			);
