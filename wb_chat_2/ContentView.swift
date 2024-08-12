@@ -21,7 +21,7 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
-                .font(.sfProDisplay(.semiBold, size: 44))
+                .font(.heading1(.regular))
             WBButton(text: "Запросить код повторно", isFilled: false, action: { })
         }
         .frame(maxHeight: .infinity, alignment: .top)

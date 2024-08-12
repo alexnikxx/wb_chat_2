@@ -28,7 +28,7 @@ struct LocalizedStrings {
     static var contacts: String { NSLocalizedString("contacts", comment: "")}
     static var profile: String { NSLocalizedString("profile", comment: "")}
     
-    
+    static var searchTextField: String { NSLocalizedString("search", comment: "")}
     
     
 }
