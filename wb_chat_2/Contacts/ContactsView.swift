@@ -6,16 +6,21 @@
 //
 
 import SwiftUI
+import UISystem
 
 struct ContactsView: View {
     //@EnvironmentObject var router: Router
     @State private var inputText = ""
     
-    let contacts = Contacts.shared.contacts
+    let contacts: Contacts
     
     var filteredContacts: [Contact] {
         inputText.isEmpty ? contacts : contacts.filter { $0.fullname.lowercased().contains(inputText.lowercased())
         }
+    }
+    
+    init() {
+    self.contacts = Contacts()
     }
     
     var body: some View {
@@ -26,8 +31,8 @@ struct ContactsView: View {
             
             List(filteredContacts, id: \.self) { contact in
                 ContactRowView(contact: contact)
-                    .listRowBackground(Color("BackgroundColor"))
-                    .listRowSeparatorTint(Color("InputColor"))
+                    .listRowBackground(Color("background"))
+                    .listRowSeparatorTint(Color("textfield"))
                     .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
                     .alignmentGuide(.listRowSeparatorTrailing) { separator in
                         separator.width - 2
@@ -40,12 +45,12 @@ struct ContactsView: View {
             .listStyle(.plain)
             
         }
-        .background(Color("BackgroundColor"))
+        .background(Color("background"))
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Text("Contacts")
                     .font(.headline)
-                    .foregroundStyle(Color("TextColor"))
+                    .foregroundStyle(Color("heading2"))
                     .padding(.leading, 8)
                     .padding(.bottom, 13)
             }
@@ -56,7 +61,7 @@ struct ContactsView: View {
                     Image(systemName: "plus")
                         .resizable()
                         .frame(width: 14, height: 14)
-                        .foregroundStyle(Color("TextColor"))
+                        .foregroundStyle(Color("heading2"))
                         .padding(.trailing, 8)
                         .padding(.bottom, 13)
                 }
@@ -68,6 +73,3 @@ struct ContactsView: View {
     }
 }
 
-#Preview {
-    ContentView()
-}

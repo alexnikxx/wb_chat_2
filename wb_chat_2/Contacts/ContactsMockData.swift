@@ -7,9 +7,7 @@
 
 import Foundation
 
-final class Contacts {
-    static let shared = Contacts()
-    
+struct Contacts {
     let contacts: [Contact] = [
         Contact(
             name: "Анастасия",
@@ -87,7 +85,4 @@ final class Contacts {
             ]
         )
     ]
-
-    
-    private init() {}
 }

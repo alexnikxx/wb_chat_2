@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UISystem
 
 struct ContactRowView: View {
     let contact: Contact
@@ -16,13 +17,13 @@ struct ContactRowView: View {
                 
             VStack(alignment: .leading, spacing: 2) {
                 Text(contact.fullname)
-                    .font(.bodyText1())
-                    .foregroundStyle(Color("TextColor"))
+                    .font(.bodyText1(.semiBold))
+                    .foregroundStyle(Color("heading2"))
                     .frame(height: 24)
                         
                 Text(contact.onlineStatusMessage)
-                    .font(.metadata1())
-                    .foregroundStyle(Color("GreyColor"))
+                    .font(.metadat1(.regular))
+                    .foregroundStyle(Color("metadata2"))
                     .frame(height: 20)
                     
                 Spacer()
@@ -50,7 +51,7 @@ struct AvatarView: View {
     private func setStories() -> some View {
         RoundedRectangle(cornerRadius: 18)
             .fill(LinearGradient(
-                gradient: Gradient(colors: [Color("BlueGradientLeft"), Color("BlueGradientRight")]),
+                gradient: Gradient(colors: [Color("button"), Color("metadata2")]),
                 startPoint: .leading,
                 endPoint: .trailing))
             .frame(width: 56, height: 56)
@@ -64,7 +65,7 @@ struct AvatarView: View {
                 .frame(width: 48, height: 48)
                 .overlay(
                     RoundedRectangle(cornerRadius: 14)
-                    .stroke(Color("BackgroundColor"), lineWidth: 2)
+                    .stroke(Color("background"), lineWidth: 2)
                 )
             )
         } else {
@@ -74,13 +75,13 @@ struct AvatarView: View {
             
             return AnyView(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color("ActiveColor"))
-                    .stroke(Color("BackgroundColor"), lineWidth: 2)
+                    .fill(Color("button"))
+                    .stroke(Color("background"), lineWidth: 2)
                     .frame(width: 48, height: 48)
                     .overlay(
                         Text(initials)
                             .foregroundColor(.white)
-                            .font(.bodyText1())
+                            .font(.bodyText1(.semiBold))
                     )
             )
         }
@@ -93,6 +94,8 @@ struct AvatarView: View {
             .frame(width: 12, height: 12)
     }
 }
+
+
 
 #Preview {
     ContactRowView(contact: Contact(name: "Anne", surname: "Das", avatar: "Arbuz", phoneNumber: "+456", onlineStatus: .now, haveStories: true, socialMediaLinks: [SocialMedia(name: .facebook, link: "fgg", image: "fff")]))
