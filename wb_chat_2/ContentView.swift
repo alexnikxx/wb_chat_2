@@ -11,6 +11,12 @@ import UISystem
 struct ContentView: View {
     var body: some View {
         VStack {
+            WBNavigationBar(
+                title: "Профиль",
+                isBackButton: true,
+                rightButtonIcon: "pensil"
+            )
+
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
@@ -18,7 +24,9 @@ struct ContentView: View {
                 .font(.sfProDisplay(.semiBold, size: 44))
             WBButton(text: "Запросить код повторно", isFilled: false, action: { })
         }
-        .padding()
+        .frame(maxHeight: .infinity, alignment: .top)
+        .navigationBarBackButtonHidden()
+        .ignoresSafeArea()
     }
 }
 
