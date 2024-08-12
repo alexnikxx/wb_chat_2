@@ -12,11 +12,34 @@ public enum SFProDisplay: String, CaseIterable {
     case bold = "SFProDisplay-Bold"
     case semiBold = "SFProDisplay-Semibold"
     case regular = "SFProDisplay-Regular"
-    
 }
 
 extension Font {
-    public static func sfProDisplay(_ sfProDisplay: SFProDisplay, size: CGFloat) -> Font {
+    public static func heading1(_ sfProDisplay: SFProDisplay, size: CGFloat = 32) -> Font {
+        return .custom(sfProDisplay.rawValue, size: size, relativeTo: .body)
+    }
+    ///для заголовков(пример: Введите код, Имя пользователя)
+    public static func heading2(_ sfProDisplay: SFProDisplay, size: CGFloat = 24) -> Font {
+        return .custom(sfProDisplay.rawValue, size: size, relativeTo: .body)
+    }
+    ///для названия экранов и категорий(пример: Чаты, Профиль, Контакты))
+    public static func subheading1(_ sfProDisplay: SFProDisplay, size: CGFloat = 18) -> Font {
+        return .custom(sfProDisplay.rawValue, size: size, relativeTo: .body)
+    }
+    ///для названия которое вбывает на кнопках(пример: Начать общаться, Продолжить )
+    public static func subheading2(_ sfProDisplay: SFProDisplay, size: CGFloat = 16) -> Font {
+        return .custom(sfProDisplay.rawValue, size: size, relativeTo: .body)
+    }
+    ///для использования в текстфилде
+    public static func bodyText1(_ sfProDisplay: SFProDisplay, size: CGFloat = 14) -> Font {
+        return .custom(sfProDisplay.rawValue, size: size, relativeTo: .body)
+    }
+    /// для использования в чате(пример: текст в сообщения которые отправляет пользователь)
+    public static func bodyText2(_ sfProDisplay: SFProDisplay, size: CGFloat = 12) -> Font {
+        return .custom(sfProDisplay.rawValue, size: size, relativeTo: .body)
+    }
+    /// для использования в статусе(например: Когда был в сети или последнее сообщение пользователя))
+    public static func metadat1(_ sfProDisplay: SFProDisplay, size: CGFloat = 10) -> Font {
         return .custom(sfProDisplay.rawValue, size: size, relativeTo: .body)
     }
 }

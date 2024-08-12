@@ -30,8 +30,8 @@
             filePath = "Modules/UISystem/Sources/UISystem/SFProDisplayFont.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "registerFont(bundle:fontName:fontExtension:)"
             landmarkType = "7">
          </BreakpointContent>
