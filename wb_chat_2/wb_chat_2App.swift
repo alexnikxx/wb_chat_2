@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import UISystem
 
 @main
 struct wb_chat_2App: App {
+    
+    init() {
+        SFProDisplayFont.registerFonts()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnboardingView()
         }
     }
 }
