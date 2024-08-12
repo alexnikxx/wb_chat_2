@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct OnboardingView: View {
     @State private var isShowingTerms = false
 
