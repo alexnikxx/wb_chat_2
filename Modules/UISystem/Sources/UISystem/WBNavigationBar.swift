@@ -59,7 +59,7 @@ public struct WBNavigationBar: View {
 
     public func title(_ text: String) -> some View {
         Text(text)
-            .font(.sfProDisplay(.semiBold, size: 18))
+            .font(.subheading1(.semiBold))
             .foregroundStyle(textColor)
             .padding()
     }

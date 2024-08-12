@@ -33,7 +33,7 @@ public struct WBButton: View {
             HStack {
                 Spacer()
                 Text(text)
-                    .font(.sfProDisplay(.semiBold, size: 16))
+                    .font(.subheading2(.semiBold))
                     .foregroundColor(isFilled ? .white : color)
                     .padding(
                         EdgeInsets(
