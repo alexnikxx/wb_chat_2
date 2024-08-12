@@ -15,7 +15,6 @@ struct wb_chat_2App: App {
         SFProDisplayFont.registerFonts()
     }
     
-    
     var body: some Scene {
         WindowGroup {
             ContentView()

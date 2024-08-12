@@ -12,7 +12,6 @@ public enum SFProDisplay: String, CaseIterable {
     case bold = "SFProDisplay-Bold"
     case semiBold = "SFProDisplay-Semibold"
     case regular = "SFProDisplay-Regular"
-    
 }
 
 extension Font {
