@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    let test = TestingAPI()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
+            Button("test", action: test.performChatCompletion)
 
         }
         .padding()
