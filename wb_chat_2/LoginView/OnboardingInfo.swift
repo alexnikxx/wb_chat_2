@@ -21,7 +21,7 @@ struct OnboardingInfo: View {
                 .lineSpacing(8)
         }
         .multilineTextAlignment(.center)
-        .foregroundStyle(.text)
+        .foregroundStyle(.heading2)
         .padding(.bottom, 40)
         .padding(.top, 80)
     }
