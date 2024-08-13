@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct SearchBarView: View {
+public struct WBSearchBarView: View {
     @Binding var inputText: String
     
     public init(inputText: Binding<String>) {
