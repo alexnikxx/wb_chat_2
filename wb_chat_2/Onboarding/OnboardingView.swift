@@ -32,17 +32,24 @@ struct OnboardingView: View {
                     .frame(maxHeight: .infinity, alignment: .center)
                     
                     VStack(spacing: 18) {
-                        Button {
-                            isShowingTerms = true
-                        } label: {
-                            Text("Пользовательское соглашение")
-                                .font(.bodyText1(.semiBold))
-                                .foregroundStyle(.heading2)
-                        }
+                        VStack(spacing: 10) {
+                            VStack {
+                                Text("Нажимая кнопку продолжить я соглашаюсь с")
+                                HStack(spacing: 4) {
+                                    Button("Политикой Конфиденциальности") { isShowingTerms = true }
+                                        .foregroundStyle(.accent)
+                                    Text(" и ")
+                                    Button("Условиями Использования") { isShowingTerms = true }
+                                        .foregroundStyle(.accent)
+                                }
+                            }
+                            .font(.metadat1(.regular))
+                            .foregroundStyle(.metadata2)
 
-                        WBButton(text: "Начать общаться") {
+                            WBButton(text: "Начать общаться") {
 
                             }
+                        }
                     }
                 }
                 .padding()
