@@ -19,8 +19,8 @@ struct OnboardingView: View {
                         Image("Illustration")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: UIScreen.main.bounds.width - 112)
-                        
+                            .padding(.horizontal, 56)
+
                         Text("""
                          Общайтесь с друзьями
                          и близкими легко

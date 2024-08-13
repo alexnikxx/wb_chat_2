@@ -29,10 +29,11 @@ struct LoginView: View {
                     CountryView(selectedCountry: Country.countries[0])
 
                     TextField("000 000-00-00", text: $phone)
-                        .padding(8)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 10)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .foregroundStyle(color)
-                        .background(Color.textfield)
+                        .background(.textfield)
                         .clipShape(RoundedRectangle(cornerRadius: 4))
                         .keyboardType(.decimalPad)
                         .focused($keyboardFocused)
@@ -48,7 +49,6 @@ struct LoginView: View {
                 }
                 .font(.bodyText1(.semiBold))
                 .padding()
-                .padding(.bottom, 60)
                 .modifier(ShakeAnimation(animatableData: CGFloat(attempts)))
 
                 Spacer()
@@ -60,6 +60,7 @@ struct LoginView: View {
                         attempts += 1
                     }
                 }
+                .padding(.bottom, 60)
                 .opacity(phone.count == 13 ? 1 : 0.5)
             }
             .navigationBarBackButtonHidden()

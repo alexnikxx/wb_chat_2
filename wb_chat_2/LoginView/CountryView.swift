@@ -25,7 +25,7 @@ struct CountryView: View {
             HStack {
                 Text(selectedCountry.flag)
                 Text(selectedCountry.code)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.heading2)
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 10)
