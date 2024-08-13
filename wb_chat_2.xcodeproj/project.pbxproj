@@ -60,10 +60,10 @@
 			children = (
 				1AF8DDAC2C67A36000C5F315 /* ContactModel.swift */,
 				1AF8DDAE2C67A36F00C5F315 /* ContactsView.swift */,
+				1AF8DDB62C67A78500C5F315 /* ContactRowView.swift */,
 				1AF8DDB02C67A38500C5F315 /* ContactsViewModel.swift */,
 				1AF8DDB22C67A40400C5F315 /* Date+.swift */,
 				1AF8DDB42C67A46100C5F315 /* ContactsMockData.swift */,
-				1AF8DDB62C67A78500C5F315 /* ContactRowView.swift */,
 				1A8EE8D12C67D5E600EE934C /* View+.swift */,
 			);
 			path = Contacts;

@@ -15,7 +15,7 @@ struct ContactsView: View {
     let contacts: Contacts
     
     var filteredContacts: [Contact] {
-        inputText.isEmpty ? contacts : contacts.filter { $0.fullname.lowercased().contains(inputText.lowercased())
+        inputText.isEmpty ? contacts.contacts : contacts.contacts.filter { $0.fullname.lowercased().contains(inputText.lowercased())
         }
     }
     
@@ -25,6 +25,10 @@ struct ContactsView: View {
     
     var body: some View {
         VStack {
+            WBNavigationBar(title: LocalizedStrings.contacts, isBackButton: false, rightButtonIcon: "plus") {
+                //router.navigateTo(CreateContactView)
+            }
+            
             SearchBarView(inputText: $inputText)
                 .padding(.horizontal, 24)
                 .padding(.top, 16)
@@ -45,28 +49,8 @@ struct ContactsView: View {
             .listStyle(.plain)
             
         }
+        .edgesIgnoringSafeArea(.top)
         .background(Color("background"))
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Text("Contacts")
-                    .font(.headline)
-                    .foregroundStyle(Color("heading2"))
-                    .padding(.leading, 8)
-                    .padding(.bottom, 13)
-            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    //router.navigateTo(CreateContactView)
-                }) {
-                    Image(systemName: "plus")
-                        .resizable()
-                        .frame(width: 14, height: 14)
-                        .foregroundStyle(Color("heading2"))
-                        .padding(.trailing, 8)
-                        .padding(.bottom, 13)
-                }
-            }
-        }
         .onTapGesture {
             hideKeyboard()
         }

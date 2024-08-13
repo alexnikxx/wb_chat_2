@@ -42,8 +42,6 @@ struct AvatarView: View {
             contact.haveStories ? setStories() : nil
             setImage()
             contact.onlineStatusMessage == "Online" ? setStatus().position(x: 48, y: 6) : nil
-                
-            
         }
         .frame(width: 56, height: 56)
     }
@@ -70,8 +68,8 @@ struct AvatarView: View {
             )
         } else {
             let nameInitials = contact.name.first
-            let surnameInitials = contact.surname?.first ?? Character("")
-            let initials = "\(nameInitials ?? Character(""))\(surnameInitials)"
+            let surnameInitials = contact.surname?.first ?? Character(" ")
+            let initials = "\(nameInitials ?? Character(" "))\(surnameInitials)"
             
             return AnyView(
                 RoundedRectangle(cornerRadius: 16)
