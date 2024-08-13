@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UISystem
 
 struct CodeVerificationView: View {
     @StateObject private var viewModel = CodeVerificationViewModel()
@@ -20,9 +21,11 @@ struct CodeVerificationView: View {
                 headerView
                 codeInputView
                 errorView
-                //                WBButton(text: LocalizedStrings.requestCodeAgain, action: {
-                //                    viewModel.generateVerificationCode()
-                //                }, backgroundColor: .clear, textColor: Color("backgroundPurple"))
+                
+                WBButton(text: LocalizedStrings.requestCodeAgain, isFilled: false)  {
+                    viewModel.generateVerificationCode()
+                }
+               
             }
             .onAppear {
                 viewModel.generateVerificationCode()
@@ -30,11 +33,15 @@ struct CodeVerificationView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    //   BackButton()
+                    WBBackButton()
                 }
             }
             .padding(.top, 169)
             Spacer()
+        }
+        
+        .onTapGesture {
+            hideKeyboard()
         }
         .navigationBarBackButtonHidden()
     }
@@ -42,17 +49,18 @@ struct CodeVerificationView: View {
     private var headerView: some View {
         VStack {
             Text(LocalizedStrings.enterCode)
-                .font(.system(size: 24, weight: .bold))
+                .font(.heading2(.bold, size: 24))
                 .padding(.bottom, 8)
             Text(LocalizedStrings.sentCodeToNumber)
-                .font(.system(size: 14))
+                .font(.bodyText1(.regular, size: 14))
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 8)
             HStack(spacing: 5) {
                 Text(codeCountry)
-                    .font(.system(size: 14))
+                    .font(.bodyText1(.regular, size: 14))
                 Text(phoneNumber)
-                    .font(.system(size: 14))
+                    .font(.bodyText1(.regular, size: 14))
+                    
             }
             .padding(.bottom, 49)
         }
@@ -71,7 +79,7 @@ struct CodeVerificationView: View {
             }
         }
         .padding(.horizontal, 24)
-        .padding(.bottom, 25)
+        .padding(.bottom, 30)
     }
     
     private var errorView: some View {
@@ -79,8 +87,8 @@ struct CodeVerificationView: View {
             if viewModel.showError {
                 Text(LocalizedStrings.incorrectCodeTryAgain)
                     .foregroundColor(.red)
-                    .font(.system(size: 14))
-                    .padding(.bottom, 15)
+                    .font(.bodyText1(.regular, size: 13))
+                    
             }
         }
     }
@@ -88,10 +96,10 @@ struct CodeVerificationView: View {
     private func codeTextField(for index: Int) -> some View {
         TextField("", text: $viewModel.verificationCode[index])
             .frame(width: 24, height: 24)
-            .background(viewModel.verificationCode[index].isEmpty ? Circle().fill(Color(UIColor.systemGray6)) : Circle().fill(Color.white))
+            .background(viewModel.verificationCode[index].isEmpty ? Circle().fill(Color("textfield")) : Circle().fill(Color.white))
             .multilineTextAlignment(.center)
             .keyboardType(.numberPad)
-            .font(.system(size: 24, weight: .bold))
+            .font(.subheading1(.bold, size: 24))
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     focusedField = index
