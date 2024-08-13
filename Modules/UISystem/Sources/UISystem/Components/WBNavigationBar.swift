@@ -33,7 +33,7 @@ public struct WBNavigationBar: View {
             ZStack {
                 Rectangle()
                     .foregroundStyle(Color("background"))
-                    .frame(height: 100)
+                    .frame(height: 90)
 
                 HStack {
                     HStack(spacing: 0) {
@@ -51,17 +51,18 @@ public struct WBNavigationBar: View {
                         rightButtonAction?()
                     }
                 }
-                .frame(height: 100, alignment: .bottom)
+                .frame(height: 90, alignment: .bottom)
             }
         }
-        .frame(height: 100, alignment: .bottom)
+        .frame(height: 90, alignment: .bottom)
     }
 
     public func title(_ text: String) -> some View {
         Text(text)
             .font(.subheading1(.semiBold))
             .foregroundStyle(textColor)
-            .padding()
+            .padding(.horizontal, 24)
+            .padding(.top, 47)
     }
 
     public func backButton() -> some View {
@@ -72,7 +73,8 @@ public struct WBNavigationBar: View {
         Button(action: action) {
             Image(iconName)
                 .foregroundStyle(Color("heading2"))
-                .padding()
+                .padding(.horizontal, 24)
+                .padding(.top, 47)
         }
     }
 }
