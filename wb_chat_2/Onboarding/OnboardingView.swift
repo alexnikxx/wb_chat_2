@@ -25,7 +25,7 @@ struct OnboardingView: View {
                          Общайтесь с друзьями
                          и близкими легко
                          """)
-                        .font(.appTitle)
+                        .font(.heading2(.bold))
                         .foregroundStyle(.heading2)
                         .multilineTextAlignment(.center)
                     }
@@ -36,10 +36,10 @@ struct OnboardingView: View {
                             isShowingTerms = true
                         } label: {
                             Text("Пользовательское соглашение")
-                                .font(.appSmallText)
+                                .font(.bodyText1(.semiBold))
                                 .foregroundStyle(.heading2)
                         }
-                        
+
                         WBButton(text: "Начать общаться") {
 
                             }

@@ -46,7 +46,7 @@ struct LoginView: View {
                             }
                         }
                 }
-                .font(.appSmallText)
+                .font(.bodyText1(.semiBold))
                 .padding()
                 .padding(.bottom, 60)
                 .modifier(ShakeAnimation(animatableData: CGFloat(attempts)))
