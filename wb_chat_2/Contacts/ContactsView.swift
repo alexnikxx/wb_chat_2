@@ -29,7 +29,7 @@ struct ContactsView: View {
                 //router.navigateTo(CreateContactView)
             }
             
-            SearchBarView(inputText: $inputText)
+            WBSearchBarView(inputText: $inputText)
                 .padding(.horizontal, 24)
                 .padding(.top, 16)
             
