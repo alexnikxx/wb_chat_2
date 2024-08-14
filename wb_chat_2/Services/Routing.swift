@@ -23,28 +23,27 @@ final class Router: ObservableObject {
     
     @Published var path = NavigationPath()
     
-    var selectedTabBinding: Binding<Tab> {
-        Binding(
-            get: { self.selectedTabRoute },
-            set: { self.selectedTabRoute = $0 }
-        )
-    }
-    
     @ViewBuilder func tabView(for route: Tab) -> some View {
-        ZStack {
-            switch selectedTabRoute {
-            case .contacts:
-                ContactsView()
-                    .navigationBarBackButtonHidden()
-            case .chats:
-                ChatsView()
-                    .navigationBarBackButtonHidden()
-            case .more:
-                MoreView()
-                    .navigationBarBackButtonHidden()
+        ZStack(alignment: .bottom) {
+            VStack(spacing: 0) {
+                Spacer()
+                switch selectedTabRoute {
+                case .contacts:
+                    ContactsView()
+                        .navigationBarBackButtonHidden()
+                case .chats:
+                    ChatsView()
+                        .navigationBarBackButtonHidden()
+                case .more:
+                    MoreView()
+                        .navigationBarBackButtonHidden()
+                }
+                Spacer()
             }
-            WBTabBar(selectedTab: selectedTabBinding)
+            
+            CustomTabBarView()
         }
+        .ignoresSafeArea()
     }
         
     @ViewBuilder func view(for route: Route) -> some View {
