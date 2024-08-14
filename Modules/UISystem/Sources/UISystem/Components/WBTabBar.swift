@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum Tab: CaseIterable {
+public enum Tab: CaseIterable {
     case contacts
     case chats
     case more
@@ -24,11 +24,15 @@ enum Tab: CaseIterable {
     }
 }
 
-struct WBTabBar: View {
+public struct WBTabBar: View {
     @Environment(\.colorScheme) var colorScheme
     @Binding var selectedTab: Tab
+    
+    public init(selectedTab: Binding<Tab>) {
+        self._selectedTab = selectedTab
+    }
 
-    var body: some View {
+    public var body: some View {
         ZStack {
             Rectangle()
                 .foregroundStyle(Color("background"))

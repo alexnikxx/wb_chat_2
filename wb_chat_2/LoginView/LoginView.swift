@@ -10,9 +10,10 @@ import UISystem
 
 struct LoginView: View {
     @FocusState private var keyboardFocused: Bool
-    @State var phone: String = ""
-    @State var color = Color.heading2
-    @State var attempts: Int = 0
+    @State private var phone: String = ""
+    @State private var selectedCountryCode: Country = Country.countries.first!
+    @State private var color = Color.heading2
+    @State private var attempts: Int = 0
 
     var body: some View {
         BackgroundView {
@@ -26,7 +27,7 @@ struct LoginView: View {
                 )
 
                 HStack {
-                    CountryView(selectedCountry: Country.countries[0])
+                    CountryView(selectedCountry: $selectedCountryCode)
 
                     TextField("000 000-00-00", text: $phone)
                         .padding(.horizontal, 8)

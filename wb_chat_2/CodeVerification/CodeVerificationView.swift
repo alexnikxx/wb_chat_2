@@ -39,7 +39,6 @@ struct CodeVerificationView: View {
             .padding(.top, 169)
             Spacer()
         }
-        
         .onTapGesture {
             hideKeyboard()
         }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CountryView: View {
-    @State var selectedCountry: Country
+    @Binding var selectedCountry: Country
     
     var body: some View {
         Menu {

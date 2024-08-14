@@ -17,7 +17,7 @@ struct wb_chat_2App: App {
     
     var body: some Scene {
         WindowGroup {
-            CodeVerificationView(codeCountry: "+7", phoneNumber: "999 99-99-99")
+            ContentView()
         }
     }
 }
