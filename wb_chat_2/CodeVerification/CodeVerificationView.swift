@@ -9,14 +9,16 @@ import SwiftUI
 import UISystem
 
 struct CodeVerificationView: View {
+    @EnvironmentObject var router: Router
     @StateObject private var viewModel = CodeVerificationViewModel()
+    
+    @State private var navigateToMain: Bool = false
     
     let codeCountry: String
     let phoneNumber: String
     @FocusState var focusedField: Int?
     
     var body: some View {
-        NavigationStack {
             VStack {
                 headerView
                 codeInputView
@@ -27,23 +29,23 @@ struct CodeVerificationView: View {
                 }
                
             }
+            .onTapGesture {
+                hideKeyboard()
+            }
             .onAppear {
                 viewModel.generateVerificationCode()
                 viewModel.notificationManager.requestAuth()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    WBBackButton()
+                    WBBackButton(action: router.navigateBack)
                 }
             }
             .padding(.top, 169)
             Spacer()
-        }
-        .onTapGesture {
-            hideKeyboard()
-        }
-        .navigationBarBackButtonHidden()
     }
+        
+    
     
     private var headerView: some View {
         VStack {
@@ -73,6 +75,9 @@ struct CodeVerificationView: View {
                     .onChange(of: viewModel.verificationCode[index]) {
                         if let newFocusedIndex = viewModel.handleTextFieldChange(for: index, newValue: viewModel.verificationCode[index]) {
                             focusedField = newFocusedIndex
+                        }
+                        if viewModel.checkCode() {
+                            router.navigateTo(.main)
                         }
                     }
             }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 final class CodeVerificationViewModel: ObservableObject {
-    
     @Published var verificationCode = Array(repeating: "", count: 4)
     @Published var generatedCode: String = ""
     @Published var isCodeCorrect: Bool = false
@@ -34,11 +33,12 @@ final class CodeVerificationViewModel: ObservableObject {
         print("Сгенерированный код: \(generatedCode)")
     }
     
-    private func checkCode() {
+    func checkCode() -> Bool {
         let enteredCode = verificationCode.joined()
         isCodeCorrect = (enteredCode == generatedCode)
         if isCodeCorrect {
             print("Проверка кода: Успешно")
+            return true
         } else {
             print("Проверка кода: Неудачно")
             showError = true
@@ -51,6 +51,7 @@ final class CodeVerificationViewModel: ObservableObject {
                 UIApplication.shared.sendAction(#selector(UIResponder.becomeFirstResponder), to: nil, from: nil, for: nil)
                 
             }
+            return false
         }
     }
     
@@ -81,8 +82,7 @@ final class CodeVerificationViewModel: ObservableObject {
         }
         // Если текущий индекс - последний и поле не пустое, проверяем код и скрываем клавиатуру
         if index == verificationCode.count - 1 && newValue.count == 1 {
-            checkCode()
-            hideKeyboard()
+            checkCode() ? hideKeyboard() : nil
         }
         return nil
     }

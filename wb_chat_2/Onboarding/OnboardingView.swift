@@ -9,6 +9,7 @@ import SwiftUI
 import UISystem
 
 struct OnboardingView: View {
+    @EnvironmentObject var router: Router
     @State private var isShowingTerms = false
 
     var body: some View {
@@ -47,7 +48,7 @@ struct OnboardingView: View {
                             .foregroundStyle(.metadata2)
 
                             WBButton(text: "Начать общаться") {
-
+                                router.navigateTo(.authorization)
                             }
                         }
                     }

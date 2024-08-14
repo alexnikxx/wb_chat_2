@@ -13,19 +13,22 @@ public struct WBNavigationBar: View {
     public var rightButtonIcon: String
     public var textColor: Color
     public var rightButtonAction: (() -> Void)?
+    public var backButtonAction: () -> Void
 
     public init(
         title: String,
         isBackButton: Bool,
         rightButtonIcon: String,
         textColor: Color = Color(("heading2")),
-        rightButtonAction: (() -> Void)? = nil
+        rightButtonAction: (() -> Void)? = nil,
+        backButtonAction: @escaping () -> Void
     ) {
         self.title = title
         self.isBackButton = isBackButton
         self.rightButtonIcon = rightButtonIcon
         self.textColor = textColor
         self.rightButtonAction = rightButtonAction
+        self.backButtonAction = backButtonAction
     }
 
     public var body: some View {
@@ -66,7 +69,7 @@ public struct WBNavigationBar: View {
     }
 
     public func backButton() -> some View {
-        WBBackButton()
+        WBBackButton(action: backButtonAction)
     }
 
     public func button(iconName: String, action: @escaping () -> Void) -> some View {

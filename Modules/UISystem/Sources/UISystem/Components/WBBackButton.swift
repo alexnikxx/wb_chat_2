@@ -8,13 +8,15 @@
 import SwiftUI
 
 public struct WBBackButton: View {
-    @Environment(\.presentationMode) var presentationMode
+    let action: () -> Void
 
-    public init() { }
+    public init(action: @escaping () -> Void) {
+        self.action = action
+    }
 
     public var body: some View {
         Button {
-            presentationMode.wrappedValue.dismiss()
+            action()
         } label: {
             Image("Icon")
         }

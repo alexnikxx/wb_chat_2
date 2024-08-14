@@ -16,14 +16,23 @@ enum Route: Hashable {
     //case contactDetails(contact: Contact)
 }
 
+@MainActor
 final class Router: ObservableObject {
     @Published var startScreen: Route = .onboarding
     @Published var selectedTabRoute: Tab = .contacts
     
     @Published var path = NavigationPath()
     
+    var selectedTabBinding: Binding<Tab> {
+        Binding(
+            get: { self.selectedTabRoute },
+            set: { self.selectedTabRoute = $0 }
+        )
+    }
+    
     @ViewBuilder func tabView(for route: Tab) -> some View {
-        switch selectedTabRoute {
+        ZStack {
+            switch selectedTabRoute {
             case .contacts:
                 ContactsView()
                     .navigationBarBackButtonHidden()
@@ -33,6 +42,8 @@ final class Router: ObservableObject {
             case .more:
                 MoreView()
                     .navigationBarBackButtonHidden()
+            }
+            WBTabBar(selectedTab: selectedTabBinding)
         }
     }
         

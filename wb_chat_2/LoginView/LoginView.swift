@@ -9,6 +9,7 @@ import SwiftUI
 import UISystem
 
 struct LoginView: View {
+    @EnvironmentObject var router: Router
     @FocusState private var keyboardFocused: Bool
     @State private var phone: String = ""
     @State private var selectedCountryCode: Country = Country.countries.first!
@@ -56,7 +57,7 @@ struct LoginView: View {
 
                 WBButton(text: "Продолжить") {
                     if phone.count == 13 {
-// Переход на экран верификации
+                        router.navigateTo(.verification(phoneNumber: phone, code: selectedCountryCode.code))
                     } else {
                         attempts += 1
                     }
@@ -64,8 +65,7 @@ struct LoginView: View {
                 .padding(.bottom, 60)
                 .opacity(phone.count == 13 ? 1 : 0.5)
             }
-            .navigationBarBackButtonHidden()
-            .navigationBarItems(leading: WBBackButton())
+            .navigationBarItems(leading: WBBackButton(action: router.navigateBack))
         }
     }
 }
