@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "Icon Group 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -11,10 +12,12 @@
           "value" : "dark"
         }
       ],
+      "filename" : "Icon Group.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Icon Group@2x 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -25,6 +28,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "Icon Group@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
