@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UISystem
+import SwiftData
 
 @main
 struct wb_chat_2App: App {
@@ -17,7 +18,8 @@ struct wb_chat_2App: App {
     
     var body: some Scene {
         WindowGroup {
-            CodeVerificationView(codeCountry: "+7", phoneNumber: "999 99-99-99")
+            ContactsView()
+                .modelContainer(for: [Contact.self, SocialMedia.self])
         }
     }
 }
