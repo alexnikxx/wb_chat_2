@@ -15,20 +15,20 @@ public enum Tab: CaseIterable {
     var iconName: String {
         switch self {
         case .contacts:
-            "contacts"
+            "group"
         case .chats:
-            "chats"
+            "message_circle"
         case .more:
-            "more"
+            "more_horizontal"
         }
     }
 }
 
-public struct WBTabBar: View {
+struct WBTabBar: View {
     @EnvironmentObject var router: Router
     @Environment(\.colorScheme) var colorScheme
 
-    public var body: some View {
+    var body: some View {
         ZStack {
             Rectangle()
                 .foregroundStyle(Color("background"))
@@ -43,6 +43,9 @@ public struct WBTabBar: View {
             HStack {
                 ForEach(Tab.allCases, id: \.self) { tab in
                     Image(tab.iconName)
+                        .renderingMode(.template)
+                        .resizable()
+                        .frame(width: 32, height: 32)
                         .foregroundStyle(router.selectedTabRoute == tab ? Color.accentColor : Color("heading2"))
                         .onTapGesture {
                             router.selectedTabRoute = tab
@@ -53,43 +56,5 @@ public struct WBTabBar: View {
             }
             .padding(.bottom)
         }
-    }
-}
-
-struct CustomTabBarView: View {
-    
-    var body: some View {
-        HStack {
-            TabItemView(screen: .contacts, icon: "group")
-            Spacer()
-            TabItemView(screen: .chats, icon: "message_circle")
-            Spacer()
-            TabItemView(screen: .more, icon: "more_horizontal")
-        }
-        .padding(.horizontal, 30)
-        .padding(.bottom, 40)
-        .padding(.top, 20)
-        .background(
-            Color("background").shadow(color: .black.opacity(0.04), radius: 24, x: -1)
-        )
-    }
-}
-        
-struct TabItemView: View {
-    @EnvironmentObject var router: Router
-    let screen: Tab
-    let icon: String
-    
-    var body: some View {
-        Button(action: {
-            router.selectedTabRoute = screen
-        }, label: {
-            Image(icon)
-                .renderingMode(.template)
-                .resizable()
-                .frame(width: 32, height: 32)
-                .foregroundStyle(router.selectedTabRoute == screen ? Color.accentColor : Color("heading2"))
-            }
-        )
     }
 }

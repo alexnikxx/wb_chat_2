@@ -13,7 +13,6 @@ struct OnboardingView: View {
     @State private var isShowingTerms = false
 
     var body: some View {
-        NavigationStack {
             BackgroundView {
                 VStack {
                     VStack(spacing: 42) {
@@ -54,7 +53,7 @@ struct OnboardingView: View {
                     }
                 }
                 .padding()
-            }
+            
         }
         .sheet(isPresented: $isShowingTerms) {
             TermsView()

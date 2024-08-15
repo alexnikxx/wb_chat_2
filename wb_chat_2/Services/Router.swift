@@ -41,7 +41,7 @@ final class Router: ObservableObject {
                 Spacer()
             }
             
-            CustomTabBarView()
+            WBTabBar()
         }
         .ignoresSafeArea()
     }

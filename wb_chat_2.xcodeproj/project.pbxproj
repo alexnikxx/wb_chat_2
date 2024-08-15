@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A6C5BC02C6CDEF30095CB8F /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C5BBF2C6CDEF30095CB8F /* Routing.swift */; };
+		1A6C5BC02C6CDEF30095CB8F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C5BBF2C6CDEF30095CB8F /* Router.swift */; };
 		1A6C5BC32C6CE5FD0095CB8F /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C5BC22C6CE5FD0095CB8F /* ChatsView.swift */; };
 		1A6C5BC62C6CE61E0095CB8F /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C5BC52C6CE61E0095CB8F /* MoreView.swift */; };
 		1A6C5BC82C6CE6FE0095CB8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */; };
@@ -41,7 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A6C5BBF2C6CDEF30095CB8F /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
+		1A6C5BBF2C6CDEF30095CB8F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		1A6C5BC22C6CE5FD0095CB8F /* ChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsView.swift; sourceTree = "<group>"; };
 		1A6C5BC52C6CE61E0095CB8F /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 			children = (
 				1A6C5BCB2C6D00E50095CB8F /* WBTabBar.swift */,
 				650BF2FC2C68A8D50046B496 /* NotificationManager.swift */,
-				1A6C5BBF2C6CDEF30095CB8F /* Routing.swift */,
+				1A6C5BBF2C6CDEF30095CB8F /* Router.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -320,7 +320,7 @@
 				1A6C5BC82C6CE6FE0095CB8F /* ContentView.swift in Sources */,
 				1A6C5BC32C6CE5FD0095CB8F /* ChatsView.swift in Sources */,
 				1A6C5BCC2C6D00E50095CB8F /* WBTabBar.swift in Sources */,
-				1A6C5BC02C6CDEF30095CB8F /* Routing.swift in Sources */,
+				1A6C5BC02C6CDEF30095CB8F /* Router.swift in Sources */,
 				2AD0664B2C67DD2B0015ECFB /* OnboardingView.swift in Sources */,
 				2AA033A52C6A56AE00053071 /* Country.swift in Sources */,
 				2AA033A72C6A57A200053071 /* CountryView.swift in Sources */,
