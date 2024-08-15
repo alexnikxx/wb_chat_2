@@ -94,19 +94,19 @@ struct ProfileEditView: View {
                 viewModel.phoneNumber = viewModel.phoneNumber.formatDigits(mask: "XXX XXX-XX-XX")
             }
             .onChange(of: viewModel.isPhoneNumberValid()) {
-                hideKeyboard()
+               // hideKeyboard()
             }
             .onTapGesture {
-                hideKeyboard()
+              //  hideKeyboard()
             }
         
         let errorOverlay = RoundedRectangle(cornerRadius: 5)
-            .stroke(viewModel.nameError ? Color.red.opacity(0.5) : Color.clear, lineWidth: 2)
+            .stroke(viewModel.phoneNumberError ? Color.red.opacity(0.5) : Color.clear, lineWidth: 2)
             .padding(.vertical, -1)
             .padding(.horizontal, -1)
             .animation(.easeInOut, value: viewModel.phoneNumberError)
         
-        let errorTextOverlay = viewModel.nameError ? Text("Обязательное поле")
+        let errorTextOverlay = viewModel.phoneNumberError ? Text("Обязательное поле")
             .font(.caption)
             .foregroundColor(.red)
             .padding(.top, 5)

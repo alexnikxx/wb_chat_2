@@ -36,21 +36,25 @@ final class ProfileEditViewModel: ObservableObject {
     init(selectedCountry: Country = Country(name: "Russia", flag: "🇷🇺", code: "+7", digits: 10)) {
         self.selectedCountry = selectedCountry
     }
+    
+    func checkValidation() {
+        
+    }
 
     func saveContact(modelContext: ModelContext, dismiss: () -> Void) {
-            guard !name.isEmpty else {
-                nameError = true
-                startErrorTimer(for: .name)
-                return
-            }
-            nameError = false
-            
-        guard !phoneNumber.isEmpty && !isPhoneNumberValid() else {
-                phoneNumberError = true
-                startErrorTimer(for: .phoneNumber)
-                return
-            }
-            phoneNumberError = false
+//            guard !name.isEmpty else {
+//                nameError = true
+//                startErrorTimer(for: .name)
+//                return
+//            }
+//            nameError = false
+//            
+//            guard isPhoneNumberValid() else {
+//                phoneNumberError = true
+//                startErrorTimer(for: .phoneNumber)
+//                return
+//            }
+//            phoneNumberError = false
             
             let socialMediaLinks = createSocialMediaLinks()
             let newContact = Contact(
@@ -87,7 +91,8 @@ final class ProfileEditViewModel: ObservableObject {
     }
     
      func isPhoneNumberValid() -> Bool {
-        phoneNumber.filter({ $0.isNumber }).count == selectedCountry.digits
+         phoneNumber.filter({ $0.isNumber }).count == selectedCountry.digits && !phoneNumber.isEmpty
+        
     }
 
     private func createSocialMediaLinks() -> [SocialMedia] {
