@@ -26,16 +26,14 @@
 		2AD066592C67DFB80015ECFB /* OnboardingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD066582C67DFB80015ECFB /* OnboardingInfo.swift */; };
 		2AD0665D2C67DFF70015ECFB /* ShakeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */; };
 		2AD066612C67E05F0015ECFB /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD066602C67E05F0015ECFB /* String+.swift */; };
-		2AAC074F2C674DC400D712BF /* wb_chat_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */; };
-		2AAC07532C674DC500D712BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAC07522C674DC500D712BF /* Assets.xcassets */; };
-		2AAC07562C674DC500D712BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAC07552C674DC500D712BF /* Preview Assets.xcassets */; };
 		650BF2FD2C68A8D50046B496 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF2FC2C68A8D50046B496 /* NotificationManager.swift */; };
-		650BF2FF2C68A96D0046B496 /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF2FE2C68A96D0046B496 /* Extension + View.swift */; };
 		650BF3012C68AA770046B496 /* CodeVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF3002C68AA770046B496 /* CodeVerificationViewModel.swift */; };
 		650BF3042C68AC710046B496 /* RandomDigitSequnce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF3032C68AC710046B496 /* RandomDigitSequnce.swift */; };
 		650BF3062C68AEF90046B496 /* CodeVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF3052C68AEF90046B496 /* CodeVerificationView.swift */; };
 		65C98F8D2C6777EB00E54C0E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C98F8B2C6777EB00E54C0E /* Localizable.strings */; };
 		65C98F902C677B4500E54C0E /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C98F8F2C677B4500E54C0E /* LocalizedStrings.swift */; };
+		E586DFA32C6CBEDD00220252 /* DetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586DFA22C6CBEDD00220252 /* DetailScreenView.swift */; };
+		E586DFA52C6CCA5800220252 /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586DFA42C6CCA5800220252 /* SocialButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,13 +58,14 @@
 		2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeAnimation.swift; sourceTree = "<group>"; };
 		2AD066602C67E05F0015ECFB /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		650BF2FC2C68A8D50046B496 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		650BF2FE2C68A96D0046B496 /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
 		650BF3002C68AA770046B496 /* CodeVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationViewModel.swift; sourceTree = "<group>"; };
 		650BF3032C68AC710046B496 /* RandomDigitSequnce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDigitSequnce.swift; sourceTree = "<group>"; };
 		650BF3052C68AEF90046B496 /* CodeVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationView.swift; sourceTree = "<group>"; };
 		65C98F8C2C6777EB00E54C0E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		65C98F8E2C67784200E54C0E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		65C98F8F2C677B4500E54C0E /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		E586DFA22C6CBEDD00220252 /* DetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenView.swift; sourceTree = "<group>"; };
+		E586DFA42C6CCA5800220252 /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
 		E5D0AD852C68FABF00B62E5C /* wb-chat-2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "wb-chat-2-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -154,6 +153,7 @@
 			children = (
 				E5D0AD852C68FABF00B62E5C /* wb-chat-2-Info.plist */,
 				1AF8DDBC2C67ABFE00C5F315 /* UISystem */,
+				E586DFA12C6CBEB900220252 /* DetailScreen */,
 				1AF8DDAB2C67A30500C5F315 /* Contacts */,
 				65C98F8A2C67746600E54C0E /* Localizable */,
 				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
@@ -161,7 +161,6 @@
 				2AA033AE2C6BB66D00053071 /* LoginView */,
 				2AA033AF2C6BB6B900053071 /* Extensions */,
 				650BF2F92C68A59F0046B496 /* CodeVerification */,
-				650BF2FA2C68A64E0046B496 /* Extension */,
 				650BF2FB2C68A6D20046B496 /* Services */,
 				2AAC07522C674DC500D712BF /* Assets.xcassets */,
 				2AAC07542C674DC500D712BF /* Preview Content */,
@@ -187,14 +186,6 @@
 			path = CodeVerification;
 			sourceTree = "<group>";
 		};
-		650BF2FA2C68A64E0046B496 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				650BF2FE2C68A96D0046B496 /* Extension + View.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		650BF2FB2C68A6D20046B496 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +201,15 @@
 				65C98F8F2C677B4500E54C0E /* LocalizedStrings.swift */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		E586DFA12C6CBEB900220252 /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E586DFA22C6CBEDD00220252 /* DetailScreenView.swift */,
+				E586DFA42C6CCA5800220252 /* SocialButton.swift */,
+			);
+			path = DetailScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,7 +294,6 @@
 				2AA033A72C6A57A200053071 /* CountryView.swift in Sources */,
 				65C98F902C677B4500E54C0E /* LocalizedStrings.swift in Sources */,
 				2AD066592C67DFB80015ECFB /* OnboardingInfo.swift in Sources */,
-				2AA033AD2C6A802100053071 /* OnboardingView.swift in Sources */,
 				1AF8DDB32C67A40400C5F315 /* Date+.swift in Sources */,
 				1AF8DDB72C67A78500C5F315 /* ContactRowView.swift in Sources */,
 				1AF8DDB12C67A38500C5F315 /* ContactsViewModel.swift in Sources */,
@@ -305,14 +304,15 @@
 				1AF8DDAF2C67A36F00C5F315 /* ContactsView.swift in Sources */,
 				2AAC074F2C674DC400D712BF /* wb_chat_2App.swift in Sources */,
 				2AD066612C67E05F0015ECFB /* String+.swift in Sources */,
+				E586DFA32C6CBEDD00220252 /* DetailScreenView.swift in Sources */,
 				2AD0665D2C67DFF70015ECFB /* ShakeAnimation.swift in Sources */,
 				650BF3012C68AA770046B496 /* CodeVerificationViewModel.swift in Sources */,
-				650BF2FF2C68A96D0046B496 /* Extension + View.swift in Sources */,
 				650BF3062C68AEF90046B496 /* CodeVerificationView.swift in Sources */,
 				650BF2FD2C68A8D50046B496 /* NotificationManager.swift in Sources */,
 				65C98F902C677B4500E54C0E /* LocalizedStrings.swift in Sources */,
 				2AAC074F2C674DC400D712BF /* wb_chat_2App.swift in Sources */,
 				650BF3042C68AC710046B496 /* RandomDigitSequnce.swift in Sources */,
+				E586DFA52C6CCA5800220252 /* SocialButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +458,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"wb_chat_2/Preview Content\"";
-				DEVELOPMENT_TEAM = 3D9654QHU9;
+				DEVELOPMENT_TEAM = DWL5A95D8B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "wb-chat-2-Info.plist";
@@ -489,7 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"wb_chat_2/Preview Content\"";
-				DEVELOPMENT_TEAM = 3D9654QHU9;
+				DEVELOPMENT_TEAM = DWL5A95D8B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "wb-chat-2-Info.plist";
