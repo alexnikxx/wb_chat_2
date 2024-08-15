@@ -9,12 +9,11 @@ import SwiftUI
 import UISystem
 
 struct DetailScreenView: View {
+    @EnvironmentObject var router: Router
     @Environment (\.dismiss) private var dismiss
     let contact: Contact
    
     var body: some View {
-        NavigationStack {
-            
             VStack(spacing: 0) {
                 
                 if let avatar = contact.avatar {
@@ -66,9 +65,9 @@ struct DetailScreenView: View {
                 }
                 .padding(.top, 20)
                 Spacer()
-                    .navigationBarBackButtonHidden(true)
             }
-        }
+            .navigationBarItems(leading: WBBackButton(action: router.navigateBack))
+        
     }
 }
 #Preview {

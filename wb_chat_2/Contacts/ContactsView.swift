@@ -9,7 +9,7 @@ import SwiftUI
 import UISystem
 
 struct ContactsView: View {
-    //@EnvironmentObject var router: Router
+    @EnvironmentObject var router: Router
     @State private var inputText = ""
     
     let contacts: Contacts
@@ -43,7 +43,7 @@ struct ContactsView: View {
                     }
                     .padding(5)
                     .onTapGesture {
-                        //router.navigateTo(ContactDetailView)
+                        router.navigateTo(.contactDetails(contact: contact))
                     }
             }
             .listStyle(.plain)

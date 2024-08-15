@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum Tab: CaseIterable {
+enum Tab: CaseIterable {
     case contacts
     case chats
     case more
