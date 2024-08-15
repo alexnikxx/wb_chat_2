@@ -32,7 +32,3 @@ extension View {
         return initials.map(String.init).joined()
     }
 }
-
-extension UIColor {
-    
-}
