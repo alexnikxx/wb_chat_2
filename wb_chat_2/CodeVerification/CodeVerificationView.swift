@@ -74,7 +74,7 @@ struct CodeVerificationView: View {
                         if let newFocusedIndex = viewModel.handleTextFieldChange(for: index, newValue: viewModel.verificationCode[index]) {
                             focusedField = newFocusedIndex
                         }
-                        if viewModel.checkCode() {
+                        if viewModel.isCodeCorrect {
                             router.navigateTo(.main)
                         }
                     }
