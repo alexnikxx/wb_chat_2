@@ -9,68 +9,84 @@ import SwiftUI
 import UISystem
 
 struct DetailScreenView: View {
-    @Environment (\.dismiss) private var dismiss
-    let contact: Contact
    
+    private let allSocialMediaPlatforms = ["twitter", "instagram", "LinkedIn", "facebook"]
+    let name: String
+    let surname: String?
+    let phoneNumber: String
+    let avatar: String?
+    let socialMediaLinks: [SocialMedia]
+    @Environment (\.dismiss) private var dismiss
+    
     var body: some View {
-        NavigationStack {
-            
-            VStack(spacing: 0) {
-                
-                if let avatar = contact.avatar {
-                    Image(avatar)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 200, height: 200)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-                        .padding(.top, 86)
-                        
-                    Text(contact.name)
-                        .font(.heading2(.semiBold))
-                        .padding(.top, 20)
-                    
-                    Text(contact.phoneNumber)
-                        .font(.metadat1(.regular))
-                        .padding(.top, 6)
-                } else {
-                    RoundedRectangle(cornerRadius: 1)
-                        
-                        .fill(Color.button)
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 200, height: 200)
-                        .clipShape(Circle())
-                        .padding(.top, 86)
+        
+        VStack(spacing: 0) {
+            avatarView
+            HStack(spacing: 5) {
+                Text(name)
+                Text(surname ?? "")
 
-                        .overlay(
-                            Text(initials(from: contact.fullname) )
-                                .font(.heading1(.bold, size: 44))
-                                .padding(.top, 90)
-                                .foregroundColor(.white) )
-                        .padding(.trailing, 12)
-                    Text(contact.fullname)
-                        .font(.heading2(.semiBold))
-                        .font(.system(size: 24, weight: .semibold, design: .none))
-                        .padding(.top, 20)
-                    Text(contact.phoneNumber)
-                        .font(.metadat1(.regular, size: 16))
-                        .foregroundColor(.body1)
-                        .padding(.top, 6)
-                }
+            }
+            .font(.heading2(.semiBold))
+            .padding(.top, 20)
+            Text(phoneNumber)
+                .font(.subheading2(.regular))
+                .foregroundColor(.body1)
+                .padding(.top, 6)
+                .padding(.bottom, 40)
+        }
+        
+        HStack(spacing: 12) {
+            ForEach(allSocialMediaPlatforms, id: \.self) { platform in
+                let socialMediaLink = socialMediaLinks.first { $0.name == platform }
+                let url = socialMediaLink?.url ?? ""
+                SocialButton(imageName: platform, url: url)
+            }
+        }
+        .padding(.top, 20)
+        Spacer()
+        
+    }
+    
+    private var avatarView: some View {
+        VStack {
+            if let imageString = avatar,
+               let imageData = Data(base64Encoded: imageString),
+               let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 200, height: 200)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                    .padding(.top, 86)
                 
-                HStack(spacing: 12) {
-                    SocialButton(socialMedia: .init(name: .facebook, link: "https://facebook.com", image: "facebook"))
-                    SocialButton(socialMedia: .init(name: .instagram, link: "https://instagram.com", image: "instagram"))
-                    SocialButton(socialMedia: .init(name: .linkedIn, link: "https://linkedIn.com", image: "linkedIn"))
-                    SocialButton(socialMedia: .init(name: .twitter, link: "https://twitter.com", image: "twitter"))
-                }
-                .padding(.top, 20)
-                Spacer()
-                    .navigationBarBackButtonHidden(true)
+            } else {
+                let nameInitials = name.first
+                let surnameInitials = surname?.first ?? Character(" ")
+                let initials = "\(nameInitials ?? Character(" "))\(surnameInitials)"
+                RoundedRectangle(cornerRadius: 1)
+                
+                    .fill(Color.button)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 200, height: 200)
+                    .clipShape(Circle())
+                    .padding(.top, 86)
+                
+                    .overlay(
+                        Text(initials)
+                            .font(.heading1(.bold, size: 44))
+                            .padding(.top, 90)
+                            .foregroundColor(.white) )
+                    .padding(.trailing, 12)
             }
         }
     }
 }
+
+
+
+
 #Preview {
-    DetailScreenView(contact: Contact(name: "Nastya", surname: "Petrova", avatar: nil, phoneNumber: "575757", onlineStatus: .now, haveStories: true, socialMediaLinks: [.init(name: .facebook, link: "", image: "")]))
+    DetailScreenView(name: "Halil", surname: "Yavuz", phoneNumber: "+7 999 999-99-99", avatar: nil, socialMediaLinks: [SocialMedia.init(name: "twitter", nickname: "1")])
 }

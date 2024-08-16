@@ -29,55 +29,58 @@ final class ProfileEditViewModel: ObservableObject {
     @Published var isImagePickerPresented = false
     @Published var errorTimer: Timer? = nil
     @Published var selectedItem: PhotosPickerItem? = nil
-
+    
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext: ModelContext
-
+    
     init(selectedCountry: Country = Country(name: "Russia", flag: "🇷🇺", code: "+7", digits: 10)) {
         self.selectedCountry = selectedCountry
     }
     
-    func checkValidation() {
+   private func checkValidation() -> Bool {
+        var isValid = true
         
-    }
-
-    func saveContact(modelContext: ModelContext, dismiss: () -> Void) {
-//            guard !name.isEmpty else {
-//                nameError = true
-//                startErrorTimer(for: .name)
-//                return
-//            }
-//            nameError = false
-//            
-//            guard isPhoneNumberValid() else {
-//                phoneNumberError = true
-//                startErrorTimer(for: .phoneNumber)
-//                return
-//            }
-//            phoneNumberError = false
-            
-            let socialMediaLinks = createSocialMediaLinks()
-            let newContact = Contact(
-                name: name,
-                surname: surname.isEmpty ? nil : surname,
-                avatar: selectedImage?.convertToBase64String(),
-                phoneNumber: selectedCountry.code + phoneNumber,
-                socialMediaLinks: socialMediaLinks
-            )
-            
-            modelContext.insert(newContact)
-            
-            do {
-                try modelContext.save()  // Сохраняем изменения в базе данных
-            } catch {
-                print("Ошибка сохранения: \(error)")
-            }
-            
-           dismiss()
+        if name.isEmpty {
+            nameError = true
+            isValid = false
+            startErrorTimer(for: .name)
         }
-
+        
+        if phoneNumber.isEmpty || !isPhoneNumberValid() {
+            phoneNumberError = true
+            isValid = false
+            startErrorTimer(for: .phoneNumber)
+        }
+        
+        return isValid
+    }
+    
+    func saveContact(modelContext: ModelContext, dismiss: () -> Void) {
+        guard checkValidation() else {
+            return
+        }
+        
+        let socialMediaLinks = createSocialMediaLinks()
+        let newContact = Contact(
+            name: name,
+            surname: surname.isEmpty ? nil : surname,
+            avatar: selectedImage?.convertToBase64String(),
+            phoneNumber: selectedCountry.code + phoneNumber,
+            socialMediaLinks: socialMediaLinks
+        )
+        
+        modelContext.insert(newContact)
+        
+        do {
+            try modelContext.save()  // Сохраняем изменения в базе данных
+        } catch {
+            print("Ошибка сохранения: \(error)")
+        }
+        
+        dismiss()
+    }
+    
     private func startErrorTimer(for field: ErrorField) {
-        errorTimer?.invalidate()
         errorTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
             withAnimation {
                 switch field {
@@ -90,11 +93,10 @@ final class ProfileEditViewModel: ObservableObject {
         }
     }
     
-     func isPhoneNumberValid() -> Bool {
-         phoneNumber.filter({ $0.isNumber }).count == selectedCountry.digits && !phoneNumber.isEmpty
-        
+    func isPhoneNumberValid() -> Bool {
+        phoneNumber.filter({ $0.isNumber }).count == selectedCountry.digits
     }
-
+    
     private func createSocialMediaLinks() -> [SocialMedia] {
         var links: [SocialMedia] = []
         

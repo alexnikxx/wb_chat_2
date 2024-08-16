@@ -60,12 +60,12 @@ struct ContactsView: View {
                                 showDeleteAlert = true
                             }
                         }
-//                        .background(
-//                            NavigationLink(destination: ContactDetailView(name: contact.name, surname: contact.surname, phoneNumber: contact.phoneNumber, avatar: contact.avatar, socialMediaLinks: contact.socialMediaLinks)) {
-//                                
-//                            }
-//                                .opacity(0)
-//                        )
+                        .background(
+                            NavigationLink(destination: DetailScreenView(name: contact.name, surname: contact.surname, phoneNumber: contact.phoneNumber, avatar: contact.avatar, socialMediaLinks: contact.socialMediaLinks)) {
+                                
+                            }
+                                .opacity(0)
+                        )
                 }
                 
                 .listStyle(.plain)

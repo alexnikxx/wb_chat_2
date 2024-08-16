@@ -94,10 +94,10 @@ struct ProfileEditView: View {
                 viewModel.phoneNumber = viewModel.phoneNumber.formatDigits(mask: "XXX XXX-XX-XX")
             }
             .onChange(of: viewModel.isPhoneNumberValid()) {
-               // hideKeyboard()
+                hideKeyboard()
             }
             .onTapGesture {
-              //  hideKeyboard()
+                hideKeyboard()
             }
         
         let errorOverlay = RoundedRectangle(cornerRadius: 5)
@@ -130,7 +130,7 @@ struct ProfileEditView: View {
                     .fill(Color(UIColor.systemGray6))
                     .frame(width: 100, height: 100)
                     .overlay(
-                        Image("user")
+                        Image("userBig")
                             .resizable()
                             .frame(width: 37, height: 44)
                     )
