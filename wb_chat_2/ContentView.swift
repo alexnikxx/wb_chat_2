@@ -2,27 +2,26 @@
 //  ContentView.swift
 //  wb_chat_2
 //
-//  Created by Aleksandra Nikiforova on 10/08/24.
+//  Created by Tatiana Lazarenko on 8/14/24.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-    let test = TestingAPI()
+    @StateObject private var router = Router()
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-            Button("test", action: test.performChatCompletion)
-
+        NavigationStack(path: $router.path) {
+            router.view(for: router.startScreen)
+                .navigationDestination(for: Route.self) { view in
+                    router.view(for: view)
+                }
         }
-        .padding()
+        .environmentObject(router)
     }
 }
 
 #Preview {
     ContentView()
 }
+
