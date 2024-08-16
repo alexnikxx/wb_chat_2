@@ -12,7 +12,6 @@ struct PhoneTextFieldView: View {
     @Binding var phone: String
     @Binding var selectedCountryCode: Country
     @FocusState private var keyboardFocused: Bool
-    @State private var color = Color.heading2
 
     var body: some View {
         VStack(spacing: 16) {
@@ -27,11 +26,9 @@ struct PhoneTextFieldView: View {
                     .onChange(of: phone) {
                         if !phone.isEmpty {
                             phone = phone.formatDigits(mask: "XXX XXX-XX-XX")
-                            color = .heading2
                         }
                     }
             }
         }
-        .padding(.horizontal)
     }
 }

@@ -25,10 +25,14 @@ struct ContactsView: View {
     
     var body: some View {
         VStack {
-            WBNavigationBar(title: LocalizedStrings.contacts, isBackButton: false, rightButtonIcon: "plus") {
-                //router.navigateTo(CreateContactView)
-            }
-            
+            WBNavigationBar(
+                title: LocalizedStrings.contacts,
+                isBackButton: false,
+                rightButtonIcon: "plus",
+                rightButtonAction: { router.navigateTo(.newContact) },
+                backButtonAction: { }
+            )
+
             WBSearchBarView(inputText: $inputText)
                 .padding(.horizontal, 24)
                 .padding(.top, 16)

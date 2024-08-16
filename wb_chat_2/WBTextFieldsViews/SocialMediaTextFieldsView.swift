@@ -21,6 +21,5 @@ struct SocialMediaTextFieldsView: View {
             WBTextField(placeholder: "LinkedIn", text: $linkedin)
             WBTextField(placeholder: "facebook/profile", text: $facebook)
         }
-        .padding(.horizontal)
     }
 }

@@ -14,6 +14,7 @@ enum Route: Hashable {
     case verification(phoneNumber: String, code: String)
     case main
     case registration
+    case newContact
     case contactDetails(contact: Contact)
 }
 
@@ -55,13 +56,16 @@ final class Router: ObservableObject {
             case .authorization:
                 LoginView()
                     .navigationBarBackButtonHidden()
+            case .verification(let phoneNumber, let countryCode):
+                CodeVerificationView(codeCountry: countryCode, phoneNumber: phoneNumber)
+                    .navigationBarBackButtonHidden()
             case .main:
                 tabView(for: selectedTabRoute)
             case .registration:
                 RegistrationView()
                     .navigationBarBackButtonHidden()
-            case .verification(let phoneNumber, let countryCode):
-                CodeVerificationView(codeCountry: countryCode, phoneNumber: phoneNumber)
+            case .newContact:
+                NewContactView()
                     .navigationBarBackButtonHidden()
             case .contactDetails(let contact):
                 DetailScreenView(contact: contact)

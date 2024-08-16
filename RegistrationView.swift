@@ -16,8 +16,26 @@ struct RegistrationView: View {
 
     var body: some View {
         BackgroundView {
-            NameTextFieldsView(name: $name, surname: $surname)
+            VStack(spacing: 30) {
+                EditAvatarView()
+                    .padding(.top, 46)
+                NameTextFieldsView(name: $name, surname: $surname)
+                    .padding(.horizontal, 24)
+
+                Spacer()
+
+                WBButton(text: "Сохранить") {
+                    if !name.isEmpty {
+                        router.navigateTo(.main)
+                    } else {
+
+                    }
+                }
+                .opacity(!name.isEmpty ? 1 : 0.5)
+                .padding(.bottom, 16)
+            }
         }
+        .navigationBarItems(leading: WBBackButton(action: router.navigateBack))
     }
 }
 

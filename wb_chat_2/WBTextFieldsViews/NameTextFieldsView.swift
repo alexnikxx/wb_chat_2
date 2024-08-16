@@ -17,6 +17,5 @@ struct NameTextFieldsView: View {
             WBTextField(placeholder: "Имя (обязательно)", text: $name)
             WBTextField(placeholder: "Фамилия (опционально)", text: $surname)
         }
-        .padding(.horizontal)
     }
 }
