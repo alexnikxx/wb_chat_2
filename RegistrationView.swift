@@ -9,6 +9,7 @@ import SwiftUI
 import UISystem
 
 struct RegistrationView: View {
+    @EnvironmentObject var router: Router
     @State var name: String = ""
     @State var surname: String = ""
     @FocusState private var keyboardFocused: Bool
@@ -52,7 +53,7 @@ struct RegistrationView: View {
             .padding(.top, 46)
             .frame(maxHeight: .infinity, alignment: .top)
             .navigationBarBackButtonHidden()
-            .navigationBarItems(leading: WBBackButton())
+            .navigationBarItems(leading: WBBackButton(action: router.navigateBack))
         }
     }
 }
