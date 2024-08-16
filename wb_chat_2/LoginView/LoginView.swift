@@ -30,13 +30,7 @@ struct LoginView: View {
                 HStack {
                     CountryView(selectedCountry: $selectedCountryCode)
 
-                    TextField("000 000-00-00", text: $phone)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 10)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .foregroundStyle(color)
-                        .background(.textfield)
-                        .clipShape(RoundedRectangle(cornerRadius: 4))
+                    WBTextField(placeholder: "000 000-00-00", text: $phone)
                         .keyboardType(.decimalPad)
                         .focused($keyboardFocused)
                         .onAppear {
