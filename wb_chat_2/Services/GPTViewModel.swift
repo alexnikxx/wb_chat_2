@@ -11,8 +11,8 @@ import OpenAIAPI
 
 enum Role: String {
     case user = "user"
-    case assistant = "system"
-    case system = "assistant"
+    case assistant = "assistant"
+    case system = "system"
 }
 
 final class GPTViewModel: ObservableObject {
