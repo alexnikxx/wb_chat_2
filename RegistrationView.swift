@@ -13,11 +13,12 @@ struct RegistrationView: View {
     @State var name: String = ""
     @State var surname: String = ""
     @FocusState private var keyboardFocused: Bool
+    @State private var attempts: Int = 0
 
     var body: some View {
         BackgroundView {
             VStack(spacing: 32) {
-                Image("user")
+                Image("userBig")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 56, height: 56)
@@ -37,6 +38,7 @@ struct RegistrationView: View {
 
                 VStack(spacing: 12) {
                     WBTextField(placeholder: "Имя (обязательно)", text: $name)
+                        .modifier(ShakeAnimation(animatableData: CGFloat(attempts)))
                     WBTextField(placeholder: "Фамилия (опционально)", text: $surname)
                 }
                 .padding(.horizontal)
@@ -45,7 +47,11 @@ struct RegistrationView: View {
                 Spacer()
 
                 WBButton(text: "Сохранить") {
-
+                    if !name.isEmpty {
+                        router.navigateTo(.main)
+                    } else {
+                        attempts += 1
+                    }
                 }
                 .padding(.bottom, 16)
                 .opacity(name.isEmpty ? 0.5 : 1)
@@ -60,4 +66,5 @@ struct RegistrationView: View {
 
 #Preview {
     RegistrationView(name: "", surname: "")
+        .environmentObject(Router.init())
 }

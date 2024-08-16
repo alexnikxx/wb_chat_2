@@ -60,7 +60,7 @@ struct DetailScreenView: View {
                 HStack(spacing: 12) {
                     SocialButton(socialMedia: .init(name: .facebook, link: "https://facebook.com", image: "facebook"))
                     SocialButton(socialMedia: .init(name: .instagram, link: "https://instagram.com", image: "instagram"))
-                    SocialButton(socialMedia: .init(name: .linkedIn, link: "https://linkedIn.com", image: "linkedIn"))
+                    SocialButton(socialMedia: .init(name: .linkedIn, link: "https://linkedIn.com", image: "LinkedIn"))
                     SocialButton(socialMedia: .init(name: .twitter, link: "https://twitter.com", image: "twitter"))
                 }
                 .padding(.top, 20)

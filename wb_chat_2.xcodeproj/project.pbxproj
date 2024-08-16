@@ -223,8 +223,8 @@
 		650BF2F92C68A59F0046B496 /* CodeVerification */ = {
 			isa = PBXGroup;
 			children = (
-				650BF3002C68AA770046B496 /* CodeVerificationViewModel.swift */,
 				650BF3052C68AEF90046B496 /* CodeVerificationView.swift */,
+				650BF3002C68AA770046B496 /* CodeVerificationViewModel.swift */,
 				650BF3032C68AC710046B496 /* RandomDigitSequnce.swift */,
 			);
 			path = CodeVerification;
