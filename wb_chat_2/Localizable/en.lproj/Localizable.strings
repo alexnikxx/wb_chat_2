@@ -1,13 +1,14 @@
-
-// Localizable.strings
-//  wb_chat_2
-
-//  Created by Halil Yavuz on 10.08.2024.
-  
 /*
-"communicate_with_friends" = "Communicate with friends and loved ones easily";
+  Localizable.strings
+  wb_chat_2
+
+  Created by Halil Yavuz on 10.08.2024.
+
+*/
+
+"communicate_with_friends" = "Communicate with friends \n and loved ones easily";
 "pressing_button_continue" = "By pressing the continue button, I agree to the";
-"pricacy_policy" = "Privacy Policy and Terms of Useя";
+"privacy_policy" = "Privacy Policy and Terms of User";
 "start_chatting" = "Start Chatting";
 
 "enter_phone_number" = "Enter your phone number";
@@ -20,8 +21,9 @@
 "incorrect_code_try_again" = "Incorrect code. Please try again.";
 "request_code_again" = "Request the code again";
 
-"save_button" = "Save"
+"save_button" = "Save";
 "contacts" = "Contacts";
 "chats" = "Chats";
-"profile" = "Profile"
-*/
+"profile" = "Profile";
+
+"search" = "Search";
