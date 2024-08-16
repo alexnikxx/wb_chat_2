@@ -22,6 +22,9 @@
 		1AF8DDB72C67A78500C5F315 /* ContactRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8DDB62C67A78500C5F315 /* ContactRowView.swift */; };
 		1AF8DDBF2C67AC2000C5F315 /* UISystem in Frameworks */ = {isa = PBXBuildFile; productRef = 1AF8DDBE2C67AC2000C5F315 /* UISystem */; };
 		2A1169C72C6E2111005BDBE4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1169C62C6E2111005BDBE4 /* RegistrationView.swift */; };
+		2A93B4E32C6F7A3D002C0DAA /* NameTextFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE593432C6F78B700E1ACB6 /* NameTextFieldsView.swift */; };
+		2A93B4E42C6F7A3F002C0DAA /* PhoneTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE593442C6F78B700E1ACB6 /* PhoneTextFieldView.swift */; };
+		2A93B4E52C6F7A41002C0DAA /* SocialMediaTextFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE593452C6F78B700E1ACB6 /* SocialMediaTextFieldsView.swift */; };
 		2AA033A52C6A56AE00053071 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA033A42C6A56AE00053071 /* Country.swift */; };
 		2AA033A72C6A57A200053071 /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA033A62C6A57A200053071 /* CountryView.swift */; };
 		2AAC074F2C674DC400D712BF /* wb_chat_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */; };
@@ -71,6 +74,9 @@
 		2AD066582C67DFB80015ECFB /* OnboardingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingInfo.swift; sourceTree = "<group>"; };
 		2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeAnimation.swift; sourceTree = "<group>"; };
 		2AD066602C67E05F0015ECFB /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		2AE593432C6F78B700E1ACB6 /* NameTextFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTextFieldsView.swift; sourceTree = "<group>"; };
+		2AE593442C6F78B700E1ACB6 /* PhoneTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTextFieldView.swift; sourceTree = "<group>"; };
+		2AE593452C6F78B700E1ACB6 /* SocialMediaTextFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaTextFieldsView.swift; sourceTree = "<group>"; };
 		650BF2FC2C68A8D50046B496 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		650BF3002C68AA770046B496 /* CodeVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationViewModel.swift; sourceTree = "<group>"; };
 		650BF3032C68AC710046B496 /* RandomDigitSequnce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDigitSequnce.swift; sourceTree = "<group>"; };
@@ -193,7 +199,9 @@
 			children = (
 				E5D0AD852C68FABF00B62E5C /* wb-chat-2-Info.plist */,
 				1AF8DDBC2C67ABFE00C5F315 /* UISystem */,
+				650BF2FB2C68A6D20046B496 /* Services */,
 				65C98F8A2C67746600E54C0E /* Localizable */,
+				2AE593462C6F78B700E1ACB6 /* WBTextFields */,
 				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
 				1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */,
 				2AA033AA2C6A7D9900053071 /* Onboarding */,
@@ -205,7 +213,6 @@
 				1A6C5BC42C6CE6030095CB8F /* Settings */,
 				E586DFA12C6CBEB900220252 /* DetailScreen */,
 				2AA033AF2C6BB6B900053071 /* Extensions */,
-				650BF2FB2C68A6D20046B496 /* Services */,
 				2AAC07522C674DC500D712BF /* Assets.xcassets */,
 				2AAC07542C674DC500D712BF /* Preview Content */,
 			);
@@ -218,6 +225,16 @@
 				2AAC07552C674DC500D712BF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2AE593462C6F78B700E1ACB6 /* WBTextFields */ = {
+			isa = PBXGroup;
+			children = (
+				2AE593432C6F78B700E1ACB6 /* NameTextFieldsView.swift */,
+				2AE593442C6F78B700E1ACB6 /* PhoneTextFieldView.swift */,
+				2AE593452C6F78B700E1ACB6 /* SocialMediaTextFieldsView.swift */,
+			);
+			path = WBTextFields;
 			sourceTree = "<group>";
 		};
 		650BF2F92C68A59F0046B496 /* CodeVerification */ = {
@@ -339,6 +356,7 @@
 				1A6C5BC32C6CE5FD0095CB8F /* ChatsView.swift in Sources */,
 				1A6C5BCC2C6D00E50095CB8F /* WBTabBar.swift in Sources */,
 				1A6C5BC02C6CDEF30095CB8F /* Router.swift in Sources */,
+				2A93B4E42C6F7A3F002C0DAA /* PhoneTextFieldView.swift in Sources */,
 				2AD0664B2C67DD2B0015ECFB /* OnboardingView.swift in Sources */,
 				2AA033A52C6A56AE00053071 /* Country.swift in Sources */,
 				2AA033A72C6A57A200053071 /* CountryView.swift in Sources */,
@@ -346,6 +364,7 @@
 				2AD066592C67DFB80015ECFB /* OnboardingInfo.swift in Sources */,
 				1AF8DDB32C67A40400C5F315 /* Date+.swift in Sources */,
 				1A6C5BCE2C6E59BC0095CB8F /* View+.swift in Sources */,
+				2A93B4E32C6F7A3D002C0DAA /* NameTextFieldsView.swift in Sources */,
 				1AF8DDB72C67A78500C5F315 /* ContactRowView.swift in Sources */,
 				1AF8DDB12C67A38500C5F315 /* ContactsViewModel.swift in Sources */,
 				65C98F902C677B4500E54C0E /* LocalizedStrings.swift in Sources */,
@@ -355,6 +374,7 @@
 				1AF8DDAF2C67A36F00C5F315 /* ContactsView.swift in Sources */,
 				2AAC074F2C674DC400D712BF /* wb_chat_2App.swift in Sources */,
 				2AD066612C67E05F0015ECFB /* String+.swift in Sources */,
+				2A93B4E52C6F7A41002C0DAA /* SocialMediaTextFieldsView.swift in Sources */,
 				E586DFA32C6CBEDD00220252 /* DetailScreenView.swift in Sources */,
 				2AD0665D2C67DFF70015ECFB /* ShakeAnimation.swift in Sources */,
 				1A6C5BC62C6CE61E0095CB8F /* SettingsView.swift in Sources */,

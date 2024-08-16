@@ -10,10 +10,8 @@ import UISystem
 
 struct LoginView: View {
     @EnvironmentObject var router: Router
-    @FocusState private var keyboardFocused: Bool
     @State private var phone: String = ""
     @State private var selectedCountryCode: Country = Country.countries.first!
-    @State private var color = Color.heading2
     @State private var attempts: Int = 0
 
     var body: some View {
@@ -27,22 +25,7 @@ struct LoginView: View {
                     """
                 )
 
-                HStack {
-                    CountryView(selectedCountry: $selectedCountryCode)
-
-                    WBTextField(placeholder: "000 000-00-00", text: $phone)
-                        .keyboardType(.decimalPad)
-                        .focused($keyboardFocused)
-                        .onAppear {
-                            keyboardFocused = true
-                        }
-                        .onChange(of: phone) {
-                            if !phone.isEmpty {
-                                phone = phone.formatDigits(mask: "XXX XXX-XX-XX")
-                                color = .heading2
-                            }
-                        }
-                }
+                PhoneTextFieldView(phone: $phone, selectedCountryCode: $selectedCountryCode)
                 .font(.bodyText1(.semiBold))
                 .padding()
                 .modifier(ShakeAnimation(animatableData: CGFloat(attempts)))
@@ -66,4 +49,5 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
+        .environmentObject(Router.init())
 }

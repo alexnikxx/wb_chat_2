@@ -10,61 +10,18 @@ import UISystem
 
 struct RegistrationView: View {
     @EnvironmentObject var router: Router
+    @FocusState private var keyboardFocused: Bool
     @State var name: String = ""
     @State var surname: String = ""
-    @FocusState private var keyboardFocused: Bool
-    @State private var attempts: Int = 0
 
     var body: some View {
         BackgroundView {
-            VStack(spacing: 32) {
-                Image("userBig")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 56, height: 56)
-                    .padding(22)
-                    .background(Color.textfield)
-                    .cornerRadius(100)
-                    .overlay(
-                        Button {
-
-                        } label: {
-                            Image(systemName: "plus.circle.fill")
-                                .offset(CGSize(width: 37.0, height: 37.0))
-                                .frame(width: 24, height: 24)
-                                .foregroundStyle(.heading2)
-                        }
-                    )
-
-                VStack(spacing: 12) {
-                    WBTextField(placeholder: "Имя (обязательно)", text: $name)
-                        .modifier(ShakeAnimation(animatableData: CGFloat(attempts)))
-                    WBTextField(placeholder: "Фамилия (опционально)", text: $surname)
-                }
-                .padding(.horizontal)
-                .padding(.bottom, 56)
-
-                Spacer()
-
-                WBButton(text: "Сохранить") {
-                    if !name.isEmpty {
-                        router.navigateTo(.main)
-                    } else {
-                        attempts += 1
-                    }
-                }
-                .padding(.bottom, 16)
-                .opacity(name.isEmpty ? 0.5 : 1)
-            }
-            .padding(.top, 46)
-            .frame(maxHeight: .infinity, alignment: .top)
-            .navigationBarBackButtonHidden()
-            .navigationBarItems(leading: WBBackButton(action: router.navigateBack))
+            NameTextFieldsView(name: $name, surname: $surname)
         }
     }
 }
 
 #Preview {
-    RegistrationView(name: "", surname: "")
+    RegistrationView()
         .environmentObject(Router.init())
 }
