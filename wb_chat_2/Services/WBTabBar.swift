@@ -10,7 +10,7 @@ import SwiftUI
 enum Tab: CaseIterable {
     case contacts
     case chats
-    case more
+    case settings
 
     var iconName: String {
         switch self {
@@ -18,7 +18,7 @@ enum Tab: CaseIterable {
             "group"
         case .chats:
             "message_circle"
-        case .more:
+        case .settings:
             "more_horizontal"
         }
     }
