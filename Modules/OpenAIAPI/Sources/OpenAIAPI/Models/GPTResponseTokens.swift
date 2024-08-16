@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct CreateChatCompletion200ResponseUsage: Codable, JSONEncodable, Hashable {
+public struct GPTResponseTokens: Codable, JSONEncodable, Hashable {
 
     /** The number of tokens in the prompt. */
     public var promptTokens: Int?

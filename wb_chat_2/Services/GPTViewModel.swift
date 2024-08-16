@@ -10,7 +10,7 @@ import Combine
 import OpenAIAPI
 
 final class GPTViewModel: ObservableObject {
-    @Published var messages: [CreateChatCompletionRequestMessagesInner] = []
+    @Published var messages: [GPTRequestMessage] = []
     @Published var inputText: String = ""
 
     private var cancellables = Set<AnyCancellable>()
@@ -19,11 +19,11 @@ final class GPTViewModel: ObservableObject {
     func sendMessage() {
         guard !inputText.isEmpty else { return }
         
-        let userMessage = CreateChatCompletionRequestMessagesInner(role: "user", content: inputText)
+        let userMessage = GPTRequestMessage(role: "user", content: inputText)
         messages.append(userMessage)
         inputText = ""
 
-        let request = CreateChatCompletionRequest(
+        let request = GPTRequest(
             model: "gpt-4o-mini",
             messages: messages,
             maxTokens: 300,
@@ -31,11 +31,11 @@ final class GPTViewModel: ObservableObject {
             topP: 0.9
         )
         
-        DefaultAPI.createChatCompletion(createChatCompletionRequest: request) { [weak self] response, error in
+        DefaultAPI.createChatCompletion(request: request) { [weak self] response, error in
             guard let self = self, let response = response else {
                 if let error = error {
                     DispatchQueue.main.async {
-                        self?.messages.append(CreateChatCompletionRequestMessagesInner(role: "system", content: "❗️Error: \(error.localizedDescription)"))
+                        self?.messages.append(GPTRequestMessage(role: "system", content: "❗️Error: \(error.localizedDescription)"))
                     }
                 }
                 return
@@ -43,7 +43,7 @@ final class GPTViewModel: ObservableObject {
             
             if let completion = response.choices?.first?.message?.content {
                 DispatchQueue.main.async {
-                    let gptMessage = CreateChatCompletionRequestMessagesInner(role: "assistant", content: completion)
+                    let gptMessage = GPTRequestMessage(role: "assistant", content: completion)
                     self.messages.append(gptMessage)
                 }
             }

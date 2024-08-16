@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct CreateChatCompletion200Response: Codable, JSONEncodable, Hashable {
+public struct GPTResponse: Codable, JSONEncodable, Hashable {
 
     /** The ID of the completion. */
     public var id: String?
@@ -18,10 +18,10 @@ public struct CreateChatCompletion200Response: Codable, JSONEncodable, Hashable 
     public var object: String?
     /** The timestamp when the completion was created. */
     public var created: Int?
-    public var choices: [CreateChatCompletion200ResponseChoicesInner]?
-    public var usage: CreateChatCompletion200ResponseUsage?
+    public var choices: [GPTResponseFinishReasons]?
+    public var usage: GPTResponseTokens?
 
-    public init(id: String? = nil, object: String? = nil, created: Int? = nil, choices: [CreateChatCompletion200ResponseChoicesInner]? = nil, usage: CreateChatCompletion200ResponseUsage? = nil) {
+    public init(id: String? = nil, object: String? = nil, created: Int? = nil, choices: [GPTResponseFinishReasons]? = nil, usage: GPTResponseTokens? = nil) {
         self.id = id
         self.object = object
         self.created = created

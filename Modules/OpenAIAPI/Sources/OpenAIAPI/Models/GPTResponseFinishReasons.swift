@@ -10,13 +10,13 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct CreateChatCompletion200ResponseChoicesInner: Codable, JSONEncodable, Hashable {
+public struct GPTResponseFinishReasons: Codable, JSONEncodable, Hashable {
 
-    public var message: CreateChatCompletion200ResponseChoicesInnerMessage?
+    public var message: GPTResponseMessage?
     /** The reason why the completion ended (e.g., \"length\"). */
     public var finishReason: String?
 
-    public init(message: CreateChatCompletion200ResponseChoicesInnerMessage? = nil, finishReason: String? = nil) {
+    public init(message: GPTResponseMessage? = nil, finishReason: String? = nil) {
         self.message = message
         self.finishReason = finishReason
     }

@@ -20,8 +20,8 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func createChatCompletion(createChatCompletionRequest: CreateChatCompletionRequest, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: CreateChatCompletion200Response?, _ error: Error?) -> Void)) -> RequestTask {
-        return createChatCompletionWithRequestBuilder(createChatCompletionRequest: createChatCompletionRequest).execute(apiResponseQueue) { result in
+    open class func createChatCompletion(request: GPTRequest, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: GPTResponse?, _ error: Error?) -> Void)) -> RequestTask {
+        return createChatCompletionWithRequestBuilder(createChatCompletionRequest: request).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -41,7 +41,7 @@ open class DefaultAPI {
      - parameter createChatCompletionRequest: (body) The request payload for generating a chat completion. 
      - returns: RequestBuilder<CreateChatCompletion200Response> 
      */
-    open class func createChatCompletionWithRequestBuilder(createChatCompletionRequest: CreateChatCompletionRequest) -> RequestBuilder<CreateChatCompletion200Response> {
+    open class func createChatCompletionWithRequestBuilder(createChatCompletionRequest: GPTRequest) -> RequestBuilder<GPTResponse> {
         let localVariablePath = "/chat/completions"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: createChatCompletionRequest)
@@ -56,7 +56,7 @@ open class DefaultAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<CreateChatCompletion200Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<GPTResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
     }

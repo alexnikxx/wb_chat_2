@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct CreateChatCompletionRequestMessagesInner: Codable, JSONEncodable, Hashable {
+public struct GPTRequestMessage: Codable, JSONEncodable, Hashable {
 
     /** The role of the message sender (e.g., user, system, assistant). */
     public var role: String?

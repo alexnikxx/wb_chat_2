@@ -10,12 +10,12 @@ import Foundation
 import AnyCodable
 #endif
 
-public struct CreateChatCompletionRequest: Codable, JSONEncodable, Hashable {
+public struct GPTRequest: Codable, JSONEncodable, Hashable {
 
     /** The model to use (e.g., gpt-3.5-turbo). */
     public var model: String?
     /** The messages to send to the model. */
-    public var messages: [CreateChatCompletionRequestMessagesInner]?
+    public var messages: [GPTRequestMessage]?
     /** The maximum number of tokens to generate in the completion. */
     public var maxTokens: Int?
     /** The sampling temperature to use, between 0 and 1. */
@@ -23,7 +23,7 @@ public struct CreateChatCompletionRequest: Codable, JSONEncodable, Hashable {
     /** An alternative to sampling with temperature, called nucleus sampling. */
     public var topP: Double? = 1
 
-    public init(model: String? = nil, messages: [CreateChatCompletionRequestMessagesInner]? = nil, maxTokens: Int? = nil, temperature: Double? = 1, topP: Double? = 1) {
+    public init(model: String? = nil, messages: [GPTRequestMessage]? = nil, maxTokens: Int? = nil, temperature: Double? = 1, topP: Double? = 1) {
         self.model = model
         self.messages = messages
         self.maxTokens = maxTokens
