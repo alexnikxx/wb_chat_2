@@ -56,11 +56,14 @@ struct AvatarView: View {
     }
     
     private func setImage() -> some View {
-        if let image = contact.avatar {
+        if let imageString = contact.avatar,
+              let imageData = Data(base64Encoded: imageString),
+              let uiImage = UIImage(data: imageData) {
             return AnyView(
-                Image(image)
+                Image(uiImage: uiImage)
                 .resizable()
                 .frame(width: 48, height: 48)
+                .clipShape(RoundedRectangle(cornerRadius: 16))
                 .overlay(
                     RoundedRectangle(cornerRadius: 14)
                     .stroke(Color("background"), lineWidth: 2)

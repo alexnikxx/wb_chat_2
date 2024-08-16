@@ -13,6 +13,14 @@ struct DetailScreenView: View {
     @Environment (\.dismiss) private var dismiss
     let contact: Contact
    
+    private let allSocialMediaPlatforms = ["twitter", "instagram", "LinkedIn", "facebook"]
+    let name: String
+    let surname: String?
+    let phoneNumber: String
+    let avatar: String?
+    let socialMediaLinks: [SocialMedia]
+    @Environment (\.dismiss) private var dismiss
+    
     var body: some View {
         VStack {
             WBNavigationBar(

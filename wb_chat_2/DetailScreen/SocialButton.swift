@@ -7,14 +7,14 @@
 import SwiftUI
 
 struct SocialButton: View {
-    var socialMedia: SocialMediaPlatform
-    var link: String
-
+    var imageName: String
+    var url: String
+    
+    @Environment(\.openURL) var openURL
+    
     var body: some View {
-        Button(action: {
-            // Действие при нажатии: открыть URL
-        }) {
-            Image(socialMedia.rawValue)
+        Button(action: openSocials) {
+            Image(imageName)
                 .resizable()
                 .frame(width: 20, height: 20)
         }
@@ -25,14 +25,14 @@ struct SocialButton: View {
                 .stroke(Color.accent, lineWidth: 1.67)
                 .opacity(link.isEmpty ? 0.5 : 1)
         )
-        .disabled(link.isEmpty)
+        .disabled(url.isEmpty)
+        .opacity(url.isEmpty ? 0.5 : 1.0) 
+    }
+    
+    private func openSocials() {
+        guard let url = URL(string: url) else { return }
+        openURL(url)
     }
 }
 
-extension View {
-    func initials(from name: String) -> String {
-        let names = name.split(separator: " ")
-        let initials = names.compactMap { $0.first }
-        return initials.map(String.init).joined()
-    }
-}
+

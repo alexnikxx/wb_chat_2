@@ -8,19 +8,23 @@
 import SwiftUI
 import UISystem
 
+import SwiftUI
+import UISystem
+import SwiftData
+
 struct ContactsView: View {
     @EnvironmentObject var router: Router
     @State private var inputText = ""
+    @Query var contacts: [Contact]
+    @State private var navigateToAccountEdit = false
+    @State private var showDeleteActionSheet = false
+    @State private var showDeleteAlert = false
+    @State private var contactToDelete: Contact?
+    @Environment(\.modelContext) private var modelContext
     
-    let contacts: Contacts
-    
-    var filteredContacts: [Contact] {
-        inputText.isEmpty ? Contacts.contacts : Contacts.contacts.filter { $0.fullname.lowercased().contains(inputText.lowercased())
+    private var filteredContacts: [Contact] {
+        inputText.isEmpty ? contacts : contacts.filter { $0.fullname.lowercased().contains(inputText.lowercased())
         }
-    }
-    
-    init() {
-    self.contacts = Contacts()
     }
     
     var body: some View {
@@ -49,15 +53,26 @@ struct ContactsView: View {
                     .onTapGesture {
                         router.navigateTo(.contactDetails(contact: contact))
                     }
+                    Button("Отмена", role: .cancel) { }
+                } message: { contact in
+                    Text("Вы действительно хотите удалить контакт \(contact.fullname)?")
+                }
+                
+                
             }
-            .listStyle(.plain)
+            .edgesIgnoringSafeArea(.top)
+            .background(Color("background"))
             
         }
-        .edgesIgnoringSafeArea(.top)
-        .background(Color("background"))
-        .onTapGesture {
-            hideKeyboard()
-        }
+        
     }
+    private func deleteContact(_ contact: Contact) {
+        modelContext.delete(contact)
+    }
+    
+    
 }
 
+#Preview {
+    ContactsView()
+}
