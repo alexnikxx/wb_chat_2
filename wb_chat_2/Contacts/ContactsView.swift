@@ -15,7 +15,7 @@ struct ContactsView: View {
     let contacts: Contacts
     
     var filteredContacts: [Contact] {
-        inputText.isEmpty ? contacts.contacts : contacts.contacts.filter { $0.fullname.lowercased().contains(inputText.lowercased())
+        inputText.isEmpty ? Contacts.contacts : Contacts.contacts.filter { $0.fullname.lowercased().contains(inputText.lowercased())
         }
     }
     

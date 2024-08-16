@@ -58,10 +58,10 @@ struct DetailScreenView: View {
                 }
                 
                 HStack(spacing: 12) {
-                    SocialButton(socialMedia: .init(name: .facebook, link: "https://facebook.com", image: "facebook"))
-                    SocialButton(socialMedia: .init(name: .instagram, link: "https://instagram.com", image: "instagram"))
-                    SocialButton(socialMedia: .init(name: .linkedIn, link: "https://linkedIn.com", image: "LinkedIn"))
-                    SocialButton(socialMedia: .init(name: .twitter, link: "https://twitter.com", image: "twitter"))
+                    SocialButton(socialMedia: .facebook, link: contact.socialMediaLinks[.facebook] ?? "")
+                    SocialButton(socialMedia: .instagram, link: contact.socialMediaLinks[.instagram] ?? "")
+                    SocialButton(socialMedia: .linkedIn, link: contact.socialMediaLinks[.linkedIn] ?? "")
+                    SocialButton(socialMedia: .twitter, link: contact.socialMediaLinks[.twitter] ?? "")
                 }
                 .padding(.top, 20)
                 Spacer()
@@ -71,5 +71,6 @@ struct DetailScreenView: View {
     }
 }
 #Preview {
-    DetailScreenView(contact: Contact(name: "Nastya", surname: "Petrova", avatar: nil, phoneNumber: "575757", onlineStatus: .now, haveStories: true, socialMediaLinks: [.init(name: .facebook, link: "", image: "")]))
+    DetailScreenView(contact: Contact(name: "Nastya", surname: "Petrova", avatar: nil, phoneNumber: "575757", onlineStatus: .now, haveStories: true, socialMediaLinks: [.facebook: "lseihckjsndcnd"]))
+        .environmentObject(Router.init())
 }

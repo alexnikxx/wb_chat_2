@@ -7,13 +7,14 @@
 import SwiftUI
 
 struct SocialButton: View {
-    var socialMedia: SocialMedia
-    
+    var socialMedia: SocialMediaPlatform
+    var link: String
+
     var body: some View {
         Button(action: {
             // Действие при нажатии: открыть URL
         }) {
-            Image(socialMedia.image)
+            Image(socialMedia.rawValue)
                 .resizable()
                 .frame(width: 20, height: 20)
         }
@@ -21,8 +22,10 @@ struct SocialButton: View {
         .frame(width: 72, height: 40)
         .overlay(
             RoundedRectangle(cornerRadius: 25)
-                .stroke(Color.purple, lineWidth: 1.67)
+                .stroke(Color.accent, lineWidth: 1.67)
+                .opacity(link.isEmpty ? 0.5 : 1)
         )
+        .disabled(link.isEmpty)
     }
 }
 extension View {

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Contacts {
-    let contacts: [Contact] = [
+    static let contacts: [Contact] = [
         Contact(
             name: "Анастасия",
             surname: "Иванова",
@@ -17,9 +17,9 @@ struct Contacts {
             onlineStatus: Date(timeIntervalSinceNow: -30 * 3600),
             haveStories: false,
             socialMediaLinks: [
-                SocialMedia(name: .facebook, link: "https://www.facebook.com/", image: "Facebook"),
-                SocialMedia(name: .instagram, link: "https://www.instagram.com/", image: "Instagram"),
-                SocialMedia(name: .twitter, link: "https://x.com/", image: "X")
+                .facebook: "https://www.facebook.com/",
+                .instagram: "https://www.instagram.com/",
+                .twitter: "https://x.com/"
             ]
         ),
         Contact(
@@ -30,10 +30,10 @@ struct Contacts {
             onlineStatus: Date(timeIntervalSinceNow: -5),
             haveStories: false,
             socialMediaLinks: [
-                SocialMedia(name: .facebook, link: "https://www.facebook.com/", image: "Facebook"),
-                SocialMedia(name: .instagram, link: "https://www.instagram.com/", image: "Instagram"),
-                SocialMedia(name: .twitter, link: "https://x.com/", image: "X"),
-                SocialMedia(name: .linkedIn, link: "https://linkedin.com/", image: "LinkedIn")
+                .facebook: "https://www.facebook.com/",
+                .instagram: "https://www.instagram.com/",
+                .linkedIn: "https://linkedin.com/",
+                .twitter: "https://x.com/"
             ]
         ),
         Contact(
@@ -44,8 +44,8 @@ struct Contacts {
             onlineStatus: Date(timeIntervalSinceNow: -3 * 3600),
             haveStories: true,
             socialMediaLinks: [
-                SocialMedia(name: .facebook, link: "https://www.facebook.com/", image: "Facebook"),
-                SocialMedia(name: .instagram, link: "https://www.instagram.com/", image: "Instagram")
+                .facebook: "https://www.facebook.com/",
+                .instagram: "https://www.instagram.com/"
             ]
         ),
         Contact(
@@ -56,9 +56,9 @@ struct Contacts {
             onlineStatus: Date(timeIntervalSinceNow: -3),
             haveStories: false,
             socialMediaLinks: [
-                SocialMedia(name: .instagram, link: "https://www.instagram.com/", image: "Instagram"),
-                SocialMedia(name: .twitter, link: "https://x.com/", image: "X"),
-                SocialMedia(name: .linkedIn, link: "https://linkedin.com/", image: "LinkedIn")
+                .instagram: "https://www.instagram.com/",
+                .linkedIn: "https://linkedin.com/",
+                .twitter: "https://x.com/"
             ]
         ),
         Contact(
@@ -69,8 +69,8 @@ struct Contacts {
             onlineStatus: Date(timeIntervalSinceNow: -8),
             haveStories: false,
             socialMediaLinks: [
-                SocialMedia(name: .facebook, link: "https://www.facebook.com/", image: "Facebook"),
-                SocialMedia(name: .linkedIn, link: "https://linkedin.com/", image: "LinkedIn")
+                .facebook: "https://www.facebook.com/",
+                .linkedIn: "https://linkedin.com/"
             ]
         ),
         Contact(
@@ -81,7 +81,7 @@ struct Contacts {
             onlineStatus: Date(timeIntervalSinceNow: -30 * 60),
             haveStories: true,
             socialMediaLinks: [
-                SocialMedia(name: .linkedIn, link: "https://linkedin.com/", image: "LinkedIn")
+                .linkedIn: "https://linkedin.com/"
             ]
         )
     ]
