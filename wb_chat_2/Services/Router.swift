@@ -15,6 +15,7 @@ enum Route: Hashable {
     case main
     case registration
     case newContact
+    case editContact(contact: Contact)
     case contactDetails(contact: Contact)
 }
 
@@ -66,6 +67,9 @@ final class Router: ObservableObject {
                     .navigationBarBackButtonHidden()
             case .newContact:
                 NewContactView()
+                    .navigationBarBackButtonHidden()
+            case .editContact(let contact):
+                EditContactView(contact: contact)
                     .navigationBarBackButtonHidden()
             case .contactDetails(let contact):
                 DetailScreenView(contact: contact)

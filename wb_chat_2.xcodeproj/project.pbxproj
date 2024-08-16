@@ -27,6 +27,8 @@
 		2A93B4E52C6F7A41002C0DAA /* SocialMediaTextFieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE593452C6F78B700E1ACB6 /* SocialMediaTextFieldsView.swift */; };
 		2A93B4E72C6F7BAF002C0DAA /* EditAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93B4E62C6F7BAF002C0DAA /* EditAvatarView.swift */; };
 		2A93B4E92C6F7F19002C0DAA /* NewContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93B4E82C6F7F19002C0DAA /* NewContactView.swift */; };
+		2A93B4EB2C6F8B7D002C0DAA /* EditContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93B4EA2C6F8B7D002C0DAA /* EditContactView.swift */; };
+		2A93B4ED2C6F966A002C0DAA /* Binding+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93B4EC2C6F966A002C0DAA /* Binding+.swift */; };
 		2AA033A52C6A56AE00053071 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA033A42C6A56AE00053071 /* Country.swift */; };
 		2AA033A72C6A57A200053071 /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA033A62C6A57A200053071 /* CountryView.swift */; };
 		2AAC074F2C674DC400D712BF /* wb_chat_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */; };
@@ -66,6 +68,8 @@
 		2A1169C62C6E2111005BDBE4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		2A93B4E62C6F7BAF002C0DAA /* EditAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAvatarView.swift; sourceTree = "<group>"; };
 		2A93B4E82C6F7F19002C0DAA /* NewContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactView.swift; sourceTree = "<group>"; };
+		2A93B4EA2C6F8B7D002C0DAA /* EditContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactView.swift; sourceTree = "<group>"; };
+		2A93B4EC2C6F966A002C0DAA /* Binding+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+.swift"; sourceTree = "<group>"; };
 		2AA033A42C6A56AE00053071 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		2AA033A62C6A57A200053071 /* CountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
 		2AAC074B2C674DC400D712BF /* wb_chat_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wb_chat_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,8 +132,8 @@
 				1AF8DDAE2C67A36F00C5F315 /* ContactsView.swift */,
 				1AF8DDB62C67A78500C5F315 /* ContactRowView.swift */,
 				1AF8DDB02C67A38500C5F315 /* ContactsViewModel.swift */,
-				1AF8DDB22C67A40400C5F315 /* Date+.swift */,
 				1AF8DDB42C67A46100C5F315 /* ContactsMockData.swift */,
+				2A93B4E82C6F7F19002C0DAA /* NewContactView.swift */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -148,6 +152,14 @@
 			);
 			name = Registration;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		2A93B4EE2C6FB6E1002C0DAA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2AE593462C6F78B700E1ACB6 /* WBTextFieldsViews */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		2AA033AA2C6A7D9900053071 /* Onboarding */ = {
@@ -174,6 +186,8 @@
 		2AA033AF2C6BB6B900053071 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1AF8DDB22C67A40400C5F315 /* Date+.swift */,
+				2A93B4EC2C6F966A002C0DAA /* Binding+.swift */,
 				2AD066602C67E05F0015ECFB /* String+.swift */,
 				1A6C5BC92C6CEF0B0095CB8F /* Navigation +.swift */,
 				1A6C5BCD2C6E59BC0095CB8F /* View+.swift */,
@@ -205,9 +219,8 @@
 				1AF8DDBC2C67ABFE00C5F315 /* UISystem */,
 				650BF2FB2C68A6D20046B496 /* Services */,
 				65C98F8A2C67746600E54C0E /* Localizable */,
-				2AE593462C6F78B700E1ACB6 /* WBTextFieldsViews */,
+				2A93B4EE2C6FB6E1002C0DAA /* Components */,
 				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
-				2A93B4E82C6F7F19002C0DAA /* NewContactView.swift */,
 				1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */,
 				2AA033AA2C6A7D9900053071 /* Onboarding */,
 				2AA033AE2C6BB66D00053071 /* LoginView */,
@@ -276,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				E586DFA22C6CBEDD00220252 /* DetailScreenView.swift */,
+				2A93B4EA2C6F8B7D002C0DAA /* EditContactView.swift */,
 				E586DFA42C6CCA5800220252 /* SocialButton.swift */,
 			);
 			path = DetailScreen;
@@ -371,6 +385,7 @@
 				2AD066592C67DFB80015ECFB /* OnboardingInfo.swift in Sources */,
 				1AF8DDB32C67A40400C5F315 /* Date+.swift in Sources */,
 				1A6C5BCE2C6E59BC0095CB8F /* View+.swift in Sources */,
+				2A93B4ED2C6F966A002C0DAA /* Binding+.swift in Sources */,
 				2A93B4E32C6F7A3D002C0DAA /* NameTextFieldsView.swift in Sources */,
 				1AF8DDB72C67A78500C5F315 /* ContactRowView.swift in Sources */,
 				1AF8DDB12C67A38500C5F315 /* ContactsViewModel.swift in Sources */,
@@ -380,6 +395,7 @@
 				2A1169C72C6E2111005BDBE4 /* RegistrationView.swift in Sources */,
 				1AF8DDAF2C67A36F00C5F315 /* ContactsView.swift in Sources */,
 				2AAC074F2C674DC400D712BF /* wb_chat_2App.swift in Sources */,
+				2A93B4EB2C6F8B7D002C0DAA /* EditContactView.swift in Sources */,
 				2AD066612C67E05F0015ECFB /* String+.swift in Sources */,
 				2A93B4E52C6F7A41002C0DAA /* SocialMediaTextFieldsView.swift in Sources */,
 				2A93B4E92C6F7F19002C0DAA /* NewContactView.swift in Sources */,

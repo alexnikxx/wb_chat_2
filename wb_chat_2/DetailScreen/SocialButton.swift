@@ -28,6 +28,7 @@ struct SocialButton: View {
         .disabled(link.isEmpty)
     }
 }
+
 extension View {
     func initials(from name: String) -> String {
         let names = name.split(separator: " ")

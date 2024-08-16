@@ -16,10 +16,10 @@ struct SocialMediaTextFieldsView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            WBTextField(placeholder: "twitter", text: $twitter)
-            WBTextField(placeholder: "@instagram", text: $instagram)
-            WBTextField(placeholder: "LinkedIn", text: $linkedin)
-            WBTextField(placeholder: "facebook/profile", text: $facebook)
+            WBTextField(placeholder: SocialMediaPlatform.twitter.placeholder, text: $twitter)
+            WBTextField(placeholder: SocialMediaPlatform.instagram.placeholder, text: $instagram)
+            WBTextField(placeholder: SocialMediaPlatform.linkedIn.placeholder, text: $linkedin)
+            WBTextField(placeholder: SocialMediaPlatform.facebook.placeholder, text: $facebook)
         }
     }
 }

@@ -43,7 +43,12 @@ struct NewContactView: View {
                     Divider()
                     PhoneTextFieldView(phone: $phone, selectedCountryCode: $countryCode)
                     Divider()
-                    SocialMediaTextFieldsView(twitter: $twitter, instagram: $instagram, linkedin: $linkedin, facebook: $facebook)
+                    SocialMediaTextFieldsView(
+                        twitter: $twitter,
+                        instagram: $instagram,
+                        linkedin: $linkedin,
+                        facebook: $facebook
+                    )
                 }
                 .padding(.horizontal, 24)
 

@@ -10,6 +10,7 @@ import UISystem
 
 struct LoginView: View {
     @EnvironmentObject var router: Router
+    @FocusState private var keyboardFocused: Bool
     @State private var phone: String = ""
     @State private var selectedCountryCode: Country = Country.countries.first!
     @State private var attempts: Int = 0
@@ -26,9 +27,13 @@ struct LoginView: View {
                 )
 
                 PhoneTextFieldView(phone: $phone, selectedCountryCode: $selectedCountryCode)
-                .font(.bodyText1(.semiBold))
-                .padding()
-                .modifier(ShakeAnimation(animatableData: CGFloat(attempts)))
+                    .focused($keyboardFocused)
+                    .onAppear {
+                        keyboardFocused = true
+                    }
+                    .font(.bodyText1(.semiBold))
+                    .padding()
+                    .modifier(ShakeAnimation(animatableData: CGFloat(attempts)))
 
                 Spacer()
 

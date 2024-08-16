@@ -20,11 +20,11 @@ struct Contact: Identifiable, Hashable {
     var fullname: String {
         "\(name) \(surname ?? "")"
     }
-    
+
     var onlineStatusMessage: String {
         let timeDifference = Calendar.current.dateComponents([.second], from: onlineStatus, to: Date())
         guard let seconds = timeDifference.second else { return "error" }
-        
+
         switch seconds {
         case 0...10:
             return "Online"
@@ -40,11 +40,11 @@ struct Contact: Identifiable, Hashable {
             return "Last seen on \(onlineStatus.dateToString(date: onlineStatus))"
         }
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-           
+
     static func == (lhs: Contact, rhs: Contact) -> Bool {
         return lhs.id == rhs.id
     }
