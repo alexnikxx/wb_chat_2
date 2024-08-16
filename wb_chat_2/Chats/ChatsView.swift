@@ -10,7 +10,7 @@ import OpenAIAPI
 import UISystem
 
 struct ChatsView: View {
-    @ObservedObject var viewModel = ChatViewModel()
+    @ObservedObject var viewModel = GPTViewModel()
 
     var body: some View {
         VStack {
@@ -36,10 +36,21 @@ struct ChatsView: View {
                 Button(action: {
                     viewModel.sendMessage()
                 }) {
-                    Text("Send")
+                    Image(systemName: "paperplane.fill")
                         .padding()
                         .frame(height: 35)
                         .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
+                
+                Button(action: {
+                    viewModel.clearHistory()
+                }) {
+                    Image(systemName: "trash.fill")
+                        .padding()
+                        .frame(height: 35)
+                        .background(Color.red)
                         .foregroundColor(.white)
                         .cornerRadius(8)
                 }
@@ -47,7 +58,7 @@ struct ChatsView: View {
             .padding()
             .padding(.bottom, 80)
         }
-        .padding(.top, 40)
+        .padding(.top, 50)
     }
 }
 
