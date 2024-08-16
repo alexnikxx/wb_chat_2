@@ -9,6 +9,12 @@ import SwiftUI
 import Combine
 import OpenAIAPI
 
+enum Role: String {
+    case user = "user"
+    case assistant = "system"
+    case system = "assistant"
+}
+
 final class GPTViewModel: ObservableObject {
     @Published var messages: [GPTRequestMessage] = []
     @Published var inputText: String = ""
@@ -19,7 +25,7 @@ final class GPTViewModel: ObservableObject {
     func sendMessage() {
         guard !inputText.isEmpty else { return }
         
-        let userMessage = GPTRequestMessage(role: "user", content: inputText)
+        let userMessage = GPTRequestMessage(role: Role.user.rawValue, content: inputText)
         messages.append(userMessage)
         inputText = ""
 
@@ -35,7 +41,7 @@ final class GPTViewModel: ObservableObject {
             guard let self = self, let response = response else {
                 if let error = error {
                     DispatchQueue.main.async {
-                        self?.messages.append(GPTRequestMessage(role: "system", content: "❗️Error: \(error.localizedDescription)"))
+                        self?.messages.append(GPTRequestMessage(role: Role.system.rawValue, content: "❗️Error: \(error.localizedDescription)"))
                     }
                 }
                 return
@@ -43,7 +49,7 @@ final class GPTViewModel: ObservableObject {
             
             if let completion = response.choices?.first?.message?.content {
                 DispatchQueue.main.async {
-                    let gptMessage = GPTRequestMessage(role: "assistant", content: completion)
+                    let gptMessage = GPTRequestMessage(role: Role.assistant.rawValue, content: completion)
                     self.messages.append(gptMessage)
                 }
             }
