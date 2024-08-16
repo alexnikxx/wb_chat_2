@@ -49,7 +49,6 @@ struct DetailScreenView: View {
                         .padding(.trailing, 12)
                     Text(contact.fullname)
                         .font(.heading2(.semiBold))
-                        .font(.system(size: 24, weight: .semibold, design: .none))
                         .padding(.top, 20)
                     Text(contact.phoneNumber)
                         .font(.metadat1(.regular, size: 16))
@@ -72,4 +71,5 @@ struct DetailScreenView: View {
 }
 #Preview {
     DetailScreenView(contact: Contact(name: "Nastya", surname: "Petrova", avatar: nil, phoneNumber: "575757", onlineStatus: .now, haveStories: true, socialMediaLinks: [.init(name: .facebook, link: "", image: "")]))
+        .environmentObject(Router.init())
 }
