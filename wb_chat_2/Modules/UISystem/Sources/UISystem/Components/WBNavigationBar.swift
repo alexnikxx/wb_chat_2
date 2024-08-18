@@ -38,16 +38,14 @@ public struct WBNavigationBar: View {
                     .foregroundStyle(Color("background"))
                     .frame(height: 90)
 
-                HStack {
-                    HStack(spacing: 0) {
-                        if isBackButton {
-                            backButton()
-                                .padding(.leading)
-                        }
-
-                        title(title)
+                HStack(spacing: 0) {
+                    if isBackButton {
+                        backButton()
+                            .padding(.leading)
                     }
 
+                    title(title)
+                    
                     Spacer()
 
                     if rightButtonIcon != "" {
@@ -56,7 +54,6 @@ public struct WBNavigationBar: View {
                         }
                     }
                 }
-//                .padding(.top, 47)
                 .frame(height: 90, alignment: .bottom)
             }
         }
@@ -72,12 +69,13 @@ public struct WBNavigationBar: View {
 
     public func backButton() -> some View {
         WBBackButton(action: backButtonAction)
-            .padding(.leading, 2)
     }
 
     public func button(iconName: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(iconName)
+                .resizable()
+                .frame(width: 24, height: 24)
                 .foregroundStyle(Color("heading2"))
                 .padding(.horizontal, 24)
         }
