@@ -13,15 +13,19 @@ enum Route: Hashable {
     case authorization
     case verification(phoneNumber: String, code: String)
     case main
+    case registration
+    case newContact
+    case editContact(contact: Contact)
     case contactDetails(contact: Contact)
 }
 
 @MainActor
 final class Router: ObservableObject {
-    @Published var startScreen: Route = .onboarding
-    @Published var selectedTabRoute: Tab = .contacts
+    @Published var startScreen: Route = .main
+    @Published var selectedTabRoute: Tab = .chats
     
     @Published var path = NavigationPath()
+    
     
     @ViewBuilder func tabView(for route: Tab) -> some View {
         ZStack(alignment: .bottom) {
@@ -54,10 +58,19 @@ final class Router: ObservableObject {
             case .authorization:
                 LoginView()
                     .navigationBarBackButtonHidden()
-            case .main:
-                tabView(for: selectedTabRoute)
             case .verification(let phoneNumber, let countryCode):
                 CodeVerificationView(codeCountry: countryCode, phoneNumber: phoneNumber)
+                    .navigationBarBackButtonHidden()
+            case .main:
+                tabView(for: selectedTabRoute)
+            case .registration:
+                RegistrationView()
+                    .navigationBarBackButtonHidden()
+            case .newContact:
+                NewContactView()
+                    .navigationBarBackButtonHidden()
+            case .editContact(let contact):
+                EditContactView(contact: contact)
                     .navigationBarBackButtonHidden()
             case .contactDetails(let contact):
                 DetailScreenView(contact: contact)

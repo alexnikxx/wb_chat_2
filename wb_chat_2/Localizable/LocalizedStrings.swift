@@ -30,5 +30,10 @@ struct LocalizedStrings {
     
     static var searchTextField: String { NSLocalizedString("search", comment: "")}
     
+    static var newContactTittle: String { NSLocalizedString("new_contact", comment: "")}
+    static var nameTF: String { NSLocalizedString("name", comment: "")}
+    static var surnameTF: String { NSLocalizedString("surname", comment: "")}
+    
+    static var settingsTittle: String { NSLocalizedString("settigs", comment: "")}
     
 }

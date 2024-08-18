@@ -1,0 +1,114 @@
+openapi: 3.0.0
+info:
+  title: OpenAI ChatGPT API
+  description: Specification for interacting with OpenAIs ChatGPT API.
+  version: 1.0.0
+servers:
+  - url: https://api.openai.com/v1
+    description: OpenAI API Server
+
+paths:
+  /chat/completions:
+    post:
+      summary: Generate a chat completion
+      description: Sends a chat message to OpenAI's GPT model and receives a completion.
+      operationId: createChatCompletion
+      security:
+        - api_key: []
+      requestBody:
+        description: The request payload for generating a chat completion.
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                  description: The model to use (e.g., gpt-3.5-turbo).
+                messages:
+                  type: array
+                  description: The messages to send to the model.
+                  items:
+                    type: object
+                    properties:
+                      role:
+                        type: string
+                        description: The role of the message sender (e.g., user, system, assistant).
+                      content:
+                        type: string
+                        description: The content of the message.
+                max_tokens:
+                  type: integer
+                  description: The maximum number of tokens to generate in the completion.
+                temperature:
+                  type: number
+                  description: The sampling temperature to use, between 0 and 1.
+                  default: 1
+                top_p:
+                  type: number
+                  description: An alternative to sampling with temperature, called nucleus sampling.
+                  default: 1
+      responses:
+        '200':
+          description: A successful response containing the generated completion.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The ID of the completion.
+                  object:
+                    type: string
+                    description: The object type (e.g., "text_completion").
+                  created:
+                    type: integer
+                    description: The timestamp when the completion was created.
+                  choices:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        message:
+                          type: object
+                          properties:
+                            role:
+                              type: string
+                              description: The role of the message sender in the completion.
+                            content:
+                              type: string
+                              description: The content of the generated message.
+                        finish_reason:
+                          type: string
+                          description: The reason why the completion ended (e.g., "length").
+                  usage:
+                    type: object
+                    properties:
+                      prompt_tokens:
+                        type: integer
+                        description: The number of tokens in the prompt.
+                      completion_tokens:
+                        type: integer
+                        description: The number of tokens in the completion.
+                      total_tokens:
+                        type: integer
+                        description: The total number of tokens used.
+        '400':
+          description: Bad request due to invalid input parameters.
+        '401':
+          description: Unauthorized, API key is missing or invalid.
+        '500':
+          description: Internal server error.
+
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: API key needed to authorize requests.
+
+security:
+  - api_key: []
