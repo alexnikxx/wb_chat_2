@@ -42,7 +42,6 @@ public struct WBNavigationBar: View {
                     if isBackButton {
                         backButton()
                             .padding(.leading)
-                            .padding(.top, 47)
                     }
 
                     title(title)
@@ -55,7 +54,6 @@ public struct WBNavigationBar: View {
                         }
                     }
                 }
-//                .padding(.top, 47)
                 .frame(height: 90, alignment: .bottom)
             }
         }
@@ -71,7 +69,6 @@ public struct WBNavigationBar: View {
 
     public func backButton() -> some View {
         WBBackButton(action: backButtonAction)
-            .padding(.leading, 2)
     }
 
     public func button(iconName: String, action: @escaping () -> Void) -> some View {
