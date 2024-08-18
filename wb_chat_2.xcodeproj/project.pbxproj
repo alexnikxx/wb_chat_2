@@ -24,6 +24,7 @@
 		1AF8DDB72C67A78500C5F315 /* ContactRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8DDB62C67A78500C5F315 /* ContactRowView.swift */; };
 		1AF8DDBF2C67AC2000C5F315 /* UISystem in Frameworks */ = {isa = PBXBuildFile; productRef = 1AF8DDBE2C67AC2000C5F315 /* UISystem */; };
 		2A1169C72C6E2111005BDBE4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1169C62C6E2111005BDBE4 /* RegistrationView.swift */; };
+		2A9C11C82C71EA1A00B06512 /* ExyteChat in Frameworks */ = {isa = PBXBuildFile; productRef = 2A9C11C72C71EA1A00B06512 /* ExyteChat */; };
 		2AA033A52C6A56AE00053071 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA033A42C6A56AE00053071 /* Country.swift */; };
 		2AA033A72C6A57A200053071 /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA033A62C6A57A200053071 /* CountryView.swift */; };
 		2AAC074F2C674DC400D712BF /* wb_chat_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */; };
@@ -94,6 +95,7 @@
 			files = (
 				1AF8DDBF2C67AC2000C5F315 /* UISystem in Frameworks */,
 				1A8EE8DE2C6A18C500EE934C /* OpenAIAPI in Frameworks */,
+				2A9C11C82C71EA1A00B06512 /* ExyteChat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +286,7 @@
 			packageProductDependencies = (
 				1AF8DDBE2C67AC2000C5F315 /* UISystem */,
 				1A8EE8DD2C6A18C500EE934C /* OpenAIAPI */,
+				2A9C11C72C71EA1A00B06512 /* ExyteChat */,
 			);
 			productName = wb_chat_2;
 			productReference = 2AAC074B2C674DC400D712BF /* wb_chat_2.app */;
@@ -314,6 +317,9 @@
 				ru,
 			);
 			mainGroup = 2AAC07422C674DC400D712BF;
+			packageReferences = (
+				2A9C11C62C71EA1A00B06512 /* XCRemoteSwiftPackageReference "Chat" */,
+			);
 			productRefGroup = 2AAC074C2C674DC400D712BF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -597,6 +603,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		2A9C11C62C71EA1A00B06512 /* XCRemoteSwiftPackageReference "Chat" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/Chat";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		1A8EE8DD2C6A18C500EE934C /* OpenAIAPI */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -605,6 +622,11 @@
 		1AF8DDBE2C67AC2000C5F315 /* UISystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = UISystem;
+		};
+		2A9C11C72C71EA1A00B06512 /* ExyteChat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A9C11C62C71EA1A00B06512 /* XCRemoteSwiftPackageReference "Chat" */;
+			productName = ExyteChat;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
