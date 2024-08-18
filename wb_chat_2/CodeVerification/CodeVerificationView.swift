@@ -25,7 +25,6 @@ struct CodeVerificationView: View {
                 WBButton(text: LocalizedStrings.requestCodeAgain, isFilled: false)  {
                     viewModel.generateVerificationCode()
                 }
-               
             }
             .onTapGesture {
                 hideKeyboard()
@@ -40,11 +39,10 @@ struct CodeVerificationView: View {
                 }
             }
             .padding(.top, 169)
+
             Spacer()
     }
-        
-    
-    
+
     private var headerView: some View {
         VStack {
             Text(LocalizedStrings.enterCode)
@@ -75,7 +73,7 @@ struct CodeVerificationView: View {
                             focusedField = newFocusedIndex
                         }
                         if viewModel.isCodeCorrect {
-                            router.navigateTo(.main)
+                            router.navigateTo(.registration)
                         }
                     }
             }
@@ -90,7 +88,6 @@ struct CodeVerificationView: View {
                 Text(LocalizedStrings.incorrectCodeTryAgain)
                     .foregroundColor(.red)
                     .font(.bodyText1(.regular, size: 13))
-                    
             }
         }
     }
@@ -112,4 +109,5 @@ struct CodeVerificationView: View {
 
 #Preview {
     CodeVerificationView(codeCountry: "+7", phoneNumber: "999-99-99")
+        .environmentObject(Router.init())
 }

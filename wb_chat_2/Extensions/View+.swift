@@ -1,8 +1,6 @@
 //
-//  View+.swift
+//  Extension + View.swift
 //  wb_chat_2
-//
-//  Created by Tatiana Lazarenko on 8/15/24.
 //
 
 import SwiftUI
