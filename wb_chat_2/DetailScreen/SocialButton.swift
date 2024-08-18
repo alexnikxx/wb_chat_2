@@ -7,13 +7,14 @@
 import SwiftUI
 
 struct SocialButton: View {
-    var socialMedia: SocialMedia
+    var imageName: String
+    var url: String
+    
+    @Environment(\.openURL) var openURL
     
     var body: some View {
-        Button(action: {
-            // Действие при нажатии: открыть URL
-        }) {
-            Image(socialMedia.image)
+        Button(action: openSocials) {
+            Image(imageName)
                 .resizable()
                 .frame(width: 20, height: 20)
         }
@@ -21,14 +22,17 @@ struct SocialButton: View {
         .frame(width: 72, height: 40)
         .overlay(
             RoundedRectangle(cornerRadius: 25)
-                .stroke(Color.purple, lineWidth: 1.67)
+                .stroke(Color.accent, lineWidth: 1.67)
+                .opacity(url.isEmpty ? 0.5 : 1)
         )
+        .disabled(url.isEmpty)
+        .opacity(url.isEmpty ? 0.5 : 1.0) 
+    }
+    
+    private func openSocials() {
+        guard let url = URL(string: url) else { return }
+        openURL(url)
     }
 }
-extension View {
-    func initials(from name: String) -> String {
-        let names = name.split(separator: " ")
-        let initials = names.compactMap { $0.first }
-        return initials.map(String.init).joined()
-    }
-}
+
+

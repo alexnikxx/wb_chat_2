@@ -7,34 +7,39 @@
 
 import SwiftUI
 import UISystem
-
+import SwiftData
 struct DetailScreenView: View {
     @EnvironmentObject var router: Router
-    @Environment (\.dismiss) private var dismiss
     let contact: Contact
-   
+    
+    private let allSocialMediaPlatforms = ["twitter", "instagram", "linkedin", "facebook"]
+    @Environment (\.dismiss) private var dismiss
+    
     var body: some View {
+        VStack {
+            WBNavigationBar(
+                title: LocalizedStrings.contacts,
+                isBackButton: true,
+                rightButtonIcon: "pensil",
+                rightButtonAction: { router.navigateTo(.editContact(contact: contact)) },
+                backButtonAction: { router.navigateBack() }
+            )
+
             VStack(spacing: 0) {
-                
-                if let avatar = contact.avatar {
-                    Image(avatar)
+                if let imageString = contact.avatar,
+                   let imageData = Data(base64Encoded: imageString),
+                   let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 200, height: 200)
                         .clipShape(Circle())
                         .overlay(Circle().stroke(Color.gray, lineWidth: 1))
                         .padding(.top, 86)
-                        
-                    Text(contact.name)
-                        .font(.heading2(.semiBold))
-                        .padding(.top, 20)
-                    
-                    Text(contact.phoneNumber)
-                        .font(.metadat1(.regular))
-                        .padding(.top, 6)
+
                 } else {
                     RoundedRectangle(cornerRadius: 1)
-                        
+
                         .fill(Color.button)
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 200, height: 200)
@@ -47,29 +52,45 @@ struct DetailScreenView: View {
                                 .padding(.top, 90)
                                 .foregroundColor(.white) )
                         .padding(.trailing, 12)
-                    Text(contact.fullname)
-                        .font(.heading2(.semiBold))
-                        .font(.system(size: 24, weight: .semibold, design: .none))
-                        .padding(.top, 20)
-                    Text(contact.phoneNumber)
-                        .font(.metadat1(.regular, size: 16))
-                        .foregroundColor(.body1)
-                        .padding(.top, 6)
+                    
                 }
                 
+                Text(contact.fullname)
+                    .font(.heading2(.semiBold))
+                    .font(.system(size: 24, weight: .semibold, design: .none))
+                    .padding(.top, 20)
+                Text(contact.phoneNumber)
+                    .font(.metadat1(.regular, size: 16))
+                    .foregroundColor(.body1)
+                    .padding(.top, 6)
+                    .padding(.bottom, 40)
+
                 HStack(spacing: 12) {
-                    SocialButton(socialMedia: .init(name: .facebook, link: "https://facebook.com", image: "facebook"))
-                    SocialButton(socialMedia: .init(name: .instagram, link: "https://instagram.com", image: "instagram"))
-                    SocialButton(socialMedia: .init(name: .linkedIn, link: "https://linkedIn.com", image: "linkedIn"))
-                    SocialButton(socialMedia: .init(name: .twitter, link: "https://twitter.com", image: "twitter"))
+                    ForEach(allSocialMediaPlatforms, id: \.self) { platform in
+                        let socialMediaLink = contact.socialMediaLinks.first { $0.name == platform }
+                        let url = socialMediaLink?.url ?? ""
+                        SocialButton(imageName: platform, url: url)
+                    }
                 }
                 .padding(.top, 20)
+
                 Spacer()
             }
-            .navigationBarItems(leading: WBBackButton(action: router.navigateBack))
-        
+        }
+        .edgesIgnoringSafeArea(.top)
     }
 }
-#Preview {
-    DetailScreenView(contact: Contact(name: "Nastya", surname: "Petrova", avatar: nil, phoneNumber: "575757", onlineStatus: .now, haveStories: true, socialMediaLinks: [.init(name: .facebook, link: "", image: "")]))
+
+//#Preview {
+//    DetailScreenView(contact: Contact(name: "Nastya", surname: "Petrova", avatar: nil, phoneNumber: "575757", onlineStatus: .now, haveStories: true, socialMediaLinks: [.facebook: "lseihckjsndcnd"]))
+//        .environmentObject(Router.init())
+//}
+
+
+extension View {
+    func initials(from name: String) -> String {
+        let names = name.split(separator: " ")
+        let initials = names.compactMap { $0.first }
+        return initials.map(String.init).joined()
+    }
 }
