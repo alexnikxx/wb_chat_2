@@ -32,7 +32,7 @@ final class Router: ObservableObject {
                     ContactsView()
                         .navigationBarBackButtonHidden()
                 case .chats:
-                    ChatsView()
+                    GPTChatView()
                         .navigationBarBackButtonHidden()
                 case .settings:
                     SettingsView()

@@ -19,9 +19,7 @@
 		1A9404872C720C7600331778 /* GPTChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9404862C720C7600331778 /* GPTChatView.swift */; };
 		1A94048C2C720E9100331778 /* GPTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94048B2C720E9100331778 /* GPTUser.swift */; };
 		1A94048E2C720E9C00331778 /* GPTMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94048D2C720E9C00331778 /* GPTMessage.swift */; };
-		1A9404902C7213A300331778 /* ChatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94048F2C7213A300331778 /* ChatError.swift */; };
 		1A9404922C7213D400331778 /* ChatAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9404912C7213D400331778 /* ChatAction.swift */; };
-		1A9404942C7214F500331778 /* ChatInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9404932C7214F500331778 /* ChatInteractorProtocol.swift */; };
 		1A9404962C72206D00331778 /* GPTChatRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9404952C72206D00331778 /* GPTChatRowView.swift */; };
 		1AF8DDAD2C67A36000C5F315 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8DDAC2C67A36000C5F315 /* ContactModel.swift */; };
 		1AF8DDAF2C67A36F00C5F315 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8DDAE2C67A36F00C5F315 /* ContactsView.swift */; };
@@ -66,9 +64,7 @@
 		1A9404862C720C7600331778 /* GPTChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatView.swift; sourceTree = "<group>"; };
 		1A94048B2C720E9100331778 /* GPTUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTUser.swift; sourceTree = "<group>"; };
 		1A94048D2C720E9C00331778 /* GPTMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTMessage.swift; sourceTree = "<group>"; };
-		1A94048F2C7213A300331778 /* ChatError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatError.swift; sourceTree = "<group>"; };
 		1A9404912C7213D400331778 /* ChatAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAction.swift; sourceTree = "<group>"; };
-		1A9404932C7214F500331778 /* ChatInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInteractorProtocol.swift; sourceTree = "<group>"; };
 		1A9404952C72206D00331778 /* GPTChatRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatRowView.swift; sourceTree = "<group>"; };
 		1AF8DDAC2C67A36000C5F315 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		1AF8DDAE2C67A36F00C5F315 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
@@ -150,9 +146,7 @@
 				1A9404822C6F755E00331778 /* GPTViewModel.swift */,
 				1A94048B2C720E9100331778 /* GPTUser.swift */,
 				1A94048D2C720E9C00331778 /* GPTMessage.swift */,
-				1A94048F2C7213A300331778 /* ChatError.swift */,
 				1A9404912C7213D400331778 /* ChatAction.swift */,
-				1A9404932C7214F500331778 /* ChatInteractorProtocol.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -388,7 +382,6 @@
 				1A9404922C7213D400331778 /* ChatAction.swift in Sources */,
 				2AD066552C67DF810015ECFB /* LoginView.swift in Sources */,
 				1A6C5BC82C6CE6FE0095CB8F /* ContentView.swift in Sources */,
-				1A9404902C7213A300331778 /* ChatError.swift in Sources */,
 				1A6C5BC32C6CE5FD0095CB8F /* ChatsView.swift in Sources */,
 				1A6C5BCC2C6D00E50095CB8F /* WBTabBar.swift in Sources */,
 				1A6C5BC02C6CDEF30095CB8F /* Router.swift in Sources */,
@@ -409,7 +402,6 @@
 				2A1169C72C6E2111005BDBE4 /* RegistrationView.swift in Sources */,
 				1AF8DDAF2C67A36F00C5F315 /* ContactsView.swift in Sources */,
 				2AAC074F2C674DC400D712BF /* wb_chat_2App.swift in Sources */,
-				1A9404942C7214F500331778 /* ChatInteractorProtocol.swift in Sources */,
 				2AD066612C67E05F0015ECFB /* String+.swift in Sources */,
 				E586DFA32C6CBEDD00220252 /* DetailScreenView.swift in Sources */,
 				2AD0665D2C67DFF70015ECFB /* ShakeAnimation.swift in Sources */,

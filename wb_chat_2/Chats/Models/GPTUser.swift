@@ -18,7 +18,7 @@ struct MockUser: Equatable, Hashable, Codable {
     let id: String
     let role: Role
     let lastVisit: Date
-    let imageName: String?
+    let imageName: URL?
 }
 
 extension MockUser {
@@ -29,6 +29,6 @@ extension MockUser {
 
 extension MockUser {
     func toChatUser() -> ExyteChat.User {
-        ExyteChat.User(id: id, name: role.rawValue, avatarURL: URL(string: imageName ?? ""), isCurrentUser: isCurrentUser)
+        ExyteChat.User(id: id, name: role.rawValue, avatarURL: imageName, isCurrentUser: isCurrentUser)
     }
 }

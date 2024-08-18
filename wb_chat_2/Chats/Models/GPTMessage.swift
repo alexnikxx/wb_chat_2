@@ -13,7 +13,6 @@ struct MockMessage {
     let uid: String
     let sender: MockUser
     let createdAt: Date
-    var status: Message.Status?
     let text: String
 }
 
@@ -22,7 +21,6 @@ extension MockMessage {
         ExyteChat.Message(
             id: uid,
             user: sender.toChatUser(),
-            status: status,
             createdAt: createdAt,
             text: text
         )

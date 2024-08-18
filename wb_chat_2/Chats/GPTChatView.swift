@@ -8,11 +8,21 @@
 import SwiftUI
 import OpenAIAPI
 import UISystem
+import ExyteChat
 
 struct GPTChatView: View {
     @ObservedObject var viewModel = GPTViewModel()
 
     var body: some View {
+        ChatView(messages: viewModel.messages, chatType: .conversation) { draft in
+            viewModel.sendMessage(draftMessage: draft)
+        }
+        .messageUseMarkdown(messageUseMarkdown: true)
+        .padding(.bottom, 80)
+    }
+    
+    
+    /*var body: some View {
         VStack {
             ScrollView {
                 VStack(alignment: .leading) {
@@ -59,7 +69,7 @@ struct GPTChatView: View {
             .padding(.bottom, 80)
         }
         .padding(.top, 50)
-    }
+    }*/
 }
 
 
