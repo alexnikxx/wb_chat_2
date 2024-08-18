@@ -54,7 +54,7 @@
 		1A6C5BC92C6CEF0B0095CB8F /* Navigation +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation +.swift"; sourceTree = "<group>"; };
 		1A6C5BCB2C6D00E50095CB8F /* WBTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBTabBar.swift; sourceTree = "<group>"; };
 		1A6C5BCD2C6E59BC0095CB8F /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
-		1A8EE8DC2C6A18AC00EE934C /* OpenAIAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = OpenAIAPI; path = Modules/OpenAIAPI; sourceTree = SOURCE_ROOT; };
+		1A8EE8DC2C6A18AC00EE934C /* OpenAIAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = OpenAIAPI; path = wb_chat_2/Modules/OpenAIAPI; sourceTree = SOURCE_ROOT; };
 		1A9404822C6F755E00331778 /* GPTViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTViewModel.swift; sourceTree = "<group>"; };
 		1AF8DDAC2C67A36000C5F315 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		1AF8DDAE2C67A36F00C5F315 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		1AF8DDB22C67A40400C5F315 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		1AF8DDB42C67A46100C5F315 /* ContactsMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsMockData.swift; sourceTree = "<group>"; };
 		1AF8DDB62C67A78500C5F315 /* ContactRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRowView.swift; sourceTree = "<group>"; };
-		1AF8DDBC2C67ABFE00C5F315 /* UISystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UISystem; path = Modules/UISystem; sourceTree = SOURCE_ROOT; };
+		1AF8DDBC2C67ABFE00C5F315 /* UISystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UISystem; path = wb_chat_2/Modules/UISystem; sourceTree = SOURCE_ROOT; };
 		2A1169C62C6E2111005BDBE4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		2AA033A42C6A56AE00053071 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		2AA033A62C6A57A200053071 /* CountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
@@ -116,6 +116,15 @@
 				1A6C5BC52C6CE61E0095CB8F /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		1A9404842C720B8000331778 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				1A8EE8DC2C6A18AC00EE934C /* OpenAIAPI */,
+				1AF8DDBC2C67ABFE00C5F315 /* UISystem */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		1AF8DDAB2C67A30500C5F315 /* Contacts */ = {
@@ -198,16 +207,14 @@
 		2AAC074D2C674DC400D712BF /* wb_chat_2 */ = {
 			isa = PBXGroup;
 			children = (
+				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
+				1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */,
+				1A9404842C720B8000331778 /* Modules */,
 				1A6C5BC42C6CE6030095CB8F /* Settings */,
 				1A6C5BC12C6CE5EC0095CB8F /* Chats */,
-				E5D0AD852C68FABF00B62E5C /* wb-chat-2-Info.plist */,
-				1A8EE8DC2C6A18AC00EE934C /* OpenAIAPI */,
-				1AF8DDBC2C67ABFE00C5F315 /* UISystem */,
 				E586DFA12C6CBEB900220252 /* DetailScreen */,
 				1AF8DDAB2C67A30500C5F315 /* Contacts */,
 				65C98F8A2C67746600E54C0E /* Localizable */,
-				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
-				1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */,
 				2AA033AA2C6A7D9900053071 /* Onboarding */,
 				2AA033AE2C6BB66D00053071 /* LoginView */,
 				2AA033AF2C6BB6B900053071 /* Extensions */,
@@ -215,6 +222,7 @@
 				2A1169C82C6E2147005BDBE4 /* Registration */,
 				650BF2FB2C68A6D20046B496 /* Services */,
 				2AAC07522C674DC500D712BF /* Assets.xcassets */,
+				E5D0AD852C68FABF00B62E5C /* wb-chat-2-Info.plist */,
 				2AAC07542C674DC500D712BF /* Preview Content */,
 			);
 			path = wb_chat_2;
