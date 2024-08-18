@@ -7,13 +7,17 @@
 
 import SwiftUI
 import UISystem
+import SwiftData
 
 struct EditContactView: View {
     @EnvironmentObject var router: Router
     @FocusState private var keyboardFocused: Bool
-
-    @State var contact: Contact
-
+    @StateObject private var viewModel: EditContactViewModel
+    @Environment(\.modelContext) private var modelContext: ModelContext
+    init(contact: Contact) {
+        _viewModel = StateObject(wrappedValue: EditContactViewModel(contact: contact))
+    }
+    
     var body: some View {
         BackgroundView {
             VStack {
@@ -23,32 +27,51 @@ struct EditContactView: View {
                     rightButtonIcon: "",
                     backButtonAction: { router.navigateBack() }
                 )
-
+                
                 VStack(spacing: 16) {
                     VStack(spacing: 30) {
-                        EditAvatarView()
+                        EditAvatarView(selectedImage: $viewModel.selectedImage)
                             .padding(.top, 46)
-                        NameTextFieldsView(name: $contact.name, surname: $contact.surname.withDefault(""))
+                        NameTextFieldsView(name: $viewModel.contact.name, surname: $viewModel.contact.surname.withDefault(""))
                     }
                     Divider()
                     VStack(spacing: 16) {
-                        ForEach(SocialMediaPlatform.allCases, id: \.rawValue) { platform in
-                            WBTextField(placeholder: platform.placeholder, text: $contact.socialMediaLinks[platform].withDefault(""))
-                        }
+                        SocialMediaTextFieldsView(
+                            twitter: Binding(
+                                get: { viewModel.contact.socialMediaLinks.first(where: { $0.name == "twitter" })?.nickname ?? "" },
+                                set: { newValue in
+                                    viewModel.updateSocialMedia(name: "twitter", nickname: newValue)
+                                }
+                            ),
+                            instagram: Binding(
+                                get: { viewModel.contact.socialMediaLinks.first(where: { $0.name == "instagram" })?.nickname ?? "" },
+                                set: { newValue in
+                                    viewModel.updateSocialMedia(name: "instagram", nickname: newValue)
+                                }
+                            ),
+                            linkedin: Binding(
+                                get: { viewModel.contact.socialMediaLinks.first(where: { $0.name == "linkedin" })?.nickname ?? "" },
+                                set: { newValue in
+                                    viewModel.updateSocialMedia(name: "linkedin", nickname: newValue)
+                                }
+                            ),
+                            facebook: Binding(
+                                get: { viewModel.contact.socialMediaLinks.first(where: { $0.name == "facebook" })?.nickname ?? "" },
+                                set: { newValue in
+                                    viewModel.updateSocialMedia(name: "facebook", nickname: newValue)
+                                }
+                            )
+                        )
                     }
                 }
                 .padding(.horizontal, 24)
-
+                
                 Spacer()
-
-                WBButton(text: "Сохранить") {
-                    if !contact.name.isEmpty {
-                        router.navigateTo(.main)
-                    } else {
-
-                    }
+                
+                WBButton(text: LocalizedStrings.saveButton) {
+                    viewModel.saveUser(modelContext: modelContext)
+                    router.navigateTo(.main)
                 }
-                .opacity(!contact.name.isEmpty ? 1 : 0.5)
                 .padding(.bottom, 16)
             }
             .edgesIgnoringSafeArea(.top)
@@ -57,7 +80,8 @@ struct EditContactView: View {
     }
 }
 
-#Preview {
-    EditContactView(contact: Contacts.contacts[0])
-        .environmentObject(Router.init())
-}
+
+//#Preview {
+//    EditContactView()
+//        .environmentObject(Router.init())
+//}

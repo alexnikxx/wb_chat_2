@@ -1,8 +1,8 @@
 //
-//  ProfileEditViewModel.swift
+//  NewContactViewModel.swift
 //  wb_chat_2
 //
-//  Created by Halil Yavuz on 15.08.2024.
+//  Created by Halil Yavuz on 17.08.2024.
 //
 
 import SwiftUI
@@ -14,7 +14,7 @@ enum ErrorField {
     case phoneNumber
 }
 
-final class ProfileEditViewModel: ObservableObject {
+final class NewContactViewModel: ObservableObject {
     @Published var selectedCountry: Country
     @Published var nameError: Bool = false
     @Published var phoneNumberError: Bool = false
@@ -29,6 +29,7 @@ final class ProfileEditViewModel: ObservableObject {
     @Published var isImagePickerPresented = false
     @Published var errorTimer: Timer? = nil
     @Published var selectedItem: PhotosPickerItem? = nil
+    
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext: ModelContext

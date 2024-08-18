@@ -14,8 +14,8 @@ struct NameTextFieldsView: View {
 
     var body: some View {
         VStack(spacing: 12) {
-            WBTextField(placeholder: "Имя (обязательно)", text: $name)
-            WBTextField(placeholder: "Фамилия (опционально)", text: $surname)
+            WBTextField(placeholder: LocalizedStrings.nameTF, text: $name)
+            WBTextField(placeholder: LocalizedStrings.surnameTF, text: $surname)
         }
     }
 }

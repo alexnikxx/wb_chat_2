@@ -7,31 +7,46 @@
 
 import SwiftUI
 import UISystem
+import SwiftData
 
 struct RegistrationView: View {
     @EnvironmentObject var router: Router
     @FocusState private var keyboardFocused: Bool
-    @State var name: String = ""
-    @State var surname: String = ""
+    @StateObject private var viewModel = RegistrationViewModel()
+    @Environment(\.modelContext) private var modelContext: ModelContext
+    @AppStorage("isRegistered") private var isRegistered: Bool = false
 
     var body: some View {
         BackgroundView {
             VStack(spacing: 30) {
-                EditAvatarView()
+                EditAvatarView(selectedImage: $viewModel.selectedImage)
                     .padding(.top, 46)
-                NameTextFieldsView(name: $name, surname: $surname)
+                NameTextFieldsView(name: $viewModel.name, surname: $viewModel.surname)
+                    .overlay(
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(viewModel.nameError ? Color.red.opacity(0.5) : Color.clear, lineWidth: 2)
+                        .padding(.bottom, 50)
+                        .animation(.easeInOut, value: viewModel.nameError))
+                .overlay(
+                    viewModel.nameError ? Text("Обязательное поле")
+                        .font(.caption)
+                        .foregroundColor(.red)
+                        .padding(.bottom, 50)
+                        .padding(.trailing, 40)
+                        .frame(maxWidth: .infinity, alignment: .trailing) : nil
+                )
                     .padding(.horizontal, 24)
 
                 Spacer()
 
-                WBButton(text: "Сохранить") {
-                    if !name.isEmpty {
+                WBButton(text: LocalizedStrings.saveButton) {
+                    if viewModel.checkValidation() {
+                        viewModel.saveUser(modelContext: modelContext)
+                        isRegistered = true
                         router.navigateTo(.main)
-                    } else {
-
                     }
+                   
                 }
-                .opacity(!name.isEmpty ? 1 : 0.5)
                 .padding(.bottom, 16)
             }
         }

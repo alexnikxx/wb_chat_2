@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var router = Router()
-    
+    @AppStorage("isRegistered") private var isRegistered: Bool = false
+
     var body: some View {
         NavigationStack(path: $router.path) {
-            router.view(for: router.startScreen)
+            router.view(for: isRegistered ? .main : router.startScreen)
                 .navigationDestination(for: Route.self) { view in
                     router.view(for: view)
                 }

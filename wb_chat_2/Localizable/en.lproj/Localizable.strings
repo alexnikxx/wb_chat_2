@@ -26,4 +26,10 @@
 "chats" = "Chats";
 "profile" = "Profile";
 
+"new_contact" = "New contact";
+"name" = "Name(required)";
+"surname" = "Surname(Optional)";
+
+"settings" = "Settings";
+
 "search" = "Search";

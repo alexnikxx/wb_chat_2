@@ -36,7 +36,7 @@ struct ContactsView: View {
                 rightButtonAction: { router.navigateTo(.newContact) },
                 backButtonAction: { }
             )
-
+            
             WBSearchBarView(inputText: $inputText)
                 .padding(.horizontal, 24)
                 .padding(.top, 16)
@@ -53,17 +53,28 @@ struct ContactsView: View {
                     .onTapGesture {
                         router.navigateTo(.contactDetails(contact: contact))
                     }
-                    Button("Отмена", role: .cancel) { }
-                } message: { contact in
-                    Text("Вы действительно хотите удалить контакт \(contact.fullname)?")
-                }
+                    .contextMenu {
+                        Button("Удалить", role: .destructive) {
+                            contactToDelete = contact
+                            showDeleteAlert = true
+                        }
+                    }
+                    .alert("Удалить контакт?", isPresented: $showDeleteAlert, presenting: contactToDelete) { contact in
+                        Button("Удалить", role: .destructive) {
+                            deleteContact(contact)
+                        }
+                        Button("Отмена", role: .cancel) { }
+                    } message: { contact in
+                        Text("Вы действительно хотите удалить контакт \(contact.fullname)?")
+                    }
                 
-                
+                    
             }
+            .listStyle(.plain)
             .edgesIgnoringSafeArea(.top)
             .background(Color("background"))
-            
         }
+        
         
     }
     private func deleteContact(_ contact: Contact) {

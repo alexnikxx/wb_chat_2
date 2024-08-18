@@ -98,6 +98,6 @@ struct AvatarView: View {
 
 
 
-#Preview {
-    ContactRowView(contact: Contact(name: "Anne", surname: "Das", avatar: "Arbuz", phoneNumber: "+456", onlineStatus: .now, haveStories: true, socialMediaLinks: [.facebook: "fgg"]))
-}
+//#Preview {
+////    ContactRowView(contact: Contact(name: "Anne", surname: "Das", avatar: "Arbuz", phoneNumber: "+456", onlineStatus: .now, haveStories: true, socialMediaLinks: [.facebook: "fgg"]))
+//}
