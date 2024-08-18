@@ -10,55 +10,41 @@ import OpenAIAPI
 import UISystem
 
 struct ChatsView: View {
+    @EnvironmentObject var router: Router
+    @State private var inputText = ""
     @ObservedObject var viewModel = GPTViewModel()
 
     var body: some View {
         VStack {
-            ScrollView {
-                VStack(alignment: .leading) {
-                    ForEach(viewModel.messages, id: \.self) { message in
-                        Text("\(message.role?.capitalized ?? "🥝"): \(message.content ?? "🍎")")
-                            .padding()
-                            .background(message.role == "user" ? Color.blue.opacity(0.1) : Color.gray.opacity(0.1))
-                            .cornerRadius(8)
-                            .frame(maxWidth: .infinity, alignment: message.role == "user" ? .trailing : .leading)
-                            .padding(.vertical, 2)
+            WBNavigationBar(title: LocalizedStrings.chats, isBackButton: false, rightButtonIcon: "plus") {
+                //router.navigateTo(CreateContactView)
+            }
+            
+            WBSearchBarView(inputText: $inputText)
+                .padding(.horizontal, 24)
+                .padding(.top, 16)
+            
+            /*List(chats, id: \.self) { chat in
+                GPTChatRowView(contact: contact)
+                    .listRowBackground(Color("background"))
+                    .listRowSeparatorTint(Color("textfield"))
+                    .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
+                    .alignmentGuide(.listRowSeparatorTrailing) { separator in
+                        separator.width - 2
                     }
-                }
+                    .padding(5)
+                    .onTapGesture {
+                        router.navigateTo(.contactDetails(contact: contact))
+                    }
             }
-            .padding()
-
-            HStack {
-                TextField("Enter your message...", text: $viewModel.inputText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(minHeight: 30)
-
-                Button(action: {
-                    viewModel.sendMessage()
-                }) {
-                    Image(systemName: "paperplane.fill")
-                        .padding()
-                        .frame(height: 35)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-                
-                Button(action: {
-                    viewModel.clearHistory()
-                }) {
-                    Image(systemName: "trash.fill")
-                        .padding()
-                        .frame(height: 35)
-                        .background(Color.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-            }
-            .padding()
-            .padding(.bottom, 80)
+            .listStyle(.plain)
+            */
         }
-        .padding(.top, 50)
+        .edgesIgnoringSafeArea(.top)
+        .background(Color("background"))
+        .onTapGesture {
+            hideKeyboard()
+        }
     }
 }
 
