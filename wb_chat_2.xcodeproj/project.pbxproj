@@ -19,7 +19,6 @@
 		1A9404872C720C7600331778 /* GPTChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9404862C720C7600331778 /* GPTChatView.swift */; };
 		1A94048C2C720E9100331778 /* GPTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94048B2C720E9100331778 /* GPTUser.swift */; };
 		1A94048E2C720E9C00331778 /* GPTMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94048D2C720E9C00331778 /* GPTMessage.swift */; };
-		1A9404922C7213D400331778 /* ChatAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9404912C7213D400331778 /* ChatAction.swift */; };
 		1A9404962C72206D00331778 /* GPTChatRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9404952C72206D00331778 /* GPTChatRowView.swift */; };
 		1AF8DDAD2C67A36000C5F315 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8DDAC2C67A36000C5F315 /* ContactModel.swift */; };
 		1AF8DDAF2C67A36F00C5F315 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8DDAE2C67A36F00C5F315 /* ContactsView.swift */; };
@@ -64,7 +63,6 @@
 		1A9404862C720C7600331778 /* GPTChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatView.swift; sourceTree = "<group>"; };
 		1A94048B2C720E9100331778 /* GPTUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTUser.swift; sourceTree = "<group>"; };
 		1A94048D2C720E9C00331778 /* GPTMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTMessage.swift; sourceTree = "<group>"; };
-		1A9404912C7213D400331778 /* ChatAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAction.swift; sourceTree = "<group>"; };
 		1A9404952C72206D00331778 /* GPTChatRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatRowView.swift; sourceTree = "<group>"; };
 		1AF8DDAC2C67A36000C5F315 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		1AF8DDAE2C67A36F00C5F315 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 				1A9404822C6F755E00331778 /* GPTViewModel.swift */,
 				1A94048B2C720E9100331778 /* GPTUser.swift */,
 				1A94048D2C720E9C00331778 /* GPTMessage.swift */,
-				1A9404912C7213D400331778 /* ChatAction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -379,7 +376,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AD066532C67DF320015ECFB /* TermsView.swift in Sources */,
-				1A9404922C7213D400331778 /* ChatAction.swift in Sources */,
 				2AD066552C67DF810015ECFB /* LoginView.swift in Sources */,
 				1A6C5BC82C6CE6FE0095CB8F /* ContentView.swift in Sources */,
 				1A6C5BC32C6CE5FD0095CB8F /* ChatsView.swift in Sources */,

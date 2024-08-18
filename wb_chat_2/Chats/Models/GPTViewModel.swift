@@ -18,7 +18,6 @@ enum GPTModel: String {
 }
 
 final class GPTViewModel: ObservableObject {
-   // @Published var GPTmessages: [GPTRequestMessage] = []
     @Published var chatMessages: [MockMessage] = []
     @Published var model: GPTModel = .gpt4o_mini
     

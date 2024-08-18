@@ -11,14 +11,23 @@ import UISystem
 import ExyteChat
 
 struct GPTChatView: View {
+    @EnvironmentObject var router: Router
     @ObservedObject var viewModel = GPTViewModel()
 
     var body: some View {
-        ChatView(messages: viewModel.messages, chatType: .conversation) { draft in
-            viewModel.sendMessage(draftMessage: draft)
+        VStack {
+            WBNavigationBar(title: viewModel.model.rawValue, isBackButton: true, rightButtonIcon: "reload", rightButtonAction: {
+                viewModel.clearHistory()
+            }, backButtonAction: router.navigateBack)
+            
+            ChatView(messages: viewModel.messages, chatType: .conversation) { draft in
+                viewModel.sendMessage(draftMessage: draft)
+            }
+            .messageUseMarkdown(messageUseMarkdown: true)
+            .padding(.vertical, 20)
         }
-        .messageUseMarkdown(messageUseMarkdown: true)
-        .padding(.bottom, 80)
+        .edgesIgnoringSafeArea(.top)
+        
     }
     
     

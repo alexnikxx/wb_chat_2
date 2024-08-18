@@ -14,6 +14,7 @@ enum Route: Hashable {
     case verification(phoneNumber: String, code: String)
     case main
     case contactDetails(contact: Contact)
+    case gptChat
 }
 
 @MainActor
@@ -32,7 +33,7 @@ final class Router: ObservableObject {
                     ContactsView()
                         .navigationBarBackButtonHidden()
                 case .chats:
-                    GPTChatView()
+                    ChatsView()
                         .navigationBarBackButtonHidden()
                 case .settings:
                     SettingsView()
@@ -61,6 +62,9 @@ final class Router: ObservableObject {
                     .navigationBarBackButtonHidden()
             case .contactDetails(let contact):
                 DetailScreenView(contact: contact)
+                    .navigationBarBackButtonHidden()
+            case .gptChat:
+                GPTChatView()
                     .navigationBarBackButtonHidden()
             }
     }
