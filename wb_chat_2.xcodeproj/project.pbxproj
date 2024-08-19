@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A6C5BC02C6CDEF30095CB8F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C5BBF2C6CDEF30095CB8F /* Router.swift */; };
+		1A6C5BC32C6CE5FD0095CB8F /* ChatsGPTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C5BC22C6CE5FD0095CB8F /* ChatsGPTView.swift */; };
 		1A6C5BC32C6CE5FD0095CB8F /* ChatGPTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C5BC22C6CE5FD0095CB8F /* ChatGPTView.swift */; };
 		1A6C5BC62C6CE61E0095CB8F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C5BC52C6CE61E0095CB8F /* SettingsView.swift */; };
 		1A6C5BC82C6CE6FE0095CB8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		1A6C5BBF2C6CDEF30095CB8F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		1A6C5BC22C6CE5FD0095CB8F /* ChatsGPTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsGPTView.swift; sourceTree = "<group>"; };
 		1A6C5BC22C6CE5FD0095CB8F /* ChatGPTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTView.swift; sourceTree = "<group>"; };
 		1A6C5BC52C6CE61E0095CB8F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				1A94048A2C720E7700331778 /* Models */,
+				1A6C5BC22C6CE5FD0095CB8F /* ChatsGPTView.swift */,
 				1A6C5BC22C6CE5FD0095CB8F /* ChatGPTView.swift */,
 				1A9404862C720C7600331778 /* GPTChatView.swift */,
 				1A9404952C72206D00331778 /* GPTChatRowView.swift */,
@@ -447,6 +450,7 @@
 				2AD066552C67DF810015ECFB /* LoginView.swift in Sources */,
 				1A6C5BC82C6CE6FE0095CB8F /* ContentView.swift in Sources */,
 				2A93B4E72C6F7BAF002C0DAA /* EditAvatarView.swift in Sources */,
+				1A6C5BC32C6CE5FD0095CB8F /* ChatsGPTView.swift in Sources */,
 				1A6C5BC32C6CE5FD0095CB8F /* ChatGPTView.swift in Sources */,
 				1A6C5BCC2C6D00E50095CB8F /* WBTabBar.swift in Sources */,
 				6568BC1F2C70A67400CD46F4 /* NewContactViewModel.swift in Sources */,
