@@ -8,6 +8,7 @@
 import SwiftUI
 import UISystem
 import SwiftData
+
 struct DetailScreenView: View {
     @EnvironmentObject var router: Router
     let contact: Contact
@@ -79,18 +80,6 @@ struct DetailScreenView: View {
     }
 }
     
-//    #Preview {
-//        DetailScreenView(contact: Contact(name: "Nastya", surname: "Petrova", avatar: nil, phoneNumber: "575757", onlineStatus: .now, haveStories: true, socialMediaLinks: [.init(name: .facebook, link: "", image: "")]))
-//            .environmentObject(Router.init())
-//    }
-
-
-//#Preview {
-//    DetailScreenView(contact: Contact(name: "Nastya", surname: "Petrova", avatar: nil, phoneNumber: "575757", onlineStatus: .now, haveStories: true, socialMediaLinks: [.facebook: "lseihckjsndcnd"]))
-//        .environmentObject(Router.init())
-//}
-
-
 extension View {
     func initials(from name: String) -> String {
         let names = name.split(separator: " ")
