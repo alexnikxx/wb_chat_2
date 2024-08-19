@@ -41,6 +41,10 @@ final class GPTViewModel: ObservableObject {
     func switchToChat(_ chat: Chat) {
         currentChat = chat
     }
+    
+    func deleteChat(at offsets: IndexSet) {
+        chats.remove(atOffsets: offsets)
+    }
 
 //MARK: - Работа с 1 чатом
 //    var GPTmessages: [GPTRequestMessage] {
