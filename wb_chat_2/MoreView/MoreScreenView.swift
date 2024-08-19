@@ -35,7 +35,6 @@ struct MoreScreenView: View {
         }
     }
 }
-
 //MARK: Properties
 extension MoreScreenView {
     
