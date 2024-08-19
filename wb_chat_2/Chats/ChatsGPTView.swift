@@ -44,6 +44,3 @@ struct ChatsGPTView: View {
     }
 }
 
-#Preview {
-    ChatsGPTView()
-}

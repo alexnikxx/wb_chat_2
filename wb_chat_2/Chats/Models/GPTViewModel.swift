@@ -98,7 +98,6 @@ final class GPTViewModel: ObservableObject {
     
     // Генерация заголовка на основе истории сообщений
     private func generateChatTitle(for chatIndex: Int) {
-        let messages = chats[chatIndex].messages
         let summaryRequest = GPTRequest(
                 model: model.rawValue,
                 messages: GPTmessages + [
