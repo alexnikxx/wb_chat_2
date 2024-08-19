@@ -9,9 +9,9 @@ import SwiftUI
 import UISystem
 
 struct GPTChatRowView: View {
-    @ObservedObject var viewModel = GPTViewModel()
+    @EnvironmentObject private var viewModelGPT: GPTViewModel
     
-    let chat: Chat
+    var chat: Chat
     
     var body: some View {
         HStack(spacing: 12) {
@@ -20,7 +20,7 @@ struct GPTChatRowView: View {
             .frame(width: 48, height: 48)
             
             VStack(alignment: .leading, spacing: 2) {
-                Text(viewModel.model.rawValue)
+                Text(viewModelGPT.model.rawValue)
                     .font(.bodyText1(.semiBold))
                     .foregroundStyle(Color("heading2"))
                     .frame(height: 24)

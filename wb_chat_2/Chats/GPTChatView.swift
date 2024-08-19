@@ -12,19 +12,24 @@ import ExyteChat
 
 struct GPTChatView: View {
     @EnvironmentObject var router: Router
-    @ObservedObject var viewModel = GPTViewModel()
+    @EnvironmentObject private var viewModelGPT: GPTViewModel
+    
+    var chat: Chat
 
     var body: some View {
         VStack {
-            WBNavigationBar(title: viewModel.model.rawValue, isBackButton: true, rightButtonIcon: "reload", rightButtonAction: {
-                viewModel.clearHistory()
+            WBNavigationBar(title: viewModelGPT.model.rawValue, isBackButton: true, rightButtonIcon: "reload", rightButtonAction: {
+                viewModelGPT.clearHistory()
             }, backButtonAction: router.navigateBack)
             
-            ChatView(messages: viewModel.messages, chatType: .conversation) { draft in
-                viewModel.sendMessage(draftMessage: draft)
+            ChatView(messages: viewModelGPT.messages, chatType: .conversation) { draft in
+                viewModelGPT.sendMessage(draftMessage: draft)
             }
             .messageUseMarkdown(messageUseMarkdown: true)
             .padding(.vertical, 20)
+        }
+        .onAppear {
+            viewModelGPT.switchToChat(chat)
         }
         .edgesIgnoringSafeArea(.top)
         
@@ -32,6 +37,6 @@ struct GPTChatView: View {
 }
 
 
-#Preview {
-    GPTChatView()
-}
+//#Preview {
+//    GPTChatView()
+//}

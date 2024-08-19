@@ -11,12 +11,12 @@ import UISystem
 
 struct ChatsGPTView: View {
     @EnvironmentObject var router: Router
+    @EnvironmentObject private var viewModelGPT: GPTViewModel
     @State private var inputText = ""
-    @ObservedObject var viewModel = GPTViewModel()
     
     var body: some View {
         VStack {
-            List(viewModel.chats, id: \.self) { chat in
+            List(viewModelGPT.chats, id: \.self) { chat in
                 GPTChatRowView(chat: chat)
                     .listRowBackground(Color("background"))
                     .listRowSeparatorTint(Color("textfield"))
@@ -26,7 +26,7 @@ struct ChatsGPTView: View {
                     }
                     .padding(5)
                     .onTapGesture {
-                        router.navigateTo(.gptChat)
+                        router.navigateTo(.gptChat(chat: chat))
                     }
             }
             .listStyle(.plain)

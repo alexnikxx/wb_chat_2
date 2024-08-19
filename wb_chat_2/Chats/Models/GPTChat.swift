@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import OpenAIAPI
 
 struct Chat: Identifiable, Hashable {
     let id: UUID

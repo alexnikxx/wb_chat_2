@@ -9,6 +9,7 @@ import SwiftUI
 import UISystem
 
 struct ChatsView: View {
+    @EnvironmentObject private var viewModelGPT: GPTViewModel
     @State var inputText = ""
     @State var isChatGPT: Bool = false
 
@@ -21,7 +22,11 @@ struct ChatsView: View {
                     title: "Чаты",
                     isBackButton: false,
                     rightButtonIcon: "message_plus_alt",
-                    rightButtonAction: { },
+                    rightButtonAction: { 
+                        withAnimation {
+                            viewModelGPT.addNewChat()
+                        }
+                    },
                     backButtonAction: { }
                 )
                 StoriesView()
@@ -68,4 +73,5 @@ struct ChatsView: View {
 
 #Preview {
     ChatsView()
+        .environmentObject(GPTViewModel())
 }

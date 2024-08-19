@@ -11,6 +11,7 @@ import SwiftData
 
 @main
 struct wb_chat_2App: App {
+    @StateObject private var viewModelGPT = GPTViewModel()
     
     init() {
         SFProDisplayFont.registerFonts()
@@ -21,5 +22,6 @@ struct wb_chat_2App: App {
             ContentView()
                 .modelContainer(for: [User.self, Contact.self, SocialMedia.self])
         }
+        .environmentObject(viewModelGPT)
     }
 }
