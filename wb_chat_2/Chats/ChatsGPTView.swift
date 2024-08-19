@@ -14,20 +14,10 @@ struct ChatsGPTView: View {
     @State private var inputText = ""
     @ObservedObject var viewModel = GPTViewModel()
     
-    private let chats: [Int] = [1]
-
     var body: some View {
         VStack {
-            WBNavigationBar(title: LocalizedStrings.chats, isBackButton: false, rightButtonIcon: "plus") {
-                //router.navigateTo(CreateChat)
-            }
-            
-            WBSearchBarView(inputText: $inputText)
-                .padding(.horizontal, 24)
-                .padding(.top, 16)
-            
-            List(chats, id: \.self) { chat in
-                GPTChatRowView()
+            List(viewModel.chats, id: \.self) { chat in
+                GPTChatRowView(chat: chat)
                     .listRowBackground(Color("background"))
                     .listRowSeparatorTint(Color("textfield"))
                     .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
@@ -42,11 +32,7 @@ struct ChatsGPTView: View {
             .listStyle(.plain)
             
         }
-        .edgesIgnoringSafeArea(.top)
         .background(Color("background"))
-        .onTapGesture {
-            hideKeyboard()
-        }
     }
 }
 

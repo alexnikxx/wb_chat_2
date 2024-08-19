@@ -11,6 +11,8 @@ import UISystem
 struct GPTChatRowView: View {
     @ObservedObject var viewModel = GPTViewModel()
     
+    let chat: Chat
+    
     var body: some View {
         HStack(spacing: 12) {
             Image("ChatGPT_logo")
@@ -23,7 +25,7 @@ struct GPTChatRowView: View {
                     .foregroundStyle(Color("heading2"))
                     .frame(height: 24)
                 
-                Text(viewModel.chatMessages.last?.text ?? "last message")
+                Text(chat.messages.last?.text ?? "last message")
                     .font(.metadat1(.regular))
                     .foregroundStyle(Color("metadata2"))
                     .frame(height: 20)
@@ -35,7 +37,7 @@ struct GPTChatRowView: View {
         .frame(height: 56)
     }
 }
-
-#Preview {
-    GPTChatRowView()
-}
+//
+//#Preview {
+//    GPTChatRowView()
+//}
