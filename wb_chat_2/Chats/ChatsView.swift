@@ -9,7 +9,11 @@ import SwiftUI
 import OpenAIAPI
 import UISystem
 
+<<<<<<<< HEAD:wb_chat_2/Chats/ChatGPTView.swift
 struct ChatGPTView: View {
+========
+struct ChatsGPTView: View {
+>>>>>>>> 6bdaa2adde084925176b3eb2623bac610a754663:wb_chat_2/Chats/ChatsGPTView.swift
     @EnvironmentObject var router: Router
     @State private var inputText = ""
     @ObservedObject var viewModel = GPTViewModel()
@@ -51,5 +55,9 @@ struct ChatGPTView: View {
 }
 
 #Preview {
+<<<<<<<< HEAD:wb_chat_2/Chats/ChatGPTView.swift
     ChatGPTView()
+========
+    ChatsGPTView()
+>>>>>>>> 6bdaa2adde084925176b3eb2623bac610a754663:wb_chat_2/Chats/ChatsGPTView.swift
 }
