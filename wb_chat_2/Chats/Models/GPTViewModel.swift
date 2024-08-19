@@ -18,7 +18,6 @@ enum GPTModel: String {
 }
 
 final class GPTViewModel: ObservableObject {
-    //@Published var chatMessages: [MockMessage] = []
     @Published var model: GPTModel = .gpt4o_mini
     @Published var chats: [Chat] = []
     @Published var currentChat: Chat?
@@ -27,13 +26,23 @@ final class GPTViewModel: ObservableObject {
         chats.firstIndex(where: { $0.id == currentChat?.id }) ?? 0
     }
     
+    var GPTmessages: [GPTRequestMessage] {
+        chats[chatIndex].messages.map { message in
+            GPTRequestMessage(role: message.sender.role.rawValue, content: message.text)
+        }
+    }
+    
+    var messages: [Message] {
+        chats[chatIndex].messages.map { $0.toChatMessage() }
+    }
+    
     private let systemUser = MockUser(id: "3", role: .system, lastVisit: Date(), imageName: nil)
     private let gptUser = MockUser(id: "2", role: .assistant, lastVisit: Date(), imageName: AssetExtractor.createLocalUrl(forImageNamed: "ChatGPT_logo") ?? URL(string: ""))
     private let currentUser = MockUser(id: "1", role: .user, lastVisit: Date(), imageName: AssetExtractor.createLocalUrl(forImageNamed: "userBig") ?? URL(string: ""))
     
 //MARK: - Работа со списком чатов
     func addNewChat() {
-        let newChat = Chat()
+        let newChat = Chat(title: "Новый чат")
         chats.append(newChat)
         currentChat = newChat
     }
@@ -47,26 +56,15 @@ final class GPTViewModel: ObservableObject {
     }
 
 //MARK: - Работа с 1 чатом
-//    var GPTmessages: [GPTRequestMessage] {
-//        chatMessages.map { message in
-//            GPTRequestMessage(role: message.sender.role.rawValue, content: message.text)
-//        }
-//    }
-    
-    var messages: [Message] {
-        chats[chatIndex].messages.map { $0.toChatMessage() }
+    // Очистить историю сообщений текущего чата
+    func clearHistory() {
+        chats[chatIndex].messages.removeAll()
     }
     
     // Отправка сообщения и получение ответа от OpenAI API
     func sendMessage(draftMessage: DraftMessage) {
         let userMessage = MockMessage(uid: UUID().uuidString, sender: currentUser, createdAt: Date(), text: draftMessage.text)
         chats[chatIndex].messages.append(userMessage)
-        
-        var GPTmessages: [GPTRequestMessage] {
-            chats[chatIndex].messages.map { message in
-                GPTRequestMessage(role: message.sender.role.rawValue, content: message.text)
-            }
-        }
         
         let request = GPTRequest(
             model: model.rawValue,
@@ -92,14 +90,34 @@ final class GPTViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     let gptMessage = MockMessage(uid: UUID().uuidString, sender: self.gptUser, createdAt: Date(), text: completion)
                     self.chats[self.chatIndex].messages.append(gptMessage)
+                    self.generateChatTitle(for: self.chatIndex)
                 }
             }
         }
     }
     
-    // Очистить историю сообщений текущего чата
-    func clearHistory() {
-        chats[chatIndex].messages.removeAll()
+    // Генерация заголовка на основе истории сообщений
+    private func generateChatTitle(for chatIndex: Int) {
+        let messages = chats[chatIndex].messages
+        let summaryRequest = GPTRequest(
+                model: model.rawValue,
+                messages: GPTmessages + [
+                    GPTRequestMessage(role: "system", content: "Please summarize the conversation in one short title (2-3 words) and give answer using conversation language.")
+                ],
+                maxTokens: 20,
+                temperature: 0.5,
+                topP: 0.5
+            )
+            
+        DefaultAPI.createChatCompletion(request: summaryRequest) { [weak self] response, error in
+            guard let self = self, let response = response else { return }
+                
+            if let summary = response.choices?.first?.message?.content {
+                DispatchQueue.main.async {
+                    self.chats[chatIndex].title = summary
+                }
+            }
+        }
     }
 }
 

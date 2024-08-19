@@ -18,7 +18,7 @@ struct GPTChatView: View {
 
     var body: some View {
         VStack {
-            WBNavigationBar(title: viewModelGPT.model.rawValue, isBackButton: true, rightButtonIcon: "reload", rightButtonAction: {
+            WBNavigationBar(title: chat.title, isBackButton: true, rightButtonIcon: "reload", rightButtonAction: {
                 viewModelGPT.clearHistory()
             }, backButtonAction: router.navigateBack)
             
@@ -36,7 +36,3 @@ struct GPTChatView: View {
     }
 }
 
-
-//#Preview {
-//    GPTChatView()
-//}

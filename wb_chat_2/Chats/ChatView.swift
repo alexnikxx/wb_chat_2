@@ -23,8 +23,10 @@ struct ChatsView: View {
                     isBackButton: false,
                     rightButtonIcon: "message_plus_alt",
                     rightButtonAction: { 
-                        withAnimation {
-                            viewModelGPT.addNewChat()
+                        if isChatGPT {
+                            withAnimation {
+                                viewModelGPT.addNewChat()
+                            }
                         }
                     },
                     backButtonAction: { }

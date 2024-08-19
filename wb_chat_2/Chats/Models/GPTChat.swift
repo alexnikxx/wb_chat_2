@@ -9,10 +9,12 @@ import Foundation
 
 struct Chat: Identifiable, Hashable {
     let id: UUID
+    var title: String
     var messages: [MockMessage]
 
-    init(id: UUID = UUID(), messages: [MockMessage] = []) {
+    init(id: UUID = UUID(), title: String, messages: [MockMessage] = []) {
         self.id = id
+        self.title = title
         self.messages = messages
     }
 }
