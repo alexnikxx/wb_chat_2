@@ -24,7 +24,7 @@ struct DetailScreenView: View {
                 rightButtonAction: { router.navigateTo(.editContact(contact: contact)) },
                 backButtonAction: { router.navigateBack() }
             )
-
+            
             VStack(spacing: 0) {
                 if let imageString = contact.avatar,
                    let imageData = Data(base64Encoded: imageString),
@@ -36,16 +36,16 @@ struct DetailScreenView: View {
                         .clipShape(Circle())
                         .overlay(Circle().stroke(Color.gray, lineWidth: 1))
                         .padding(.top, 86)
-
+                    
                 } else {
                     RoundedRectangle(cornerRadius: 1)
-
+                    
                         .fill(Color.button)
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 200, height: 200)
                         .clipShape(Circle())
                         .padding(.top, 86)
-
+                    
                         .overlay(
                             Text(initials(from: contact.fullname) )
                                 .font(.heading1(.bold, size: 44))
@@ -53,33 +53,37 @@ struct DetailScreenView: View {
                                 .foregroundColor(.white) )
                         .padding(.trailing, 12)
                     
-                }
-                
-                Text(contact.fullname)
-                    .font(.heading2(.semiBold))
-                    .font(.system(size: 24, weight: .semibold, design: .none))
-                    .padding(.top, 20)
-                Text(contact.phoneNumber)
-                    .font(.metadat1(.regular, size: 16))
-                    .foregroundColor(.body1)
-                    .padding(.top, 6)
-                    .padding(.bottom, 40)
-
-                HStack(spacing: 12) {
-                    ForEach(allSocialMediaPlatforms, id: \.self) { platform in
-                        let socialMediaLink = contact.socialMediaLinks.first { $0.name == platform }
-                        let url = socialMediaLink?.url ?? ""
-                        SocialButton(imageName: platform, url: url)
+                    Text(contact.fullname)
+                        .font(.heading2(.semiBold))
+                        .padding(.top, 20)
+                    Text(contact.phoneNumber)
+                        .font(.metadat1(.regular, size: 16))
+                        .foregroundColor(.body1)
+                        .padding(.top, 6)
+                    
+                    
+                    HStack(spacing: 12) {
+                        ForEach(allSocialMediaPlatforms, id: \.self) { platform in
+                            let socialMediaLink = contact.socialMediaLinks.first { $0.name == platform }
+                            let url = socialMediaLink?.url ?? ""
+                            SocialButton(imageName: platform, url: url)
+                        }
                     }
+                    .padding(.top, 20)
+                    
+                    Spacer()
                 }
-                .padding(.top, 20)
-
-                Spacer()
             }
+            .edgesIgnoringSafeArea(.top)
         }
-        .edgesIgnoringSafeArea(.top)
     }
 }
+    
+//    #Preview {
+//        DetailScreenView(contact: Contact(name: "Nastya", surname: "Petrova", avatar: nil, phoneNumber: "575757", onlineStatus: .now, haveStories: true, socialMediaLinks: [.init(name: .facebook, link: "", image: "")]))
+//            .environmentObject(Router.init())
+//    }
+
 
 //#Preview {
 //    DetailScreenView(contact: Contact(name: "Nastya", surname: "Petrova", avatar: nil, phoneNumber: "575757", onlineStatus: .now, haveStories: true, socialMediaLinks: [.facebook: "lseihckjsndcnd"]))
