@@ -19,7 +19,7 @@ struct wb_chat_2App: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .modelContainer(for: [User.self,Contact.self, SocialMedia.self])
+                .modelContainer(for: [User.self, Contact.self, SocialMedia.self])
         }
     }
 }

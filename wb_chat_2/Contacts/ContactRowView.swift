@@ -10,22 +10,22 @@ import UISystem
 
 struct ContactRowView: View {
     let contact: Contact
-    
+
     var body: some View {
         HStack(spacing: 12) {
             AvatarView(contact: contact)
-                
+
             VStack(alignment: .leading, spacing: 2) {
                 Text(contact.fullname)
                     .font(.bodyText1(.semiBold))
                     .foregroundStyle(Color("heading2"))
                     .frame(height: 24)
-                        
+
                 Text(contact.onlineStatusMessage)
                     .font(.metadat1(.regular))
                     .foregroundStyle(Color("metadata2"))
                     .frame(height: 20)
-                    
+
                 Spacer()
             }
             Spacer()
@@ -36,58 +36,75 @@ struct ContactRowView: View {
 
 struct AvatarView: View {
     let contact: Contact
-    
+
     var body: some View {
         ZStack {
-            contact.haveStories ? setStories() : nil
-            setImage()
+            if contact.haveStories {
+                if contact.avatar != nil {
+                    strokeForStories(gradient: Color.gradient.style1, startPoint: .leading, endPoint: .trailing)
+                } else {
+                    strokeForStories(gradient: Color.gradient.style2, startPoint: .topLeading, endPoint: .bottomTrailing)
+                }
+            }
+
+            if let image = contact.avatar {
+                Image(image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 48, height: 48)
+                    .cornerRadius(16)
+            } else {
+                Text(initials(from: contact.fullname))
+                    .foregroundStyle(.white)
+                    .frame(width: 48, height: 48)
+                    .background(Color.button)
+                    .cornerRadius(16)
+            }
+
             contact.onlineStatusMessage == "Online" ? setStatus().position(x: 48, y: 6) : nil
         }
         .frame(width: 56, height: 56)
     }
-    
-    private func setStories() -> some View {
-        RoundedRectangle(cornerRadius: 18)
-            .fill(LinearGradient(
-                gradient: Gradient(colors: [Color("button"), Color("metadata2")]),
-                startPoint: .leading,
-                endPoint: .trailing))
-            .frame(width: 56, height: 56)
-    }
-    
-    private func setImage() -> some View {
-        if let imageString = contact.avatar,
-              let imageData = Data(base64Encoded: imageString),
-              let uiImage = UIImage(data: imageData) {
-            return AnyView(
-                Image(uiImage: uiImage)
-                .resizable()
-                .frame(width: 48, height: 48)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 14)
-                    .stroke(Color("background"), lineWidth: 2)
-                )
-            )
-        } else {
-            let nameInitials = contact.name.first
-            let surnameInitials = contact.surname?.first ?? Character(" ")
-            let initials = "\(nameInitials ?? Character(" "))\(surnameInitials)"
-            
-            return AnyView(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(Color("button"))
-                    .stroke(Color("background"), lineWidth: 2)
-                    .frame(width: 48, height: 48)
-                    .overlay(
-                        Text(initials)
-                            .foregroundColor(.white)
-                            .font(.bodyText1(.semiBold))
-                    )
-            )
-        }
-    }
-    
+
+//    private func setStories() -> some View {
+//        RoundedRectangle(cornerRadius: 18)
+//            .fill(LinearGradient(
+//                gradient: Gradient(colors: [Color("button"), Color("metadata2")]),
+//                startPoint: .leading,
+//                endPoint: .trailing))
+//            .frame(width: 56, height: 56)
+//    }
+
+//    private func setImage() -> some View {
+//        if let image = contact.avatar {
+//            return AnyView(
+//                Image(image)
+//                .resizable()
+//                .frame(width: 48, height: 48)
+//                .overlay(
+//                    RoundedRectangle(cornerRadius: 14)
+//                    .stroke(Color("background"), lineWidth: 2)
+//                )
+//            )
+//        } else {
+//            let nameInitials = contact.name.first
+//            let surnameInitials = contact.surname?.first ?? Character(" ")
+//            let initials = "\(nameInitials ?? Character(" "))\(surnameInitials)"
+//
+//            return AnyView(
+//                RoundedRectangle(cornerRadius: 16)
+//                    .fill(Color("button"))
+//                    .stroke(Color("background"), lineWidth: 2)
+//                    .frame(width: 48, height: 48)
+//                    .overlay(
+//                        Text(initials)
+//                            .foregroundColor(.white)
+//                            .font(.bodyText1(.semiBold))
+//                    )
+//            )
+//        }
+//    }
+
     private func setStatus() -> some View {
         Circle()
             .stroke(Color.white, lineWidth: 4)
@@ -96,8 +113,6 @@ struct AvatarView: View {
     }
 }
 
-
-
 //#Preview {
-////    ContactRowView(contact: Contact(name: "Anne", surname: "Das", avatar: "Arbuz", phoneNumber: "+456", onlineStatus: .now, haveStories: true, socialMediaLinks: [.facebook: "fgg"]))
+//    ContactRowView(contact: Contact(name: "Anne", surname: "Das", avatar: "Анастасия Иванова", phoneNumber: "+456", onlineStatus: .now, haveStories: true, hasMessages: false, socialMediaLinks: [SocialMedia(name: .facebook, link: "fgg", image: "fff")]))
 //}
