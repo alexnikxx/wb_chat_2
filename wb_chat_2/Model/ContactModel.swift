@@ -16,16 +16,18 @@ final class Contact: Hashable {
     var surname: String?
     var avatar: String?
     var phoneNumber: String
+    var hasMessages: Bool
     @Transient var onlineStatus: Date? = Contact.randomOnlineStatus()
     @Transient var haveStories: Bool = Bool.random()
     var socialMediaLinks: [SocialMedia]
     
-    init(id: UUID = UUID(), name: String, surname: String?, avatar: String?, phoneNumber: String, socialMediaLinks: [SocialMedia] = []) {
+    init(id: UUID = UUID(), name: String, surname: String?, avatar: String?, phoneNumber: String, hasMessages: Bool, socialMediaLinks: [SocialMedia] = []) {
         self.id = id
         self.name = name
         self.surname = surname
         self.avatar = avatar
         self.phoneNumber = phoneNumber
+        self.hasMessages = hasMessages
         self.socialMediaLinks = socialMediaLinks
     }
     var fullname: String {
