@@ -18,6 +18,7 @@ final class NewContactViewModel: ObservableObject {
     @Published var selectedCountry: Country
     @Published var nameError: Bool = false
     @Published var phoneNumberError: Bool = false
+    @Published var hasMessages: Bool = false
     @Published var name: String = ""
     @Published var surname: String = ""
     @Published var phoneNumber: String = ""
@@ -67,6 +68,7 @@ final class NewContactViewModel: ObservableObject {
             surname: surname.isEmpty ? nil : surname,
             avatar: selectedImage?.convertToBase64String(),
             phoneNumber: selectedCountry.code + phoneNumber,
+            hasMessages: hasMessages,
             socialMediaLinks: socialMediaLinks
         )
         

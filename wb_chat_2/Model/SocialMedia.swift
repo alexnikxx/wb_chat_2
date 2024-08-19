@@ -16,8 +16,8 @@ class SocialMedia {
     init(name: String, nickname: String) {
         self.name = name
         self.nickname = nickname
-        
     }
+    
     var url: String {
         switch name {
         case "twitter":

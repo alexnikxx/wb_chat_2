@@ -8,6 +8,7 @@
 import SwiftUI
 import UISystem
 import SwiftData
+
 struct NewContactView: View {
     @EnvironmentObject var router: Router
     @FocusState private var keyboardFocused: Bool
