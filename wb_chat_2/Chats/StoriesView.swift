@@ -13,13 +13,15 @@ struct StoriesView: View {
     var body: some View {
         let contactsWithStories = contacts.filter { $0.haveStories }
 
+        ScrollView(.horizontal) {
         HStack(spacing: 16) {
-            AddStoryView()
-            ForEach(contactsWithStories, id: \.self) { contact in
-                VStack(spacing: 8) {
-                    AvatarView(contact: contact)
-                    Text(contact.name)
-                        .font(.metadat1(.regular))
+                AddStoryView()
+                ForEach(contactsWithStories, id: \.self) { contact in
+                    VStack(spacing: 8) {
+                        AvatarView(contact: contact)
+                        Text(contact.name)
+                            .font(.metadat1(.regular))
+                    }
                 }
             }
         }

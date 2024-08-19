@@ -151,6 +151,8 @@
 		1A6C5BC12C6CE5EC0095CB8F /* Chats */ = {
 			isa = PBXGroup;
 			children = (
+				2A3A82992C735B4E00DDA965 /* StoriesView.swift */,
+				2A3A829B2C735B6400DDA965 /* AddStoryView.swift */,
 				1A94048A2C720E7700331778 /* Models */,
 				1A6C5BC22C6CE5FD0095CB8F /* ChatsGPTView.swift */,
 				1A9404862C720C7600331778 /* GPTChatView.swift */,
@@ -263,8 +265,6 @@
 		2AAC07422C674DC400D712BF = {
 			isa = PBXGroup;
 			children = (
-				2A3A82992C735B4E00DDA965 /* StoriesView.swift */,
-				2A3A829B2C735B6400DDA965 /* AddStoryView.swift */,
 				2AAC074D2C674DC400D712BF /* wb_chat_2 */,
 				2AAC074C2C674DC400D712BF /* Products */,
 				1AF8DDBD2C67AC2000C5F315 /* Frameworks */,
