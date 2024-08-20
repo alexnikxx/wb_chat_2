@@ -23,7 +23,7 @@ struct DetailScreenView: View {
                 isBackButton: true,
                 rightButtonIcon: "pensil",
                 rightButtonAction: { router.navigateTo(.editContact(contact: contact)) },
-                backButtonAction: { router.navigateBack() }
+                backButtonAction: { router.navigateBack() }, isSubtitle: false
             )
             
             VStack(spacing: 0) {

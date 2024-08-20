@@ -25,7 +25,7 @@ struct EditContactView: View {
                     title: "Профиль",
                     isBackButton: true,
                     rightButtonIcon: "",
-                    backButtonAction: { router.navigateBack() }
+                    backButtonAction: { router.navigateBack() }, isSubtitle: false
                 )
                 
                 VStack(spacing: 16) {

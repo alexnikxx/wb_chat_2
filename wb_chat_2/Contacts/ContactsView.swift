@@ -34,7 +34,7 @@ struct ContactsView: View {
                 isBackButton: false,
                 rightButtonIcon: "plus",
                 rightButtonAction: { router.navigateTo(.newContact) },
-                backButtonAction: { }
+                backButtonAction: { }, isSubtitle: false
             )
             
             WBSearchBarView(inputText: $inputText)

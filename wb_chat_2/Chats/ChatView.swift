@@ -29,7 +29,7 @@ struct ChatsView: View {
                             }
                         }
                     },
-                    backButtonAction: { }
+                    backButtonAction: { }, isSubtitle: false
                 )
                 StoriesView()
 

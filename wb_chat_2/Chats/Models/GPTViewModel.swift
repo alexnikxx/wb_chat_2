@@ -21,6 +21,7 @@ final class GPTViewModel: ObservableObject {
     @Published var model: GPTModel = .gpt4o_mini
     @Published var chats: [Chat] = []
     @Published var currentChat: Chat?
+    @Published var isLoading: Bool = false
     
     var chatIndex: Int {
         chats.firstIndex(where: { $0.id == currentChat?.id }) ?? 0
@@ -65,6 +66,7 @@ final class GPTViewModel: ObservableObject {
     func sendMessage(draftMessage: DraftMessage) {
         let userMessage = MockMessage(uid: UUID().uuidString, sender: currentUser, createdAt: Date(), text: draftMessage.text)
         chats[chatIndex].messages.append(userMessage)
+        isLoading = true
         
         let request = GPTRequest(
             model: model.rawValue,
@@ -81,6 +83,7 @@ final class GPTViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         let errorMessage = MockMessage(uid: UUID().uuidString, sender: self.systemUser, createdAt: Date(), text: "❗️Error: \(error.localizedDescription)")
                         self.chats[self.chatIndex].messages.append(errorMessage)
+                        self.isLoading = false
                     }
                 }
                 return
@@ -90,6 +93,7 @@ final class GPTViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     let gptMessage = MockMessage(uid: UUID().uuidString, sender: self.gptUser, createdAt: Date(), text: completion)
                     self.chats[self.chatIndex].messages.append(gptMessage)
+                    self.isLoading = false
                     self.generateChatTitle(for: self.chatIndex)
                 }
             }

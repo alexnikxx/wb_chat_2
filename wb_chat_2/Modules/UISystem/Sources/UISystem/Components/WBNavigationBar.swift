@@ -14,6 +14,7 @@ public struct WBNavigationBar: View {
     public var textColor: Color
     public var rightButtonAction: (() -> Void)?
     public var backButtonAction: () -> Void
+    public var isSubtitle: Bool
 
     public init(
         title: String,
@@ -21,7 +22,8 @@ public struct WBNavigationBar: View {
         rightButtonIcon: String,
         textColor: Color = Color(("heading2")),
         rightButtonAction: (() -> Void)? = nil,
-        backButtonAction: @escaping () -> Void
+        backButtonAction: @escaping () -> Void,
+        isSubtitle: Bool
     ) {
         self.title = title
         self.isBackButton = isBackButton
@@ -29,6 +31,7 @@ public struct WBNavigationBar: View {
         self.textColor = textColor
         self.rightButtonAction = rightButtonAction
         self.backButtonAction = backButtonAction
+        self.isSubtitle = isSubtitle
     }
 
     public var body: some View {
@@ -43,8 +46,23 @@ public struct WBNavigationBar: View {
                         backButton()
                             .padding(.leading)
                     }
-
-                    title(title)
+                    VStack(alignment: .leading, spacing: 1) {
+                        title(title)
+                        
+                        if isSubtitle {
+                            HStack {
+                                ProgressView()
+                                    .scaleEffect(0.7)
+                                    .progressViewStyle(.circular)
+                                Text("GPT is typing...")
+                                    .font(.system(size: 12))
+                                    .italic()
+                                    .padding(.leading, 4)
+                            }
+                            .foregroundStyle(.gray)
+                        }
+                    }
+                    .padding(.leading, isBackButton ? 8 : 24)
                     
                     Spacer()
 
@@ -64,7 +82,6 @@ public struct WBNavigationBar: View {
         Text(text)
             .font(.subheading1(.semiBold))
             .foregroundStyle(textColor)
-            .padding(.leading, isBackButton ? 8 : 24)
     }
 
     public func backButton() -> some View {
