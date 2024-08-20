@@ -7,12 +7,12 @@
 
 import SwiftUI
 import UISystem
-
+import SwiftData
 struct ChatsView: View {
     @EnvironmentObject private var viewModelGPT: GPTViewModel
     @State var inputText = ""
     @State var isChatGPT: Bool = false
-
+    @Environment(\.modelContext) private var modelContext: ModelContext
     var filteredContacts = Contacts.contacts.filter { $0.hasMessages }
 
     var body: some View {
@@ -25,7 +25,7 @@ struct ChatsView: View {
                     rightButtonAction: { 
                         if isChatGPT {
                             withAnimation {
-                                viewModelGPT.addNewChat()
+                                viewModelGPT.addNewChat(modelContext: modelContext)
                             }
                         }
                     },

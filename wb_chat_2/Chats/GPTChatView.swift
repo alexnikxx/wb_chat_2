@@ -9,22 +9,24 @@ import SwiftUI
 import OpenAIAPI
 import UISystem
 import ExyteChat
+import SwiftData
 
 struct GPTChatView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var router: Router
     @EnvironmentObject private var viewModelGPT: GPTViewModel
+    @Environment(\.modelContext) private var modelContext: ModelContext
     
     var chat: Chat
     
     var body: some View {
         VStack {
             WBNavigationBar(title: chat.title, isBackButton: true, rightButtonIcon: "reload", rightButtonAction: {
-                viewModelGPT.clearHistory()
+                viewModelGPT.clearHistory(modelContext: modelContext)
             }, backButtonAction: router.navigateBack, isSubtitle: viewModelGPT.isLoading)
             
             ChatView(messages: viewModelGPT.messages, chatType: .conversation) { draft in
-                viewModelGPT.sendMessage(draftMessage: draft)
+                viewModelGPT.sendMessage(draftMessage: draft, modelContext: modelContext)
             } inputViewBuilder: { textBinding, attachments, inputViewState, inputViewStyle, inputViewActionClosure, dismissKeyboardClosure in
                 Group {
                     ZStack {

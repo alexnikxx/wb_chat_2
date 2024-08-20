@@ -6,14 +6,21 @@
 //
 
 import Foundation
-
 import ExyteChat
+import SwiftData
 
-struct MockMessage: Hashable {
+@Model
+class MockMessage: Hashable {
     let uid: String
     let sender: MockUser
     let createdAt: Date
     let text: String
+    init(uid: String, sender: MockUser, createdAt: Date, text: String) {
+        self.uid = uid
+        self.sender = sender
+        self.createdAt = createdAt
+        self.text = text
+    }
 }
 
 extension MockMessage {

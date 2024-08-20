@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Chat: Identifiable, Hashable {
+@Model
+class Chat: Identifiable, Hashable {
     let id: UUID
     var title: String
     var messages: [MockMessage]

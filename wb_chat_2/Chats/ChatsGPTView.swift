@@ -8,12 +8,13 @@
 import SwiftUI
 import OpenAIAPI
 import UISystem
+import SwiftData
 
 struct ChatsGPTView: View {
     @EnvironmentObject var router: Router
     @EnvironmentObject private var viewModelGPT: GPTViewModel
     @State private var inputText = ""
-    
+    @Environment(\.modelContext) private var modelContext: ModelContext
     var body: some View {
         VStack {
             List {
@@ -32,12 +33,14 @@ struct ChatsGPTView: View {
                 }
                 .onDelete { indexSet in
                     withAnimation {
-                        viewModelGPT.deleteChat(at: indexSet)
+                        viewModelGPT.deleteChat(at: indexSet, modelContext: modelContext)
                     }
                 }
             }
             .listStyle(.plain)
-            
+            .onAppear {
+                viewModelGPT.loadChats(modelContext: modelContext)
+            }
             
         }
         .background(Color("background"))
