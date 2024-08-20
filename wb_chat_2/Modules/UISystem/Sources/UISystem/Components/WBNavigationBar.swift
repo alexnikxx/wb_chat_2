@@ -72,6 +72,7 @@ public struct WBNavigationBar: View {
                         }
                     }
                 }
+                .padding(.bottom, 16)
                 .frame(height: 90, alignment: .bottom)
             }
         }

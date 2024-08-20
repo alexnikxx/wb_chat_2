@@ -31,6 +31,7 @@ struct ChatsView: View {
                     },
                     backButtonAction: { }, isSubtitle: false
                 )
+
                 StoriesView()
 
                 VStack(spacing: 0) {
@@ -67,7 +68,7 @@ struct ChatsView: View {
                     ChatsGPTView()
                 }
             }
-            .ignoresSafeArea()
+//            .ignoresSafeArea()
             .frame(maxHeight: .infinity, alignment: .top)
         }
     }
