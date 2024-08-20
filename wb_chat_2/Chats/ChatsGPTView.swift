@@ -28,8 +28,8 @@ struct ChatsGPTView: View {
             
             List(chats, id: \.self) { chat in
                 GPTChatRowView()
-                    .listRowBackground(Color("background"))
-                    .listRowSeparatorTint(Color("textfield"))
+                    .listRowBackground(Color.CustomColors.background)
+                    .listRowSeparatorTint(Color.CustomColors.textfield)
                     .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
                     .alignmentGuide(.listRowSeparatorTrailing) { separator in
                         separator.width - 2
@@ -43,7 +43,7 @@ struct ChatsGPTView: View {
             
         }
         .edgesIgnoringSafeArea(.top)
-        .background(Color("background"))
+        .background(Color.CustomColors.background)
         .onTapGesture {
             hideKeyboard()
         }

@@ -18,12 +18,12 @@ struct ContactRowView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(contact.fullname)
                     .font(.bodyText1(.semiBold))
-                    .foregroundStyle(Color("heading2"))
+                    .foregroundStyle(Color.CustomColors.heading2)
                     .frame(height: 24)
 
                 Text(contact.onlineStatusMessage)
                     .font(.metadat1(.regular))
-                    .foregroundStyle(Color("metadata2"))
+                    .foregroundStyle(Color.CustomColors.metadata2)
                     .frame(height: 20)
 
                 Spacer()

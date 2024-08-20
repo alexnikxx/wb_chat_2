@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UISystem
 
 struct CountryView: View {
     @Binding var selectedCountry: Country
@@ -29,7 +30,7 @@ struct CountryView: View {
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 10)
-            .foregroundStyle(.heading2)
+            .foregroundStyle(Color.CustomColors.heading2)
             .background(Color.textfield)
             .clipShape(RoundedRectangle(cornerRadius: 4))
         }

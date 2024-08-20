@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UISystem
 
 struct OnboardingInfo: View {
     let title: String
@@ -21,7 +22,7 @@ struct OnboardingInfo: View {
                 .lineSpacing(8)
         }
         .multilineTextAlignment(.center)
-        .foregroundStyle(.heading2)
+        .foregroundStyle(Color.CustomColors.heading2)
         .padding(.bottom, 40)
         .padding(.top, 80)
     }

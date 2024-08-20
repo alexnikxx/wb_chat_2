@@ -20,8 +20,8 @@ struct ChatListView: View {
 
             List(filteredContacts, id: \.self) { contact in
                 ChatContactCell(contact: contact, lastMessage: "че каво")
-                    .listRowBackground(Color("background"))
-                    .listRowSeparatorTint(Color("textfield"))
+                    .listRowBackground(Color.CustomColors.background)
+                    .listRowSeparatorTint(Color.CustomColors.textfield)
                     .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
                     .alignmentGuide(.listRowSeparatorTrailing) { separator in
                         separator.width - 2
