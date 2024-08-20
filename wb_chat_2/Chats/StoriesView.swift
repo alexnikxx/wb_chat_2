@@ -13,7 +13,7 @@ struct StoriesView: View {
     var body: some View {
         let contactsWithStories = contacts.filter { $0.haveStories }
 
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
         HStack(spacing: 16) {
                 AddStoryView()
                 ForEach(contactsWithStories, id: \.self) { contact in

@@ -10,49 +10,74 @@ import UISystem
 struct MoreScreenView: View {
     @State private var darkMode = false
     @State private var pushNotificationMode = true
-    
+
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Ещё")
-                .font(.title)
-                .padding(.leading, 16)
-            
-            ScrollView {
-                VStack(spacing: 16) {
+        BackgroundView {
+            VStack {
+                WBNavigationBar(
+                    title: "Еще",
+                    isBackButton: false,
+                    rightButtonIcon: "",
+                    backButtonAction: { }
+                )
+
+                VStack(spacing: 32) {
                     privateView
-                    userView
-                    chatsView
-                    themeView
-                    pushView
-                    safeView
-                    memoryView
-                    helpView
-                    invintationView
+
+                    VStack(spacing: 16) {
+                        userView
+                        chatsView
+                    }
+
+                    VStack(spacing: 16) {
+                        themeView
+                        pushView
+                        safeView
+                        memoryView
+                        Divider()
+                            .background(Color.wBgray)
+                        helpView
+                        invintationView
+                    }
                 }
+                .padding(.horizontal, 16)
+                .frame(maxHeight: .infinity, alignment: .top)
             }
-            .padding(.leading, 16)
-            .padding(.trailing, 16)
         }
     }
 }
 //MARK: Properties
 extension MoreScreenView {
-    
     var privateView: some View {
         DisclosureGroup {
             Text("Аккаунт")
         } label: {
-            Image("userBig")
-            VStack(alignment: .leading) {
-                Text("Иван Иванов")
-                    .foregroundStyle(.heading2)
-                    .font(.bodyText1(.bold, size: 18))
-                Text("+7 999 888 77 66")
-                    .font(.metadat1(.regular, size: 16))
-                    .foregroundStyle(.metadata2)
+            HStack(spacing: 20) {
+                ZStack {
+                    Circle()
+                        .foregroundStyle(.wBgray)
+                        .frame(width: 50, height: 50)
+
+                    Image("userBig")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 24, height: 24)
+                }
+
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Иван Иванов")
+                        .foregroundStyle(.heading2)
+                        .font(.bodyText1(.semiBold))
+
+                    Text("+7 999 888 77 66")
+                        .font(.bodyText2(.regular))
+                        .foregroundStyle(.metadata2)
+                }
             }
         }
+        .accentColor(.heading2)
     }
+
     var userView: some View {
         DisclosureGroup {
             Text("Аккаунт")
@@ -62,7 +87,9 @@ extension MoreScreenView {
                 .font(.bodyText1(.semiBold))
                 .foregroundStyle(.heading2)
         }
+        .accentColor(.heading2)
     }
+
     var chatsView: some View {
         DisclosureGroup {
             Text("Чаты")
@@ -74,7 +101,9 @@ extension MoreScreenView {
                 .font(.bodyText1(.semiBold))
                 .foregroundStyle(.heading2)
         }
+        .accentColor(.heading2)
     }
+
     var themeView: some View {
         HStack {
             Toggle(isOn: $darkMode) {
@@ -88,6 +117,7 @@ extension MoreScreenView {
             .padding(.trailing, 2)
         }
     }
+
     var pushView: some View {
         HStack {
             Toggle(isOn: $pushNotificationMode) {
@@ -101,16 +131,19 @@ extension MoreScreenView {
             .padding(.trailing, 2)
         }
     }
+
     var safeView: some View {
         DisclosureGroup {
-                Text("Безопасность")
+            Text("Безопасность")
         } label: {
             Image("outline-privacy-tip")
             Text("Безопасность")
                 .font(.bodyText1(.semiBold))
                 .foregroundStyle(.heading2)
         }
+        .accentColor(.heading2)
     }
+
     var memoryView: some View {
         DisclosureGroup {
             Text("Память и ресурсы")
@@ -120,7 +153,9 @@ extension MoreScreenView {
                 .font(.bodyText1(.semiBold))
                 .foregroundStyle(.heading2)
         }
+        .accentColor(.heading2)
     }
+
     var helpView: some View {
         DisclosureGroup {
             Text("Помощь")
@@ -130,7 +165,9 @@ extension MoreScreenView {
                 .font(.bodyText1(.semiBold))
                 .foregroundStyle(.heading2)
         }
+        .accentColor(.heading2)
     }
+
     var invintationView: some View {
         DisclosureGroup {
             Text("Пригласи друга")
@@ -140,6 +177,7 @@ extension MoreScreenView {
                 .font(.bodyText1(.semiBold))
                 .foregroundStyle(.heading2)
         }
+        .accentColor(.heading2)
     }
 }
 #Preview {

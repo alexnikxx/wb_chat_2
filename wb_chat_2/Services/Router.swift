@@ -40,7 +40,7 @@ final class Router: ObservableObject {
                     ChatsView()
                         .navigationBarBackButtonHidden()
                 case .settings:
-                    SettingsView()
+                    MoreScreenView()
                         .navigationBarBackButtonHidden()
                 }
                 Spacer()

@@ -171,6 +171,7 @@
 		1A6C5BC42C6CE6030095CB8F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				E5477CA12C7360BE00CC024F /* MoreScreenView.swift */,
 				1A6C5BC52C6CE61E0095CB8F /* SettingsView.swift */,
 			);
 			path = Settings;
@@ -287,7 +288,6 @@
 				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
 				1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */,
 				1A9404842C720B8000331778 /* Modules */,
-				E5477CA02C73609C00CC024F /* MoreView */,
 				65C98F8A2C67746600E54C0E /* Localizable */,
 				6568BC112C6E0B7000CD46F4 /* Model */,
 				2A93B4EE2C6FB6E1002C0DAA /* Components */,
@@ -374,14 +374,6 @@
 				65C98F8F2C677B4500E54C0E /* LocalizedStrings.swift */,
 			);
 			path = Localizable;
-			sourceTree = "<group>";
-		};
-		E5477CA02C73609C00CC024F /* MoreView */ = {
-			isa = PBXGroup;
-			children = (
-				E5477CA12C7360BE00CC024F /* MoreScreenView.swift */,
-			);
-			path = MoreView;
 			sourceTree = "<group>";
 		};
 		E586DFA12C6CBEB900220252 /* DetailScreen */ = {
