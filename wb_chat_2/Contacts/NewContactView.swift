@@ -25,7 +25,7 @@ struct NewContactView: View {
                     title: LocalizedStrings.newContactTittle,
                     isBackButton: true,
                     rightButtonIcon: "",
-                    backButtonAction: { router.navigateBack() }
+                    backButtonAction: { router.navigateBack() }, isSubtitle: false
                 )
                 
                 VStack(spacing: 16) {

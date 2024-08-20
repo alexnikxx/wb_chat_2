@@ -8,48 +8,42 @@
 import SwiftUI
 import OpenAIAPI
 import UISystem
+import SwiftData
 
 struct ChatsGPTView: View {
     @EnvironmentObject var router: Router
+    @EnvironmentObject private var viewModelGPT: GPTViewModel
     @State private var inputText = ""
-    @ObservedObject var viewModel = GPTViewModel()
-    
-    private let chats: [Int] = [1]
-
+    @Environment(\.modelContext) private var modelContext: ModelContext
     var body: some View {
         VStack {
-            WBNavigationBar(title: LocalizedStrings.chats, isBackButton: false, rightButtonIcon: "plus") {
-                //router.navigateTo(CreateChat)
-            }
-            
-            WBSearchBarView(inputText: $inputText)
-                .padding(.horizontal, 24)
-                .padding(.top, 16)
-            
-            List(chats, id: \.self) { chat in
-                GPTChatRowView()
-                    .listRowBackground(Color("background"))
-                    .listRowSeparatorTint(Color("textfield"))
-                    .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
-                    .alignmentGuide(.listRowSeparatorTrailing) { separator in
-                        separator.width - 2
+            List {
+                ForEach(viewModelGPT.chats, id: \.self) { chat in
+                    GPTChatRowView(chat: chat)
+                        .listRowBackground(Color("background"))
+                        .listRowSeparatorTint(Color("textfield"))
+                        .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
+                        .alignmentGuide(.listRowSeparatorTrailing) { separator in
+                            separator.width - 2
+                        }
+                        .padding(5)
+                        .onTapGesture {
+                            router.navigateTo(.gptChat(chat: chat))
+                        }
+                }
+                .onDelete { indexSet in
+                    withAnimation {
+                        viewModelGPT.deleteChat(at: indexSet, modelContext: modelContext)
                     }
-                    .padding(5)
-                    .onTapGesture {
-                        router.navigateTo(.gptChat)
-                    }
+                }
             }
             .listStyle(.plain)
+            .onAppear {
+                viewModelGPT.loadChats(modelContext: modelContext)
+            }
             
         }
-        .edgesIgnoringSafeArea(.top)
         .background(Color("background"))
-        .onTapGesture {
-            hideKeyboard()
-        }
     }
 }
 
-#Preview {
-    ChatsGPTView()
-}

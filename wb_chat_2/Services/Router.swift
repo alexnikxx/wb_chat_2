@@ -17,7 +17,7 @@ enum Route: Hashable {
     case newContact
     case editContact(contact: Contact)
     case contactDetails(contact: Contact)
-    case gptChat
+    case gptChat(chat: Chat)
 }
 
 @MainActor
@@ -76,8 +76,8 @@ final class Router: ObservableObject {
             case .contactDetails(let contact):
                 DetailScreenView(contact: contact)
                     .navigationBarBackButtonHidden()
-            case .gptChat:
-                GPTChatView()
+            case .gptChat(let chat):
+                GPTChatView(chat: chat)
                     .navigationBarBackButtonHidden()
             }
     }

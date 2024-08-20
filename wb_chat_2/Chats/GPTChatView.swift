@@ -9,79 +9,69 @@ import SwiftUI
 import OpenAIAPI
 import UISystem
 import ExyteChat
+import SwiftData
 
 struct GPTChatView: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var router: Router
-    @ObservedObject var viewModel = GPTViewModel()
-
+    @EnvironmentObject private var viewModelGPT: GPTViewModel
+    @Environment(\.modelContext) private var modelContext: ModelContext
+    
+    var chat: Chat
+    
     var body: some View {
         VStack {
-            WBNavigationBar(title: viewModel.model.rawValue, isBackButton: true, rightButtonIcon: "reload", rightButtonAction: {
-                viewModel.clearHistory()
-            }, backButtonAction: router.navigateBack)
+            WBNavigationBar(title: chat.title, isBackButton: true, rightButtonIcon: "reload", rightButtonAction: {
+                viewModelGPT.clearHistory(modelContext: modelContext)
+            }, backButtonAction: router.navigateBack, isSubtitle: viewModelGPT.isLoading)
             
-            ChatView(messages: viewModel.messages, chatType: .conversation) { draft in
-                viewModel.sendMessage(draftMessage: draft)
+            ChatView(messages: viewModelGPT.messages, chatType: .conversation) { draft in
+                viewModelGPT.sendMessage(draftMessage: draft, modelContext: modelContext)
+            } inputViewBuilder: { textBinding, attachments, inputViewState, inputViewStyle, inputViewActionClosure, dismissKeyboardClosure in
+                Group {
+                    ZStack {
+                        Rectangle()
+                            .foregroundStyle(Color("background"))
+                            .frame(height: 60)
+                            .shadow(
+                                color: Color("heading2").opacity(colorScheme == .light ? 0.04 : 0),
+                                radius: 12,
+                                x: 0,
+                                y: -1
+                            )
+                        
+                        Rectangle()
+                            .foregroundStyle(Color("background"))
+                            .frame(height: 60)
+                            .offset(x: 0, y: 40)
+                        
+                        HStack(spacing: 12) {
+                            WBTextField(placeholder: "Аа", text: textBinding)
+                            
+                            Button {
+                                inputViewActionClosure(.send)
+                            } label: {
+                                Image("send-alt-filled")
+                            
+                                
+                            }
+                            .disabled(textBinding.wrappedValue.isEmpty)
+                        }
+                        .padding(.horizontal)
+                    }
+                }
             }
-            .messageUseMarkdown(messageUseMarkdown: true)
-            .padding(.vertical, 20)
+            .chatTheme(colors: ChatTheme.Colors(
+                mainBackground: .textfield,
+                myMessage: .accent,
+                friendMessage: .background
+            ))
+        }
+        .onAppear {
+            viewModelGPT.switchToChat(chat)
         }
         .edgesIgnoringSafeArea(.top)
         
     }
-    
-    
-    /*var body: some View {
-        VStack {
-            ScrollView {
-                VStack(alignment: .leading) {
-                    ForEach(viewModel.GPTmessages, id: \.self) { message in
-                        Text("\(message.role?.capitalized ?? "🥝"): \(message.content ?? "🍎")")
-                            .padding()
-                            .background(message.role == "user" ? Color.blue.opacity(0.1) : Color.gray.opacity(0.1))
-                            .cornerRadius(8)
-                            .frame(maxWidth: .infinity, alignment: message.role == "user" ? .trailing : .leading)
-                            .padding(.vertical, 2)
-                    }
-                }
-            }
-            .padding()
-
-            HStack {
-                TextField("Enter your message...", text: $viewModel.inputText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(minHeight: 30)
-
-                Button(action: {
-                    viewModel.sendMessage()
-                }) {
-                    Image(systemName: "paperplane.fill")
-                        .padding()
-                        .frame(height: 35)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-                
-                Button(action: {
-                    viewModel.clearHistory()
-                }) {
-                    Image(systemName: "trash.fill")
-                        .padding()
-                        .frame(height: 35)
-                        .background(Color.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
-            }
-            .padding()
-            .padding(.bottom, 80)
-        }
-        .padding(.top, 50)
-    }*/
 }
 
-
-#Preview {
-    GPTChatView()
-}

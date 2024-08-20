@@ -34,7 +34,7 @@ struct ContactsView: View {
                 isBackButton: false,
                 rightButtonIcon: "plus",
                 rightButtonAction: { router.navigateTo(.newContact) },
-                backButtonAction: { }
+                backButtonAction: { }, isSubtitle: false
             )
             
             WBSearchBarView(inputText: $inputText)
@@ -74,15 +74,69 @@ struct ContactsView: View {
             .edgesIgnoringSafeArea(.top)
             .background(Color("background"))
         }
-        
+        .onAppear {
+            createMockContacts()
+        }
         
     }
     private func deleteContact(_ contact: Contact) {
         modelContext.delete(contact)
     }
     
-    
+    func createMockContacts() {
+        do {
+            let existingContacts = try modelContext.fetch(FetchDescriptor<Contact>())
+            if existingContacts.isEmpty {
+                let contacts = [
+                    Contact(
+                        name: "Анастасия",
+                        surname: "Иванова",
+                        avatar: "Анастасия Иванова",
+                        phoneNumber: "+7 999 999-99-99",
+                        hasMessages: true,
+                        socialMediaLinks: [
+                            SocialMedia(name: "facebook", nickname: "1"),
+                            SocialMedia(name: "instagram", nickname: "2"),
+                            SocialMedia(name: "twitter", nickname: "3")
+                        ]
+                    ),
+                    Contact(
+                        name: "Петя",
+                        surname: nil,
+                        avatar: "Петя",
+                        phoneNumber: "+7 999 999-99-99",
+                        hasMessages: true,
+                        socialMediaLinks: [
+                            SocialMedia(name: "facebook", nickname: "4"),
+                            SocialMedia(name: "instagram", nickname: "5"),
+                            SocialMedia(name: "twitter", nickname: "6"),
+                            SocialMedia(name: "linkedin", nickname: "7")
+                        ]
+                    ),
+                    Contact(
+                        name: "Иван",
+                        surname: "Иванов",
+                        avatar: nil,
+                        phoneNumber: "+7 999 999-99-99",
+                        hasMessages: true,
+                        socialMediaLinks: [
+                            SocialMedia(name: "facebook", nickname: "13"),
+                            SocialMedia(name: "linkedin", nickname: "14")
+                        ]
+                    )
+                ]
+                
+                contacts.forEach { modelContext.insert($0) }
+                try modelContext.save()
+            }
+        } catch {
+            print("Error fetching or saving contacts: \(error.localizedDescription)")
+        }
+    }
 }
+
+    
+
 
 #Preview {
     ContactsView()

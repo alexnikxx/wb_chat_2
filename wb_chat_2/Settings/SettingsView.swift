@@ -18,7 +18,7 @@ struct SettingsView: View {
                     title: "Еще",
                     isBackButton: false,
                     rightButtonIcon: "",
-                    backButtonAction: { }
+                    backButtonAction: { }, isSubtitle: false
                 )
 
                 VStack(spacing: 32) {

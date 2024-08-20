@@ -7,12 +7,15 @@
 
 import SwiftUI
 import UISystem
-
+import SwiftData
 struct ChatsView: View {
+    @EnvironmentObject private var viewModelGPT: GPTViewModel
     @State var inputText = ""
     @State var isChatGPT: Bool = false
-
-    var filteredContacts = Contacts.contacts.filter { $0.hasMessages }
+    @Environment(\.modelContext) private var modelContext: ModelContext
+    @Query let contacts: [Contact]
+    
+    var filteredContacts: [Contact] { contacts.filter { $0.hasMessages } }
 
     var body: some View {
         BackgroundView {
@@ -21,8 +24,14 @@ struct ChatsView: View {
                     title: "Чаты",
                     isBackButton: false,
                     rightButtonIcon: "message_plus_alt",
-                    rightButtonAction: { },
-                    backButtonAction: { }
+                    rightButtonAction: { 
+                        if isChatGPT {
+                            withAnimation {
+                                viewModelGPT.addNewChat(modelContext: modelContext)
+                            }
+                        }
+                    },
+                    backButtonAction: { }, isSubtitle: false
                 )
 
                 StoriesView()
@@ -69,4 +78,5 @@ struct ChatsView: View {
 
 #Preview {
     ChatsView()
+        .environmentObject(GPTViewModel())
 }

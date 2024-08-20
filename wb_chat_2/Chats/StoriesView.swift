@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
-
+import SwiftData
 struct StoriesView: View {
-    let contacts = Contacts.contacts
+    @Query let contacts: [Contact]
 
     var body: some View {
         let contactsWithStories = contacts.filter { $0.haveStories }

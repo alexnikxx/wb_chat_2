@@ -19,6 +19,7 @@
 		1A94048C2C720E9100331778 /* GPTUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94048B2C720E9100331778 /* GPTUser.swift */; };
 		1A94048E2C720E9C00331778 /* GPTMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94048D2C720E9C00331778 /* GPTMessage.swift */; };
 		1A9404962C72206D00331778 /* GPTChatRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9404952C72206D00331778 /* GPTChatRowView.swift */; };
+		1A94049A2C736E5700331778 /* GPTChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9404992C736E5700331778 /* GPTChat.swift */; };
 		1AF8DDAD2C67A36000C5F315 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8DDAC2C67A36000C5F315 /* ContactModel.swift */; };
 		1AF8DDAF2C67A36F00C5F315 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8DDAE2C67A36F00C5F315 /* ContactsView.swift */; };
 		1AF8DDB12C67A38500C5F315 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF8DDB02C67A38500C5F315 /* ContactsViewModel.swift */; };
@@ -82,6 +83,7 @@
 		1A94048B2C720E9100331778 /* GPTUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTUser.swift; sourceTree = "<group>"; };
 		1A94048D2C720E9C00331778 /* GPTMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTMessage.swift; sourceTree = "<group>"; };
 		1A9404952C72206D00331778 /* GPTChatRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatRowView.swift; sourceTree = "<group>"; };
+		1A9404992C736E5700331778 /* GPTChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChat.swift; sourceTree = "<group>"; };
 		1AF8DDAC2C67A36000C5F315 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		1AF8DDAE2C67A36F00C5F315 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		1AF8DDB02C67A38500C5F315 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				1A9404822C6F755E00331778 /* GPTViewModel.swift */,
 				1A94048B2C720E9100331778 /* GPTUser.swift */,
 				1A94048D2C720E9C00331778 /* GPTMessage.swift */,
+				1A9404992C736E5700331778 /* GPTChat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				1AF8DDAD2C67A36000C5F315 /* ContactModel.swift in Sources */,
 				2A1169C72C6E2111005BDBE4 /* RegistrationView.swift in Sources */,
 				1AF8DDAF2C67A36F00C5F315 /* ContactsView.swift in Sources */,
+				1A94049A2C736E5700331778 /* GPTChat.swift in Sources */,
 				6568BC132C6E0BEC00CD46F4 /* SocialMedia.swift in Sources */,
 				2A3A82A22C735BEA00DDA965 /* ChatContactCell.swift in Sources */,
 				2AAC074F2C674DC400D712BF /* wb_chat_2App.swift in Sources */,
