@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UISystem
 
 enum Tab: CaseIterable {
     case contacts
@@ -31,10 +32,10 @@ struct WBTabBar: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundStyle(Color("background"))
+                .foregroundStyle(Color.CustomColors.background)
                 .frame(height: 84)
                 .shadow(
-                    color: Color("heading2").opacity(colorScheme == .light ? 0.04 : 0),
+                    color: Color.CustomColors.heading2.opacity(colorScheme == .light ? 0.04 : 0),
                     radius: 12,
                     x: 0,
                     y: -1
@@ -46,7 +47,7 @@ struct WBTabBar: View {
                         .renderingMode(.template)
                         .resizable()
                         .frame(width: 32, height: 32)
-                        .foregroundStyle(router.selectedTabRoute == tab ? Color.accentColor : Color("heading2"))
+                        .foregroundStyle(router.selectedTabRoute == tab ? Color.accentColor : Color.CustomColors.heading2)
                         .onTapGesture {
                             router.selectedTabRoute = tab
                         }

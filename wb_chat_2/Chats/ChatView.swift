@@ -8,6 +8,7 @@
 import SwiftUI
 import UISystem
 import SwiftData
+
 struct ChatsView: View {
     @EnvironmentObject private var viewModelGPT: GPTViewModel
     @State var inputText = ""
@@ -57,7 +58,7 @@ struct ChatsView: View {
                         .fixedSize(horizontal: true, vertical: true)
                     }
                     .font(.bodyText1(.semiBold))
-                    .foregroundStyle(.heading2)
+                    .foregroundStyle(Color.CustomColors.heading2)
 
                     Divider()
                 }

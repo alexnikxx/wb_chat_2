@@ -31,17 +31,17 @@ struct GPTChatView: View {
                 Group {
                     ZStack {
                         Rectangle()
-                            .foregroundStyle(Color("background"))
+                            .foregroundStyle(Color.CustomColors.background)
                             .frame(height: 60)
                             .shadow(
-                                color: Color("heading2").opacity(colorScheme == .light ? 0.04 : 0),
+                                color: Color.CustomColors.heading2.opacity(colorScheme == .light ? 0.04 : 0),
                                 radius: 12,
                                 x: 0,
                                 y: -1
                             )
                         
                         Rectangle()
-                            .foregroundStyle(Color("background"))
+                            .foregroundStyle(Color.CustomColors.background)
                             .frame(height: 60)
                             .offset(x: 0, y: 40)
                         
@@ -62,9 +62,9 @@ struct GPTChatView: View {
                 }
             }
             .chatTheme(colors: ChatTheme.Colors(
-                mainBackground: .textfield,
+                mainBackground: Color.CustomColors.textfield,
                 myMessage: .accent,
-                friendMessage: .background
+                friendMessage: Color.CustomColors.background
             ))
         }
         .onAppear {

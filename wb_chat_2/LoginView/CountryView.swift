@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UISystem
 
 struct CountryView: View {
     @Binding var selectedCountry: Country
@@ -25,12 +26,12 @@ struct CountryView: View {
             HStack {
                 Text(selectedCountry.flag)
                 Text(selectedCountry.code)
-                    .foregroundColor(.heading2)
+                    .foregroundColor(Color.CustomColors.heading2)
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 10)
-            .foregroundStyle(.heading2)
-            .background(Color.textfield)
+            .foregroundStyle(Color.CustomColors.heading2)
+            .background(Color.CustomColors.textfield)
             .clipShape(RoundedRectangle(cornerRadius: 4))
         }
     }

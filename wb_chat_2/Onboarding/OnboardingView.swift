@@ -26,7 +26,7 @@ struct OnboardingView: View {
                          и близкими легко
                          """)
                         .font(.heading2(.bold))
-                        .foregroundStyle(.heading2)
+                        .foregroundStyle(Color.CustomColors.heading2)
                         .multilineTextAlignment(.center)
                     }
                     .frame(maxHeight: .infinity, alignment: .center)
@@ -44,7 +44,7 @@ struct OnboardingView: View {
                                 }
                             }
                             .font(.metadat1(.regular))
-                            .foregroundStyle(.metadata2)
+                            .foregroundStyle(Color.CustomColors.metadata2)
 
                             WBButton(text: "Начать общаться") {
                                 router.navigateTo(.authorization)

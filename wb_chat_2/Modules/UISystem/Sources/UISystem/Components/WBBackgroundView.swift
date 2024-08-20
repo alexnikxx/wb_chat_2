@@ -16,7 +16,7 @@ public struct BackgroundView<Content: View>: View {
 
     public var body: some View {
         ZStack {
-            Color("background").ignoresSafeArea()
+            Color.CustomColors.background.ignoresSafeArea()
             content
         }
     }

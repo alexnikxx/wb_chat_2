@@ -66,16 +66,16 @@ extension SettingsView {
 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Иван Иванов")
-                        .foregroundStyle(.heading2)
+                        .foregroundStyle(Color.CustomColors.heading2)
                         .font(.bodyText1(.semiBold))
 
                     Text("+7 999 888 77 66")
                         .font(.bodyText2(.regular))
-                        .foregroundStyle(.metadata2)
+                        .foregroundStyle(Color.CustomColors.metadata2)
                 }
             }
         }
-        .accentColor(.heading2)
+        .accentColor(Color.CustomColors.heading2)
     }
 
     var userView: some View {
@@ -85,9 +85,9 @@ extension SettingsView {
             Image("usersmall")
             Text("Аккаунт")
                 .font(.bodyText1(.semiBold))
-                .foregroundStyle(.heading2)
+                .foregroundStyle(Color.CustomColors.heading2)
         }
-        .accentColor(.heading2)
+        .accentColor(Color.CustomColors.heading2)
     }
 
     var chatsView: some View {
@@ -99,9 +99,9 @@ extension SettingsView {
                 .frame(width: 24, height: 24)
             Text("Чаты")
                 .font(.bodyText1(.semiBold))
-                .foregroundStyle(.heading2)
+                .foregroundStyle(Color.CustomColors.heading2)
         }
-        .accentColor(.heading2)
+        .accentColor(Color.CustomColors.heading2)
     }
 
     var themeView: some View {
@@ -111,7 +111,7 @@ extension SettingsView {
                     Image("sun")
                     Text("Тема")
                         .font(.bodyText1(.semiBold))
-                        .foregroundStyle(.heading2)
+                        .foregroundStyle(Color.CustomColors.heading2)
                 }
             }
             .padding(.trailing, 2)
@@ -125,7 +125,7 @@ extension SettingsView {
                     Image("notification")
                     Text("Уведомления")
                         .font(.bodyText1(.semiBold))
-                        .foregroundStyle(.heading2)
+                        .foregroundStyle(Color.CustomColors.heading2)
                 }
             }
             .padding(.trailing, 2)
@@ -139,9 +139,9 @@ extension SettingsView {
             Image("outline-privacy-tip")
             Text("Безопасность")
                 .font(.bodyText1(.semiBold))
-                .foregroundStyle(.heading2)
+                .foregroundStyle(Color.CustomColors.heading2)
         }
-        .accentColor(.heading2)
+        .accentColor(Color.CustomColors.heading2)
     }
 
     var memoryView: some View {
@@ -151,9 +151,9 @@ extension SettingsView {
             Image("folder")
             Text("Память и ресурсы")
                 .font(.bodyText1(.semiBold))
-                .foregroundStyle(.heading2)
+                .foregroundStyle(Color.CustomColors.heading2)
         }
-        .accentColor(.heading2)
+        .accentColor(Color.CustomColors.heading2)
     }
 
     var helpView: some View {
@@ -163,7 +163,7 @@ extension SettingsView {
             Image("help-circle")
             Text("Помощь")
                 .font(.bodyText1(.semiBold))
-                .foregroundStyle(.heading2)
+                .foregroundStyle(Color.CustomColors.heading2)
         }
         .accentColor(.heading2)
     }
@@ -175,7 +175,7 @@ extension SettingsView {
             Image("mail")
             Text("Пригласи друга")
                 .font(.bodyText1(.semiBold))
-                .foregroundStyle(.heading2)
+                .foregroundStyle(Color.CustomColors.heading2)
         }
         .accentColor(.heading2)
     }
