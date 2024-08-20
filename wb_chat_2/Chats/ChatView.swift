@@ -57,7 +57,7 @@ struct ChatsView: View {
                         .fixedSize(horizontal: true, vertical: true)
                     }
                     .font(.bodyText1(.semiBold))
-                    .foregroundStyle(Color.CustomColors.heading2)
+                    .foregroundStyle(.heading2)
 
                     Divider()
                 }

@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-import UISystem
 
 struct Indicator: View {
     var body: some View {
         Rectangle()
             .frame(width: 160, height: 4)
-            .foregroundStyle(Color.CustomColors.mainWbColor)
+            .foregroundStyle(.button)
             .clipShape(
                 .rect(
                     topLeadingRadius: 20,

@@ -21,8 +21,8 @@ public struct WBTextField: View {
             .padding(.horizontal, 8)
             .padding(.vertical, 10)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .foregroundStyle(Color.CustomColors.heading2)
-            .background(Color.CustomColors.textfield)
+            .foregroundStyle(Color("heading2"))
+            .background(Color("textfield"))
             .clipShape(RoundedRectangle(cornerRadius: 4))
             .font(.bodyText1(.semiBold))
     }

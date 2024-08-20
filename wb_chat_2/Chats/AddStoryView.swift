@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
-import UISystem
 
 struct AddStoryView: View {
     var body: some View {
         VStack(spacing: 8) {
             ZStack {
                 RoundedRectangle(cornerRadius: 16)
-                    .foregroundColor(Color.CustomColors.textfield)
+                    .foregroundColor(.textfield)
                     .frame(width: 56, height: 56)
                     .overlay(
                         RoundedRectangle(cornerRadius: 18)
@@ -25,7 +24,7 @@ struct AddStoryView: View {
 
             Text("Вы")
                 .font(.metadat1(.regular))
-                .foregroundStyle(Color.CustomColors.heading2)
+                .foregroundStyle(.heading2)
         }
     }
 }

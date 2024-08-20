@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UISystem
 
 struct ChatContactCell: View {
     var contact: Contact
@@ -19,11 +18,11 @@ struct ChatContactCell: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(contact.fullname)
                     .font(.bodyText1(.semiBold))
-                    .foregroundStyle(Color.CustomColors.heading2)
+                    .foregroundStyle(.heading2)
 
                 Text(lastMessage)
                     .font(.bodyText2(.regular))
-                    .foregroundStyle(Color.CustomColors.metadata2)
+                    .foregroundStyle(.metadata2)
             }
 
             Spacer()
@@ -31,6 +30,6 @@ struct ChatContactCell: View {
     }
 }
 
-//#Preview {
-//    ChatContactCell(contact: Contacts.contacts[0], lastMessage: "че каво")
-//}
+#Preview {
+    ChatContactCell(contact: Contacts.contacts[0], lastMessage: "че каво")
+}
