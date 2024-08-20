@@ -30,20 +30,25 @@ final class GPTViewModel: ObservableObject {
     }
     
     var GPTmessages: [GPTRequestMessage] {
-        chats[chatIndex].messages.map { message in
+        let sortedMessages = self.chats[self.chatIndex].messages.sorted(by: { $0.createdAt < $1.createdAt })
+        return sortedMessages.map { message in
             GPTRequestMessage(role: message.sender.role.rawValue, content: message.text)
         }
     }
     
     var messages: [Message] {
-        chats[chatIndex].messages.map { $0.toChatMessage() }
+        
+        let sortedMessages = self.chats[self.chatIndex].messages.sorted(by: { $0.createdAt < $1.createdAt })
+        return sortedMessages.map { $0.toChatMessage() }
     }
+    
+    
     
     private let systemUser = MockUser(id: "3", role: .system, lastVisit: Date(), imageName: nil)
     private let gptUser = MockUser(id: "2", role: .assistant, lastVisit: Date(), imageName: AssetExtractor.createLocalUrl(forImageNamed: "ChatGPT_logo") ?? URL(string: ""))
     private let currentUser = MockUser(id: "1", role: .user, lastVisit: Date(), imageName: AssetExtractor.createLocalUrl(forImageNamed: "userBig") ?? URL(string: ""))
     
-//MARK: - Работа со списком чатов
+    //MARK: - Работа со списком чатов
     func addNewChat(modelContext: ModelContext) {
         let newChat = Chat(title: "New Chat")
         modelContext.insert(newChat)
@@ -73,20 +78,18 @@ final class GPTViewModel: ObservableObject {
             print("Failed to delete chat: \(error.localizedDescription)")
         }
     }
-
-//MARK: - Работа с 1 чатом
+    
+    //MARK: - Работа с 1 чатом
     // Очистить историю сообщений текущего чата
     func clearHistory(modelContext: ModelContext) {
+        guard let currentChat = currentChat else { return }
         
-        let fetchDescriptor = FetchDescriptor<MockMessage>()
+        // Удаление сообщений из модели данных
+        for message in currentChat.messages {
+            modelContext.delete(message)
+        }
         
         do {
-            let messagesToDelete = try modelContext.fetch(fetchDescriptor)
-            
-            for message in messagesToDelete {
-                modelContext.delete(message)
-            }
-            
             try modelContext.save()
             DispatchQueue.main.async {
                 self.chats[self.chatIndex].messages.removeAll()
@@ -114,8 +117,8 @@ final class GPTViewModel: ObservableObject {
         dispatchGroup.enter()
         DispatchQueue.main.async {
             self.chats[self.chatIndex].messages.append(userMessage)
-            self.isLoading = true
             self.saveMessage(userMessage, modelContext: modelContext)
+            self.isLoading = true
             dispatchGroup.leave() // Сообщаем, что добавление сообщения завершено
         }
         
@@ -126,10 +129,13 @@ final class GPTViewModel: ObservableObject {
                 guard let response = response else {
                     if let error = error {
                         DispatchQueue.main.async {
+                            
                             let errorMessage = MockMessage(uid: UUID().uuidString, sender: self.systemUser, createdAt: Date(), text: "❗️Error: \(error.localizedDescription)")
+                            
                             self.chats[self.chatIndex].messages.append(errorMessage)
-                            self.isLoading = false
                             self.saveMessage(errorMessage, modelContext: modelContext)
+                            self.isLoading = false
+                            
                         }
                     }
                     return
@@ -139,7 +145,9 @@ final class GPTViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         let gptMessage = MockMessage(uid: UUID().uuidString, sender: self.gptUser, createdAt: Date(), text: completion)
                         self.chats[self.chatIndex].messages.append(gptMessage)
+                        self.saveMessage(gptMessage, modelContext: modelContext)
                         self.isLoading = false
+                        
                         self.generateChatTitle(for: self.chatIndex)
                     }
                 }
@@ -150,18 +158,18 @@ final class GPTViewModel: ObservableObject {
     // Генерация заголовка на основе истории сообщений
     private func generateChatTitle(for chatIndex: Int) {
         let summaryRequest = GPTRequest(
-                model: model.rawValue,
-                messages: GPTmessages + [
-                    GPTRequestMessage(role: "system", content: "Please summarize the conversation in one short title (2-3 words) and give answer using conversation language.")
-                ],
-                maxTokens: 20,
-                temperature: 0.5,
-                topP: 0.5
-            )
-            
+            model: model.rawValue,
+            messages: GPTmessages + [
+                GPTRequestMessage(role: "system", content: "Please summarize the conversation in one short title (2-3 words) and give answer using conversation language.")
+            ],
+            maxTokens: 20,
+            temperature: 0.5,
+            topP: 0.5
+        )
+        
         DefaultAPI.createChatCompletion(request: summaryRequest) { [weak self] response, error in
             guard let self = self, let response = response else { return }
-                
+            
             if let summary = response.choices?.first?.message?.content {
                 DispatchQueue.main.async {
                     self.chats[chatIndex].title = summary
@@ -170,7 +178,7 @@ final class GPTViewModel: ObservableObject {
         }
     }
     
-    func saveMessage(_ message: MockMessage, modelContext: ModelContext) {
+    private func saveMessage(_ message: MockMessage, modelContext: ModelContext) {
         modelContext.insert(message)
         do {
             try modelContext.save()
@@ -202,17 +210,17 @@ final class AssetExtractor {
         let fileManager = FileManager.default
         let cacheDirectory = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
         let url = cacheDirectory.appendingPathComponent("\(name).pdf")
-
+        
         guard fileManager.fileExists(atPath: url.path) else {
             guard
                 let image = UIImage(named: name),
                 let data = image.pngData()
             else { return nil }
-
+            
             fileManager.createFile(atPath: url.path, contents: data, attributes: nil)
             return url
         }
-
+        
         return url
     }
 }
