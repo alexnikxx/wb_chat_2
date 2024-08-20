@@ -10,53 +10,63 @@ import UISystem
 
 struct OnboardingView: View {
     @EnvironmentObject var router: Router
+    @Environment(\.dismiss) var dismiss
     @State private var isShowingTerms = false
 
     var body: some View {
-            BackgroundView {
-                VStack {
-                    VStack(spacing: 42) {
-                        Image("Illustration")
-                            .resizable()
-                            .scaledToFit()
-                            .padding(.horizontal, 56)
+        BackgroundView {
+            VStack {
+                VStack(spacing: 42) {
+                    Image("Illustration")
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal, 56)
 
-                        Text("""
-                         Общайтесь с друзьями
-                         и близкими легко
-                         """)
-                        .font(.heading2(.bold))
-                        .foregroundStyle(Color.CustomColors.heading2)
-                        .multilineTextAlignment(.center)
-                    }
-                    .frame(maxHeight: .infinity, alignment: .center)
-                    
-                    VStack(spacing: 18) {
-                        VStack(spacing: 10) {
-                            VStack {
-                                Text("Нажимая кнопку продолжить я соглашаюсь с")
-                                HStack(spacing: 4) {
-                                    Button("Политикой Конфиденциальности") { isShowingTerms = true }
-                                        .foregroundStyle(.accent)
-                                    Text(" и ")
-                                    Button("Условиями Использования") { isShowingTerms = true }
-                                        .foregroundStyle(.accent)
-                                }
-                            }
-                            .font(.metadat1(.regular))
-                            .foregroundStyle(Color.CustomColors.metadata2)
+                    Text(LocalizedStrings.communicateWithFriends)
+                    .font(.heading2(.bold))
+                    .foregroundStyle(Color.CustomColors.heading2)
+                    .multilineTextAlignment(.center)
+                }
+                .frame(maxHeight: .infinity, alignment: .top)
+                .padding(.top, 85)
 
-                            WBButton(text: "Начать общаться") {
-                                router.navigateTo(.authorization)
-                            }
+                VStack(spacing: 16) {
+                    VStack(spacing: 4) {
+                        Text(LocalizedStrings.pressingContinueButton)
+                        HStack(spacing: 4) {
+                            Button(LocalizedStrings.privacyPolicy) { isShowingTerms = true }
+                                .foregroundStyle(.accent)
+                            Text(LocalizedStrings.and)
+                            Button(LocalizedStrings.termsOfUse) { isShowingTerms = true }
+                                .foregroundStyle(.accent)
                         }
                     }
+                    .font(.metadat1(.regular))
+                    .foregroundStyle(Color.CustomColors.metadata2)
+
+                    WBButton(text: LocalizedStrings.startChatting) {
+                        router.navigateTo(.authorization)
+                    }
                 }
-                .padding()
-            
+            }
+            .padding()
         }
         .sheet(isPresented: $isShowingTerms) {
-            TermsView()
+            VStack {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .foregroundStyle(.gray)
+                }
+                .padding()
+
+                Text(LocalizedStrings.privacyPolicy)
+                    .frame(maxHeight: .infinity, alignment: .center)
+            }
         }
     }
 }

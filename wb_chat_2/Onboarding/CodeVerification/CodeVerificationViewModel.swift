@@ -13,14 +13,13 @@ final class CodeVerificationViewModel: ObservableObject {
     @Published var isCodeCorrect: Bool = false
     @Published var showError: Bool = false
     @Published var displayedCode: String = ""
-    
+
     private let codeLength = 4
     let notificationManager: NotificationManager
     
     init() {
         self.notificationManager = NotificationManager()
     }
-    
     
     func generateVerificationCode() {
         let randomDigitSequence = RandomDigitSequence(length: codeLength)

@@ -12,7 +12,7 @@ struct LoginView: View {
     @EnvironmentObject var router: Router
     @FocusState private var keyboardFocused: Bool
     @State private var phone: String = ""
-    @State private var selectedCountryCode: Country = Country.countries.first!
+    @State private var selectedCountryCode: Country = Country.countries[7]
     @State private var attempts: Int = 0
 
     var body: some View {
@@ -34,7 +34,7 @@ struct LoginView: View {
                     .font(.bodyText1(.semiBold))
                     .padding()
                     .modifier(ShakeAnimation(animatableData: CGFloat(attempts)))
-
+                
                 Spacer()
 
                 WBButton(text: "Продолжить") {

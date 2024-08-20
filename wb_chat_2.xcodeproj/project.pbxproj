@@ -49,7 +49,6 @@
 		2AAC07532C674DC500D712BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAC07522C674DC500D712BF /* Assets.xcassets */; };
 		2AAC07562C674DC500D712BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAC07552C674DC500D712BF /* Preview Assets.xcassets */; };
 		2AD0664B2C67DD2B0015ECFB /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0664A2C67DD2B0015ECFB /* OnboardingView.swift */; };
-		2AD066532C67DF320015ECFB /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD066522C67DF320015ECFB /* TermsView.swift */; };
 		2AD066552C67DF810015ECFB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD066542C67DF810015ECFB /* LoginView.swift */; };
 		2AD066592C67DFB80015ECFB /* OnboardingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD066582C67DFB80015ECFB /* OnboardingInfo.swift */; };
 		2AD0665D2C67DFF70015ECFB /* ShakeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */; };
@@ -111,7 +110,6 @@
 		2AAC07522C674DC500D712BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AAC07552C674DC500D712BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2AD0664A2C67DD2B0015ECFB /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		2AD066522C67DF320015ECFB /* TermsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		2AD066542C67DF810015ECFB /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2AD066582C67DFB80015ECFB /* OnboardingInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingInfo.swift; sourceTree = "<group>"; };
 		2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeAnimation.swift; sourceTree = "<group>"; };
@@ -240,7 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				2AD0664A2C67DD2B0015ECFB /* OnboardingView.swift */,
-				2AD066522C67DF320015ECFB /* TermsView.swift */,
+				2AA033AE2C6BB66D00053071 /* LoginView */,
+				650BF2F92C68A59F0046B496 /* CodeVerification */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -251,7 +250,6 @@
 				2AD066542C67DF810015ECFB /* LoginView.swift */,
 				2AA033A62C6A57A200053071 /* CountryView.swift */,
 				2AD066582C67DFB80015ECFB /* OnboardingInfo.swift */,
-				2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -288,15 +286,14 @@
 		2AAC074D2C674DC400D712BF /* wb_chat_2 */ = {
 			isa = PBXGroup;
 			children = (
-				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
-				1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */,
 				1A9404842C720B8000331778 /* Modules */,
 				65C98F8A2C67746600E54C0E /* Localizable */,
 				6568BC112C6E0B7000CD46F4 /* Model */,
 				2A93B4EE2C6FB6E1002C0DAA /* Components */,
+				2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */,
+				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
+				1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */,
 				2AA033AA2C6A7D9900053071 /* Onboarding */,
-				2AA033AE2C6BB66D00053071 /* LoginView */,
-				650BF2F92C68A59F0046B496 /* CodeVerification */,
 				2A1169C82C6E2147005BDBE4 /* Registration */,
 				1AF8DDAB2C67A30500C5F315 /* Contacts */,
 				1A6C5BC12C6CE5EC0095CB8F /* Chats */,
@@ -470,7 +467,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AD066532C67DF320015ECFB /* TermsView.swift in Sources */,
 				2AD066552C67DF810015ECFB /* LoginView.swift in Sources */,
 				1A6C5BC82C6CE6FE0095CB8F /* ContentView.swift in Sources */,
 				2A93B4E72C6F7BAF002C0DAA /* EditAvatarView.swift in Sources */,

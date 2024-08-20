@@ -8,8 +8,10 @@
 
 "communicate_with_friends" = "Communicate with friends \n and loved ones easily";
 "pressing_button_continue" = "By pressing the continue button, I agree to the";
-"privacy_policy" = "Privacy Policy and Terms of User";
-"start_chatting" = "Start Chatting";
+"privacy_policy" = "Privacy Policy";
+"and" = " and ";
+"terms_of_use" = "Terms of Use";
+"start_chatting" = "Start сhatting";
 
 "enter_phone_number" = "Enter your phone number";
 "confirmation_code_message" = "We will send a confirmation code to the number provided";

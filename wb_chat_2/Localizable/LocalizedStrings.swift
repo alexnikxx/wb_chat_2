@@ -11,6 +11,8 @@ struct LocalizedStrings {
     static var communicateWithFriends: String { NSLocalizedString("communicate_with_friends", comment: "")}
     static var pressingContinueButton: String { NSLocalizedString("pressing_button_continue", comment: "")}
     static var privacyPolicy: String { NSLocalizedString("privacy_policy", comment: "")}
+    static var and: String { NSLocalizedString("and", comment: "")}
+    static var termsOfUse: String { NSLocalizedString("terms_of_use", comment: "")}
     static var startChatting: String { NSLocalizedString("start_chatting", comment: "")}
     
     static var enterphoneNumber: String { NSLocalizedString("enter_phone_number", comment: "")}
