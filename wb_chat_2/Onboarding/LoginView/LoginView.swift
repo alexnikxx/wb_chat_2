@@ -9,45 +9,41 @@ import SwiftUI
 import UISystem
 
 struct LoginView: View {
+    @StateObject var viewModel = OnboardingViewModel()
     @EnvironmentObject var router: Router
     @FocusState private var keyboardFocused: Bool
-    @State private var phone: String = ""
-    @State private var selectedCountryCode: Country = Country.countries[7]
-    @State private var attempts: Int = 0
 
     var body: some View {
         BackgroundView {
             VStack {
                 OnboardingInfo(
-                    title: "Введите номер телефона",
-                    info: """
-                    Мы вышлем код подтверждения
-                    на указанный номер
-                    """
+                    title: LocalizedStrings.Login.enterPhoneNumber,
+                    info: LocalizedStrings.Login.conformationPhoneMessage
                 )
 
-                PhoneTextFieldView(phone: $phone, selectedCountryCode: $selectedCountryCode)
-                    .focused($keyboardFocused)
-                    .onAppear {
-                        keyboardFocused = true
-                    }
-                    .font(.bodyText1(.semiBold))
+                PhoneTextFieldView(phone: $viewModel.phone, selectedCountry: $viewModel.selectedCountry)
                     .padding()
-                    .modifier(ShakeAnimation(animatableData: CGFloat(attempts)))
-                
+                    .modifier(ShakeAnimation(animatableData: CGFloat(viewModel.attempts)))
+                    .focused($keyboardFocused)
+
                 Spacer()
 
-                WBButton(text: "Продолжить") {
-                    if phone.count == 13 {
-                        router.navigateTo(.verification(phoneNumber: phone, code: selectedCountryCode.code))
+                WBButton(text: LocalizedStrings.Login.continueButton) {
+                    if viewModel.phone.count == 13 {
+                        router.navigateTo(.verification(phoneNumber: viewModel.phone, code: viewModel.selectedCountry.code))
                     } else {
-                        attempts += 1
+                        withAnimation {
+                            viewModel.attempts += 1
+                        }
                     }
                 }
                 .padding(.bottom, 60)
-                .opacity(phone.count == 13 ? 1 : 0.5)
+                .opacity(viewModel.phone.count == 13 ? 1 : 0.5)
             }
             .navigationBarItems(leading: WBBackButton(action: router.navigateBack))
+        }
+        .onAppear {
+            keyboardFocused = true
         }
     }
 }

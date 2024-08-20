@@ -22,7 +22,7 @@ struct OnboardingView: View {
                         .scaledToFit()
                         .padding(.horizontal, 56)
 
-                    Text(LocalizedStrings.communicateWithFriends)
+                    Text(LocalizedStrings.Onboarding.communicateWithFriends)
                     .font(.heading2(.bold))
                     .foregroundStyle(Color.CustomColors.heading2)
                     .multilineTextAlignment(.center)
@@ -32,19 +32,19 @@ struct OnboardingView: View {
 
                 VStack(spacing: 16) {
                     VStack(spacing: 4) {
-                        Text(LocalizedStrings.pressingContinueButton)
+                        Text(LocalizedStrings.Onboarding.pressingContinueButton)
                         HStack(spacing: 4) {
-                            Button(LocalizedStrings.privacyPolicy) { isShowingTerms = true }
+                            Button(LocalizedStrings.Onboarding.privacyPolicy) { isShowingTerms = true }
                                 .foregroundStyle(.accent)
-                            Text(LocalizedStrings.and)
-                            Button(LocalizedStrings.termsOfUse) { isShowingTerms = true }
+                            Text(LocalizedStrings.Onboarding.and)
+                            Button(LocalizedStrings.Onboarding.termsOfUse) { isShowingTerms = true }
                                 .foregroundStyle(.accent)
                         }
                     }
                     .font(.metadat1(.regular))
                     .foregroundStyle(Color.CustomColors.metadata2)
 
-                    WBButton(text: LocalizedStrings.startChatting) {
+                    WBButton(text: LocalizedStrings.Onboarding.startChatting) {
                         router.navigateTo(.authorization)
                     }
                 }
@@ -64,7 +64,7 @@ struct OnboardingView: View {
                 }
                 .padding()
 
-                Text(LocalizedStrings.privacyPolicy)
+                Text(LocalizedStrings.Onboarding.privacyPolicy)
                     .frame(maxHeight: .infinity, alignment: .center)
             }
         }

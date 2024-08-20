@@ -14,8 +14,23 @@
 "start_chatting" = "Начать общаться";
 
 "enter_phone_number" = "Введите номер телефона";
-"confirmation_code_message" = "Мы вышлем код подтверждения \n на указанный номер";
+"confirmation_phone_message" = "Мы вышлем код подтверждения \n на указанный номер";
 "continue" = "Продолжить";
+
+"armenia" = "Армения";
+"azerbaijan" = "Азербайджан";
+"belarus" = "Беларусь";
+"china" = "Китай";
+"uk" = "Великобритания";
+"kyrgyzstan" = "Киргизия";
+"kazakhstan" = "Казахстан";
+"russia" = "Россия";
+"usa" = "США";
+"uzbekistan" = "Узбекистан";
+"turkey" = "Турция";
+"georgia" = "Грузия";
+"south_korean" = "Южная Корея";
+"uae" = "ОАЭ";
 
 "enter_code" = "Введите код";
 "sent_code_message" = "Отправили код на номер";

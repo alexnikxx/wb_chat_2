@@ -27,13 +27,3 @@ struct OnboardingInfo: View {
         .padding(.top, 80)
     }
 }
-
-#Preview {
-    OnboardingInfo(
-        title: "Введите номер телефона",
-        info: """
-            Мы вышлем код подтверждения
-            на указанный номер
-            """
-    )
-}

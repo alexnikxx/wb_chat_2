@@ -48,7 +48,7 @@ struct NewContactView: View {
                             )
                     }
                     Divider()
-                    PhoneTextFieldView(phone: $viewModel.phoneNumber, selectedCountryCode: $viewModel.selectedCountry)
+                    PhoneTextFieldView(phone: $viewModel.phoneNumber, selectedCountry: $viewModel.selectedCountry)
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
                                 .stroke(viewModel.phoneNumberError ? Color.red.opacity(0.5) : Color.clear, lineWidth: 2)

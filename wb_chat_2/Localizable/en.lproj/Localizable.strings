@@ -14,8 +14,23 @@
 "start_chatting" = "Start сhatting";
 
 "enter_phone_number" = "Enter your phone number";
-"confirmation_code_message" = "We will send a confirmation code to the number provided";
+"confirmation_phone_message" = "We will send a confirmation code to the number provided";
 "continue" = "Continue";
+
+"armenia" = "Armenia";
+"azerbaijan" = "Azerbaijan";
+"belarus" = "Belarus";
+"china" = "China";
+"uk" = "UK";
+"kyrgyzstan" = "Kyrgyzstan";
+"kazakhstan" = "Kazakhstan";
+"russia" = "Russia";
+"usa" = "USA";
+"uzbekistan" = "Uzbekistan";
+"turkey" = "Turkey";
+"georgia" = "Georgia";
+"south_korean" = "South Korea";
+"uae" = "UAE";
 
 "enter_code" = "Enter the code";
 "sent_code_message" = "We sent the code to the number";

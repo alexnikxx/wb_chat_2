@@ -10,12 +10,12 @@ import UISystem
 
 struct PhoneTextFieldView: View {
     @Binding var phone: String
-    @Binding var selectedCountryCode: Country
-    
+    @Binding var selectedCountry: Country
+
     var body: some View {
         VStack(spacing: 16) {
             HStack {
-                CountryView(selectedCountry: $selectedCountryCode)
+                CountryView(selectedCountry: $selectedCountry)
                 WBTextField(placeholder: "000 000-00-00", text: $phone)
                     .keyboardType(.decimalPad)
                     .onChange(of: phone) {

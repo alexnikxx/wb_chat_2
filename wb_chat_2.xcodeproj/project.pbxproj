@@ -54,7 +54,7 @@
 		2AD0665D2C67DFF70015ECFB /* ShakeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */; };
 		2AD066612C67E05F0015ECFB /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD066602C67E05F0015ECFB /* String+.swift */; };
 		650BF2FD2C68A8D50046B496 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF2FC2C68A8D50046B496 /* NotificationManager.swift */; };
-		650BF3012C68AA770046B496 /* CodeVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF3002C68AA770046B496 /* CodeVerificationViewModel.swift */; };
+		650BF3012C68AA770046B496 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF3002C68AA770046B496 /* OnboardingViewModel.swift */; };
 		650BF3042C68AC710046B496 /* RandomDigitSequnce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF3032C68AC710046B496 /* RandomDigitSequnce.swift */; };
 		650BF3062C68AEF90046B496 /* CodeVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BF3052C68AEF90046B496 /* CodeVerificationView.swift */; };
 		653AA6682C7211EE00D62E59 /* EditContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653AA6672C7211EE00D62E59 /* EditContactViewModel.swift */; };
@@ -118,7 +118,7 @@
 		2AE593442C6F78B700E1ACB6 /* PhoneTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTextFieldView.swift; sourceTree = "<group>"; };
 		2AE593452C6F78B700E1ACB6 /* SocialMediaTextFieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaTextFieldsView.swift; sourceTree = "<group>"; };
 		650BF2FC2C68A8D50046B496 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		650BF3002C68AA770046B496 /* CodeVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationViewModel.swift; sourceTree = "<group>"; };
+		650BF3002C68AA770046B496 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		650BF3032C68AC710046B496 /* RandomDigitSequnce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDigitSequnce.swift; sourceTree = "<group>"; };
 		650BF3052C68AEF90046B496 /* CodeVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationView.swift; sourceTree = "<group>"; };
 		653AA6672C7211EE00D62E59 /* EditContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewModel.swift; sourceTree = "<group>"; };
@@ -238,6 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				2AD0664A2C67DD2B0015ECFB /* OnboardingView.swift */,
+				2AD066582C67DFB80015ECFB /* OnboardingInfo.swift */,
+				650BF3002C68AA770046B496 /* OnboardingViewModel.swift */,
 				2AA033AE2C6BB66D00053071 /* LoginView */,
 				650BF2F92C68A59F0046B496 /* CodeVerification */,
 			);
@@ -249,7 +251,6 @@
 			children = (
 				2AD066542C67DF810015ECFB /* LoginView.swift */,
 				2AA033A62C6A57A200053071 /* CountryView.swift */,
-				2AD066582C67DFB80015ECFB /* OnboardingInfo.swift */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -332,7 +333,6 @@
 			isa = PBXGroup;
 			children = (
 				650BF3052C68AEF90046B496 /* CodeVerificationView.swift */,
-				650BF3002C68AA770046B496 /* CodeVerificationViewModel.swift */,
 				650BF3032C68AC710046B496 /* RandomDigitSequnce.swift */,
 			);
 			path = CodeVerification;
@@ -512,7 +512,7 @@
 				2AD0665D2C67DFF70015ECFB /* ShakeAnimation.swift in Sources */,
 				1A6C5BCA2C6CEF0B0095CB8F /* Navigation +.swift in Sources */,
 				2A3A82982C73596600DDA965 /* ContactsMockData.swift in Sources */,
-				650BF3012C68AA770046B496 /* CodeVerificationViewModel.swift in Sources */,
+				650BF3012C68AA770046B496 /* OnboardingViewModel.swift in Sources */,
 				650BF3062C68AEF90046B496 /* CodeVerificationView.swift in Sources */,
 				1A9404832C6F755E00331778 /* GPTViewModel.swift in Sources */,
 				650BF2FD2C68A8D50046B496 /* NotificationManager.swift in Sources */,

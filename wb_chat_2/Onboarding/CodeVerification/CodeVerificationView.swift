@@ -10,7 +10,7 @@ import UISystem
 
 struct CodeVerificationView: View {
     @EnvironmentObject var router: Router
-    @StateObject private var viewModel = CodeVerificationViewModel()
+    @StateObject private var viewModel = OnboardingViewModel()
 
     let codeCountry: String
     let phoneNumber: String

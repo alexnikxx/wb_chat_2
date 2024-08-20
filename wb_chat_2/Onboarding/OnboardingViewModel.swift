@@ -7,7 +7,13 @@
 
 import SwiftUI
 
-final class CodeVerificationViewModel: ObservableObject {
+final class OnboardingViewModel: ObservableObject {
+    // LoginView
+    @Published var phone: String = ""
+    @Published var selectedCountry: Country = Country.countries[7]
+    @Published var attempts: Int = 0
+
+    // VerificationView
     @Published var verificationCode = Array(repeating: "", count: 4)
     @Published var generatedCode: String = ""
     @Published var isCodeCorrect: Bool = false
