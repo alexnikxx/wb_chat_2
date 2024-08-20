@@ -13,7 +13,9 @@ struct ChatsView: View {
     @State var inputText = ""
     @State var isChatGPT: Bool = false
     @Environment(\.modelContext) private var modelContext: ModelContext
-    var filteredContacts = Contacts.contacts.filter { $0.hasMessages }
+    @Query let contacts: [Contact]
+    
+    var filteredContacts: [Contact] { contacts.filter { $0.hasMessages } }
 
     var body: some View {
         BackgroundView {
