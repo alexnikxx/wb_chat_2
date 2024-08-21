@@ -20,12 +20,12 @@ struct SettingsView: View {
                     title: "Еще",
                     isBackButton: false,
                     rightButtonIcon: "",
-                    backButtonAction: { }, isSubtitle: false
+                    backButtonAction: { }
                 )
                 
                 VStack(spacing: 32) {
                     privateView
-                    
+                        .padding(.top, 16)
                     VStack(spacing: 16) {
                         userView
                         chatsView

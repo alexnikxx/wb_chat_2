@@ -21,9 +21,12 @@ struct GPTChatView: View {
     
     var body: some View {
         VStack {
-            WBNavigationBar(title: chat.title, isBackButton: true, rightButtonIcon: "reload", rightButtonAction: {
-                viewModelGPT.clearHistory(modelContext: modelContext)
-            }, backButtonAction: router.navigateBack, isSubtitle: viewModelGPT.isLoading)
+            WBNavigationBar(title: chat.title,
+                            isBackButton: true,
+                            rightButtonIcon: "reload",
+                            rightButtonAction: { viewModelGPT.clearHistory(modelContext: modelContext) },
+                            backButtonAction: router.navigateBack,
+                            isSubtitle: viewModelGPT.isLoading)
             
             ChatView(messages: viewModelGPT.messages, chatType: .conversation) { draft in
                 viewModelGPT.sendMessage(draftMessage: draft, modelContext: modelContext)

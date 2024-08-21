@@ -31,6 +31,7 @@
 		2A007CDB2C75EA6900BFFE04 /* SFProDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A007CD72C75EA6300BFFE04 /* SFProDisplay-Bold.otf */; };
 		2A007CDC2C75EA6D00BFFE04 /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A007CD82C75EA6300BFFE04 /* SFProDisplay-Regular.otf */; };
 		2A007CDD2C75EA7000BFFE04 /* SFProDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A007CD92C75EA6300BFFE04 /* SFProDisplay-Semibold.otf */; };
+		2A007CFD2C76289F00BFFE04 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A007CFC2C76289F00BFFE04 /* AvatarView.swift */; };
 		2A1169C72C6E2111005BDBE4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1169C62C6E2111005BDBE4 /* RegistrationView.swift */; };
 		2A3A82962C7358A800DDA965 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A82952C7358A800DDA965 /* ChatView.swift */; };
 		2A3A82982C73596600DDA965 /* ContactsMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A82972C73596600DDA965 /* ContactsMockData.swift */; };
@@ -99,6 +100,7 @@
 		2A007CD72C75EA6300BFFE04 /* SFProDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.otf"; sourceTree = "<group>"; };
 		2A007CD82C75EA6300BFFE04 /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
 		2A007CD92C75EA6300BFFE04 /* SFProDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.otf"; sourceTree = "<group>"; };
+		2A007CFC2C76289F00BFFE04 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		2A1169C62C6E2111005BDBE4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		2A3A82952C7358A800DDA965 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		2A3A82972C73596600DDA965 /* ContactsMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsMockData.swift; sourceTree = "<group>"; };
@@ -210,10 +212,11 @@
 			isa = PBXGroup;
 			children = (
 				1AF8DDAE2C67A36F00C5F315 /* ContactsView.swift */,
-				1AF8DDB62C67A78500C5F315 /* ContactRowView.swift */,
 				1AF8DDB02C67A38500C5F315 /* ContactsViewModel.swift */,
-				2A93B4E82C6F7F19002C0DAA /* NewContactView.swift */,
-				6568BC1E2C70A67400CD46F4 /* NewContactViewModel.swift */,
+				1AF8DDB62C67A78500C5F315 /* ContactRowView.swift */,
+				2A007CFC2C76289F00BFFE04 /* AvatarView.swift */,
+				E586DFA12C6CBEB900220252 /* DetailScreen */,
+				2A007CFE2C7628D100BFFE04 /* NewContact */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -233,6 +236,15 @@
 				2A007CD92C75EA6300BFFE04 /* SFProDisplay-Semibold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2A007CFE2C7628D100BFFE04 /* NewContact */ = {
+			isa = PBXGroup;
+			children = (
+				2A93B4E82C6F7F19002C0DAA /* NewContactView.swift */,
+				6568BC1E2C70A67400CD46F4 /* NewContactViewModel.swift */,
+			);
+			path = NewContact;
 			sourceTree = "<group>";
 		};
 		2A1169C82C6E2147005BDBE4 /* Registration */ = {
@@ -257,8 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				2AD0664A2C67DD2B0015ECFB /* OnboardingView.swift */,
-				2AD066582C67DFB80015ECFB /* OnboardingInfo.swift */,
 				650BF3002C68AA770046B496 /* OnboardingViewModel.swift */,
+				2AD066582C67DFB80015ECFB /* OnboardingInfo.swift */,
 				2AA033AE2C6BB66D00053071 /* LoginView */,
 				650BF2F92C68A59F0046B496 /* CodeVerification */,
 				2A1169C82C6E2147005BDBE4 /* Registration */,
@@ -310,6 +322,7 @@
 			children = (
 				1A9404842C720B8000331778 /* Modules */,
 				65C98F8A2C67746600E54C0E /* Localizable */,
+				2AA033AF2C6BB6B900053071 /* Extensions */,
 				6568BC112C6E0B7000CD46F4 /* Model */,
 				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
 				1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */,
@@ -317,8 +330,6 @@
 				1AF8DDAB2C67A30500C5F315 /* Contacts */,
 				1A6C5BC12C6CE5EC0095CB8F /* Chats */,
 				1A6C5BC42C6CE6030095CB8F /* Settings */,
-				2AA033AF2C6BB6B900053071 /* Extensions */,
-				E586DFA12C6CBEB900220252 /* DetailScreen */,
 				650BF2FB2C68A6D20046B496 /* Services */,
 				2AAC07522C674DC500D712BF /* Assets.xcassets */,
 				2A93B4EE2C6FB6E1002C0DAA /* Components */,
@@ -495,6 +506,7 @@
 				2AA033A52C6A56AE00053071 /* Country.swift in Sources */,
 				2AA033A72C6A57A200053071 /* CountryView.swift in Sources */,
 				6568BC232C71DF2300CD46F4 /* RegistrationViewModel.swift in Sources */,
+				2A007CFD2C76289F00BFFE04 /* AvatarView.swift in Sources */,
 				2A3A829E2C735BB700DDA965 /* Indicator.swift in Sources */,
 				1A9404872C720C7600331778 /* GPTChatView.swift in Sources */,
 				65C98F902C677B4500E54C0E /* LocalizedStrings.swift in Sources */,

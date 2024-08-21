@@ -14,6 +14,7 @@ struct EditContactView: View {
     @FocusState private var keyboardFocused: Bool
     @StateObject private var viewModel: EditContactViewModel
     @Environment(\.modelContext) private var modelContext: ModelContext
+
     init(contact: Contact) {
         _viewModel = StateObject(wrappedValue: EditContactViewModel(contact: contact))
     }
@@ -25,7 +26,7 @@ struct EditContactView: View {
                     title: "Профиль",
                     isBackButton: true,
                     rightButtonIcon: "",
-                    backButtonAction: { router.navigateBack() }, isSubtitle: false
+                    backButtonAction: { router.navigateBack() }
                 )
                 
                 VStack(spacing: 16) {
@@ -34,7 +35,9 @@ struct EditContactView: View {
                             .padding(.top, 46)
                         NameTextFieldsView(name: $viewModel.contact.name, surname: $viewModel.contact.surname.withDefault(""))
                     }
+
                     Divider()
+
                     VStack(spacing: 16) {
                         SocialMediaTextFieldsView(
                             twitter: Binding(
@@ -79,9 +82,3 @@ struct EditContactView: View {
         }
     }
 }
-
-
-//#Preview {
-//    EditContactView()
-//        .environmentObject(Router.init())
-//}

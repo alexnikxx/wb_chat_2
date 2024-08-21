@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+final class ContactsViewModel: ObservableObject {
+    @Published var navigateToAccountEdit = false
+    @Published var showDeleteActionSheet = false
+    @Published var showDeleteAlert = false
+    @Published var contactToDelete: Contact?
+    @Published var inputText = ""
+}

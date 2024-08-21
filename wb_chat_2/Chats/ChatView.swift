@@ -37,7 +37,7 @@ struct ChatsView: View {
                             isShowingContacts = true
                         }
                     },
-                    backButtonAction: { }, isSubtitle: false
+                    backButtonAction: { }
                 )
 
                 StoriesView()

@@ -16,15 +16,15 @@ struct SocialButton: View {
         Button(action: openSocials) {
             Image(imageName)
                 .resizable()
+                .scaledToFit()
                 .frame(width: 20, height: 20)
+                .padding(.horizontal, 26)
+                .padding(.vertical, 10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 25)
+                        .stroke(Color.CustomColors.mainWbColor, lineWidth: 1.67)
+                )
         }
-        .buttonStyle(PlainButtonStyle())
-        .frame(width: 72, height: 40)
-        .overlay(
-            RoundedRectangle(cornerRadius: 25)
-                .stroke(Color.accentColor, lineWidth: 1.67)
-                .opacity(url.isEmpty ? 0.5 : 1)
-        )
         .disabled(url.isEmpty)
         .opacity(url.isEmpty ? 0.5 : 1.0) 
     }

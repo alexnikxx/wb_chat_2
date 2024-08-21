@@ -17,14 +17,15 @@ public struct WBSearchBarView: View {
     public var body: some View {
         HStack {
             Image("search")
-                .foregroundColor(Color("body1"))
+                .foregroundStyle(Color.CustomColors.body1)
                 .padding(.horizontal, 6)
             TextField(LocalizedStringKey("search"), text: $inputText)
                 .textFieldStyle(PlainTextFieldStyle())
-            
         }
+        .font(.bodyText1)
+        .foregroundStyle(Color.CustomColors.heading2)
         .padding(8)
-        .background(Color("textfield"))
+        .background(Color.CustomColors.textfield)
         .cornerRadius(4)
     }
 }

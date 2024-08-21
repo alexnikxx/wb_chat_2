@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Aleksandra Nikiforova on 12/08/24.
 //
@@ -23,7 +23,7 @@ public struct WBNavigationBar: View {
         textColor: Color = Color.CustomColors.heading2,
         rightButtonAction: (() -> Void)? = nil,
         backButtonAction: @escaping () -> Void,
-        isSubtitle: Bool
+        isSubtitle: Bool = false
     ) {
         self.title = title
         self.isBackButton = isBackButton
@@ -41,14 +41,15 @@ public struct WBNavigationBar: View {
                     .foregroundStyle(Color.CustomColors.background)
                     .frame(height: 90)
 
-                HStack(spacing: 0) {
-                    if isBackButton {
-                        backButton()
-                            .padding(.leading)
-                    }
-                    VStack(alignment: .leading, spacing: 1) {
+                HStack {
+                    HStack(spacing: 8) {
+                        if isBackButton {
+                            backButton()
+                                .padding(.leading)
+                        }
+
                         title(title)
-                        
+
                         if isSubtitle {
                             HStack {
                                 ProgressView()
@@ -62,8 +63,8 @@ public struct WBNavigationBar: View {
                             .foregroundStyle(.gray)
                         }
                     }
-                    .padding(.leading, isBackButton ? 8 : 24)
-                    
+                    .padding(.leading, isBackButton ? 2 : 24)
+
                     Spacer()
 
                     if rightButtonIcon != "" {
@@ -72,11 +73,11 @@ public struct WBNavigationBar: View {
                         }
                     }
                 }
-                .padding(.bottom, 16)
-                .frame(height: 90, alignment: .bottom)
+                .frame(height: 100, alignment: .bottom)
             }
+            .frame(height: 100)
         }
-        .frame(height: 90, alignment: .bottom)
+        .edgesIgnoringSafeArea(.top)
     }
 
     public func title(_ text: String) -> some View {
