@@ -32,9 +32,9 @@
 		2A007CDC2C75EA6D00BFFE04 /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A007CD82C75EA6300BFFE04 /* SFProDisplay-Regular.otf */; };
 		2A007CDD2C75EA7000BFFE04 /* SFProDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A007CD92C75EA6300BFFE04 /* SFProDisplay-Semibold.otf */; };
 		2A007CFD2C76289F00BFFE04 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A007CFC2C76289F00BFFE04 /* AvatarView.swift */; };
+		2A007D002C76374A00BFFE04 /* ContactsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A007CFF2C76374A00BFFE04 /* ContactsListView.swift */; };
 		2A1169C72C6E2111005BDBE4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1169C62C6E2111005BDBE4 /* RegistrationView.swift */; };
-		2A3A82962C7358A800DDA965 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A82952C7358A800DDA965 /* ChatView.swift */; };
-		2A3A82982C73596600DDA965 /* ContactsMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A82972C73596600DDA965 /* ContactsMockData.swift */; };
+		2A3A82962C7358A800DDA965 /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A82952C7358A800DDA965 /* ChatsView.swift */; };
 		2A3A829A2C735B4E00DDA965 /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A82992C735B4E00DDA965 /* StoriesView.swift */; };
 		2A3A829C2C735B6400DDA965 /* AddStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A829B2C735B6400DDA965 /* AddStoryView.swift */; };
 		2A3A829E2C735BB700DDA965 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A829D2C735BB700DDA965 /* Indicator.swift */; };
@@ -101,9 +101,9 @@
 		2A007CD82C75EA6300BFFE04 /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
 		2A007CD92C75EA6300BFFE04 /* SFProDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.otf"; sourceTree = "<group>"; };
 		2A007CFC2C76289F00BFFE04 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		2A007CFF2C76374A00BFFE04 /* ContactsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListView.swift; sourceTree = "<group>"; };
 		2A1169C62C6E2111005BDBE4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
-		2A3A82952C7358A800DDA965 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		2A3A82972C73596600DDA965 /* ContactsMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsMockData.swift; sourceTree = "<group>"; };
+		2A3A82952C7358A800DDA965 /* ChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsView.swift; sourceTree = "<group>"; };
 		2A3A82992C735B4E00DDA965 /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
 		2A3A829B2C735B6400DDA965 /* AddStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoryView.swift; sourceTree = "<group>"; };
 		2A3A829D2C735BB700DDA965 /* Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indicator.swift; sourceTree = "<group>"; };
@@ -163,19 +163,11 @@
 		1A6C5BC12C6CE5EC0095CB8F /* Chats */ = {
 			isa = PBXGroup;
 			children = (
-				2A3A82992C735B4E00DDA965 /* StoriesView.swift */,
-				2A3A829B2C735B6400DDA965 /* AddStoryView.swift */,
-				2A007CCA2C75413B00BFFE04 /* PrivateChatView.swift */,
-				65FBF6622C7545270095E2E2 /* ChatViewModel.swift */,
 				1A94048A2C720E7700331778 /* Models */,
-				1A6C5BC22C6CE5FD0095CB8F /* ChatsGPTView.swift */,
-				1A9404862C720C7600331778 /* GPTChatView.swift */,
-				1A9404952C72206D00331778 /* GPTChatRowView.swift */,
-				2A3A82952C7358A800DDA965 /* ChatView.swift */,
-				2A3A829F2C735BD200DDA965 /* ChatListView.swift */,
-				2A3A82A12C735BEA00DDA965 /* ChatContactCell.swift */,
-				2A3A829D2C735BB700DDA965 /* Indicator.swift */,
-				2A3A82972C73596600DDA965 /* ContactsMockData.swift */,
+				2A3A82952C7358A800DDA965 /* ChatsView.swift */,
+				2A007D012C7638CF00BFFE04 /* Components */,
+				2A007D022C763B5500BFFE04 /* For Contacts */,
+				2A007D032C763BA300BFFE04 /* For ChatGPT */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -245,6 +237,38 @@
 				6568BC1E2C70A67400CD46F4 /* NewContactViewModel.swift */,
 			);
 			path = NewContact;
+			sourceTree = "<group>";
+		};
+		2A007D012C7638CF00BFFE04 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2A3A82A12C735BEA00DDA965 /* ChatContactCell.swift */,
+				2A3A82992C735B4E00DDA965 /* StoriesView.swift */,
+				2A3A829B2C735B6400DDA965 /* AddStoryView.swift */,
+				2A007CFF2C76374A00BFFE04 /* ContactsListView.swift */,
+				2A3A829D2C735BB700DDA965 /* Indicator.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2A007D022C763B5500BFFE04 /* For Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				2A3A829F2C735BD200DDA965 /* ChatListView.swift */,
+				2A007CCA2C75413B00BFFE04 /* PrivateChatView.swift */,
+				65FBF6622C7545270095E2E2 /* ChatViewModel.swift */,
+			);
+			path = "For Contacts";
+			sourceTree = "<group>";
+		};
+		2A007D032C763BA300BFFE04 /* For ChatGPT */ = {
+			isa = PBXGroup;
+			children = (
+				1A6C5BC22C6CE5FD0095CB8F /* ChatsGPTView.swift */,
+				1A9404862C720C7600331778 /* GPTChatView.swift */,
+				1A9404952C72206D00331778 /* GPTChatRowView.swift */,
+			);
+			path = "For ChatGPT";
 			sourceTree = "<group>";
 		};
 		2A1169C82C6E2147005BDBE4 /* Registration */ = {
@@ -323,6 +347,7 @@
 				1A9404842C720B8000331778 /* Modules */,
 				65C98F8A2C67746600E54C0E /* Localizable */,
 				2AA033AF2C6BB6B900053071 /* Extensions */,
+				650BF2FB2C68A6D20046B496 /* Services */,
 				6568BC112C6E0B7000CD46F4 /* Model */,
 				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
 				1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */,
@@ -330,7 +355,6 @@
 				1AF8DDAB2C67A30500C5F315 /* Contacts */,
 				1A6C5BC12C6CE5EC0095CB8F /* Chats */,
 				1A6C5BC42C6CE6030095CB8F /* Settings */,
-				650BF2FB2C68A6D20046B496 /* Services */,
 				2AAC07522C674DC500D712BF /* Assets.xcassets */,
 				2A93B4EE2C6FB6E1002C0DAA /* Components */,
 				2A007CDA2C75EA6300BFFE04 /* Fonts */,
@@ -534,18 +558,18 @@
 				2A93B4EB2C6F8B7D002C0DAA /* EditContactView.swift in Sources */,
 				2AD066612C67E05F0015ECFB /* String+.swift in Sources */,
 				2A93B4E52C6F7A41002C0DAA /* SocialMediaTextFieldsView.swift in Sources */,
+				2A007D002C76374A00BFFE04 /* ContactsListView.swift in Sources */,
 				2A93B4E92C6F7F19002C0DAA /* NewContactView.swift in Sources */,
 				E586DFA32C6CBEDD00220252 /* DetailScreenView.swift in Sources */,
 				1A6C5BCA2C6CEF0B0095CB8F /* Navigation +.swift in Sources */,
 				2A007CCD2C75684C00BFFE04 /* SymbolView.swift in Sources */,
-				2A3A82982C73596600DDA965 /* ContactsMockData.swift in Sources */,
 				650BF3012C68AA770046B496 /* OnboardingViewModel.swift in Sources */,
 				650BF3062C68AEF90046B496 /* CodeVerificationView.swift in Sources */,
 				1A9404832C6F755E00331778 /* GPTViewModel.swift in Sources */,
 				650BF2FD2C68A8D50046B496 /* NotificationManager.swift in Sources */,
 				65C98F902C677B4500E54C0E /* LocalizedStrings.swift in Sources */,
 				2AAC074F2C674DC400D712BF /* wb_chat_2App.swift in Sources */,
-				2A3A82962C7358A800DDA965 /* ChatView.swift in Sources */,
+				2A3A82962C7358A800DDA965 /* ChatsView.swift in Sources */,
 				650BF3042C68AC710046B496 /* RandomDigitSequnce.swift in Sources */,
 				2A3A829C2C735B6400DDA965 /* AddStoryView.swift in Sources */,
 				2A3A82A02C735BD200DDA965 /* ChatListView.swift in Sources */,
