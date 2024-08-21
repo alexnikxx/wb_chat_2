@@ -16,9 +16,9 @@ struct GPTChatView: View {
     @EnvironmentObject var router: Router
     @EnvironmentObject private var viewModelGPT: GPTViewModel
     @Environment(\.modelContext) private var modelContext: ModelContext
-    
+
     var chat: Chat
-    
+
     var body: some View {
         VStack {
             WBNavigationBar(title: chat.title,
@@ -26,8 +26,8 @@ struct GPTChatView: View {
                             rightButtonIcon: "reload",
                             rightButtonAction: { viewModelGPT.clearHistory(modelContext: modelContext) },
                             backButtonAction: router.navigateBack,
-                            isSubtitle: viewModelGPT.isLoading)
-            
+                            isSubtitle: true)
+
             ChatView(messages: viewModelGPT.messages, chatType: .conversation) { draft in
                 viewModelGPT.sendMessage(draftMessage: draft, modelContext: modelContext)
             } inputViewBuilder: { textBinding, attachments, inputViewState, inputViewStyle, inputViewActionClosure, dismissKeyboardClosure in
@@ -42,21 +42,21 @@ struct GPTChatView: View {
                                 x: 0,
                                 y: -1
                             )
-                        
+
                         Rectangle()
                             .foregroundStyle(Color.CustomColors.background)
                             .frame(height: 60)
                             .offset(x: 0, y: 40)
-                        
+
                         HStack(spacing: 12) {
                             WBTextField(placeholder: "Аа", text: textBinding)
-                            
+
                             Button {
                                 inputViewActionClosure(.send)
                             } label: {
                                 Image("send-alt-filled")
-                            
-                                
+
+
                             }
                             .disabled(textBinding.wrappedValue.isEmpty)
                         }
@@ -67,14 +67,14 @@ struct GPTChatView: View {
             .chatTheme(colors: ChatTheme.Colors(
                 mainBackground: Color.CustomColors.textfield,
                 myMessage: .accent,
-                friendMessage: Color.CustomColors.background
+                friendMessage: Color.CustomColors.background,
+                textLightContext: Color.CustomColors.heading2
             ))
         }
         .onAppear {
             viewModelGPT.switchToChat(chat)
         }
         .edgesIgnoringSafeArea(.top)
-        
     }
 }
 

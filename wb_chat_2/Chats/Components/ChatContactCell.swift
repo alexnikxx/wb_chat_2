@@ -30,7 +30,3 @@ struct ChatContactCell: View {
         }
     }
 }
-
-#Preview {
-    ChatContactCell(contact: Contacts.contacts[0], lastMessage: "че каво")
-}

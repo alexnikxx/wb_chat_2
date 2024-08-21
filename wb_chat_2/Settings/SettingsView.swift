@@ -9,7 +9,7 @@ import UISystem
 
 struct SettingsView: View {
     @AppStorage("darkMode") private var darkMode = false
-    
+
     @AppStorage("pushNotificationMode") private var pushNotificationMode = true
     @Environment(\.colorScheme) var colorScheme
     private let notificationManager = NotificationManager()
@@ -22,15 +22,16 @@ struct SettingsView: View {
                     rightButtonIcon: "",
                     backButtonAction: { }
                 )
-                
+
                 VStack(spacing: 32) {
                     privateView
                         .padding(.top, 16)
+
                     VStack(spacing: 16) {
                         userView
                         chatsView
                     }
-                    
+
                     VStack(spacing: 16) {
                         themeView
                         pushView
@@ -52,11 +53,12 @@ struct SettingsView: View {
             } else {
                 print("Off")
                 UNUserNotificationCenter.current().removeAllPendingNotificationRequests()  // Отключить уведомления
-                
+
             }
         }
     }
 }
+
 //MARK: Properties
 extension SettingsView {
     var privateView: some View {

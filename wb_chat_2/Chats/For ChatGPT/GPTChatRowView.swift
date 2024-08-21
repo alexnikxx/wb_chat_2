@@ -32,6 +32,7 @@ struct GPTChatRowView: View {
                 
                 Spacer()
             }
+
             Spacer()
             
             VStack {
@@ -46,7 +47,3 @@ struct GPTChatRowView: View {
         .frame(height: 56)
     }
 }
-//
-//#Preview {
-//    GPTChatRowView()
-//}

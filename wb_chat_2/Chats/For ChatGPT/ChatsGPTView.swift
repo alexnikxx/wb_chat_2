@@ -15,18 +15,14 @@ struct ChatsGPTView: View {
     @EnvironmentObject private var viewModelGPT: GPTViewModel
     @State private var inputText = ""
     @Environment(\.modelContext) private var modelContext: ModelContext
+
     var body: some View {
         VStack {
             List {
                 ForEach(viewModelGPT.chats, id: \.self) { chat in
                     GPTChatRowView(chat: chat)
                         .listRowBackground(Color.CustomColors.background)
-                        .listRowSeparatorTint(Color.CustomColors.textfield)
-                        .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
-                        .alignmentGuide(.listRowSeparatorTrailing) { separator in
-                            separator.width - 2
-                        }
-                        .padding(5)
+                        .listRowSeparator(.hidden)
                         .onTapGesture {
                             router.navigateTo(.gptChat(chat: chat))
                         }
@@ -41,9 +37,7 @@ struct ChatsGPTView: View {
             .onAppear {
                 viewModelGPT.loadChats(modelContext: modelContext)
             }
-            
         }
-        .background(Color.CustomColors.background)
     }
 }
 
