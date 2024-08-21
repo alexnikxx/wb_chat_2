@@ -38,14 +38,17 @@
 "incorrect_code_try_again" = "Incorrect code. Please try again.";
 "request_code_again" = "Request the code again";
 
+"name" = "Name (required)";
+"surname" = "Surname (optional)";
+"required_field" = "Required field";
+
 "save_button" = "Save";
+
 "contacts" = "Contacts";
 "chats" = "Chats";
 "profile" = "Profile";
 
 "new_contact" = "New contact";
-"name" = "Name(required)";
-"surname" = "Surname(Optional)";
 
 "settings" = "Settings";
 

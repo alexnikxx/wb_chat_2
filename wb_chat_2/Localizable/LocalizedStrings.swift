@@ -48,7 +48,14 @@ struct LocalizedStrings {
         static var requestCodeAgain: String { NSLocalizedString("request_code_again", comment: "") }
     }
 
+    enum Registration {
+        static var nameTF: String { NSLocalizedString("name", comment: "")}
+        static var surnameTF: String { NSLocalizedString("surname", comment: "")}
+        static var requiredField: String { NSLocalizedString("required_field", comment: "")}
+    }
+
     static var saveButton: String { NSLocalizedString("save_button", comment: "")}
+
     static var chats: String { NSLocalizedString("chats", comment: "")}
     static var contacts: String { NSLocalizedString("contacts", comment: "")}
     static var profile: String { NSLocalizedString("profile", comment: "")}
@@ -56,9 +63,7 @@ struct LocalizedStrings {
     static var searchTextField: String { NSLocalizedString("search", comment: "")}
     
     static var newContactTittle: String { NSLocalizedString("new_contact", comment: "")}
-    static var nameTF: String { NSLocalizedString("name", comment: "")}
-    static var surnameTF: String { NSLocalizedString("surname", comment: "")}
-    
+
     static var settingsTittle: String { NSLocalizedString("settigs", comment: "")}
     
 }

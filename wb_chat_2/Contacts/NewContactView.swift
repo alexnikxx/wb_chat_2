@@ -17,7 +17,6 @@ struct NewContactView: View {
     @Environment(\.modelContext) private var modelContext: ModelContext
     @Environment(\.dismiss) private var dismiss
     
-    
     var body: some View {
         BackgroundView {
             VStack {

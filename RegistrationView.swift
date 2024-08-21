@@ -10,9 +10,9 @@ import UISystem
 import SwiftData
 
 struct RegistrationView: View {
-    @EnvironmentObject var router: Router
-    @FocusState private var keyboardFocused: Bool
     @StateObject private var viewModel = RegistrationViewModel()
+    @EnvironmentObject var router: Router
+
     @Environment(\.modelContext) private var modelContext: ModelContext
     @AppStorage("isRegistered") private var isRegistered: Bool = false
 
@@ -21,21 +21,13 @@ struct RegistrationView: View {
             VStack(spacing: 30) {
                 EditAvatarView(selectedImage: $viewModel.selectedImage)
                     .padding(.top, 46)
+
                 NameTextFieldsView(name: $viewModel.name, surname: $viewModel.surname)
-                    .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(viewModel.nameError ? Color.red.opacity(0.5) : Color.clear, lineWidth: 2)
-                        .padding(.bottom, 50)
-                        .animation(.easeInOut, value: viewModel.nameError))
-                .overlay(
-                    viewModel.nameError ? Text("Обязательное поле")
-                        .font(.caption)
-                        .foregroundColor(.red)
-                        .padding(.bottom, 50)
-                        .padding(.trailing, 40)
-                        .frame(maxWidth: .infinity, alignment: .trailing) : nil
-                )
                     .padding(.horizontal, 24)
+                    .modifier(ShakeAnimation(animatableData: CGFloat(viewModel.attempts)))
+                    .overlay(
+                        viewModel.nameError ? showError() : nil
+                    )
 
                 Spacer()
 
@@ -45,12 +37,32 @@ struct RegistrationView: View {
                         isRegistered = true
                         router.navigateTo(.main)
                     }
-                   
                 }
+                .opacity(!viewModel.name.isEmpty ? 1 : 0.5)
                 .padding(.bottom, 16)
             }
         }
         .navigationBarItems(leading: WBBackButton(action: router.navigateBack))
+        .onTapGesture {
+            viewModel.hideKeyboard()
+        }
+    }
+
+    private func showError() -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 5)
+                .stroke(Color.accent.danger)
+
+            Text(LocalizedStrings.Registration.requiredField)
+                .font(.metadata1)
+                .foregroundStyle(Color.accent.danger)
+                .padding(.trailing, 8)
+                .frame(maxWidth: .infinity, alignment: .trailing)
+        }
+        .modifier(ShakeAnimation(animatableData: CGFloat(viewModel.attempts)))
+        .animation(.easeInOut, value: viewModel.nameError)
+        .padding(.bottom, 50)
+        .padding(.horizontal, 24)
     }
 }
 
