@@ -46,8 +46,11 @@ final class OnboardingViewModel: ObservableObject {
             return true
         } else {
             print("Проверка кода: Неудачно")
-            showError = true
-            UINotificationFeedbackGenerator().notificationOccurred(.error)
+            withAnimation {
+                attempts += 1
+                showError = true
+                UINotificationFeedbackGenerator().notificationOccurred(.error)
+            }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.showError = false

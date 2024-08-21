@@ -21,22 +21,33 @@ struct CodeVerificationView: View {
             VStack {
                 OnboardingInfo(title: LocalizedStrings.Verification.enterCode, info: "\(LocalizedStrings.Verification.sentCodeToNumber) \n \(codeCountry) \(phoneNumber)")
 
-                codeInputView
-                errorView
+                VStack(spacing: 30) {
+                    codeInputView
+                        .modifier(ShakeAnimation(animatableData: CGFloat(viewModel.attempts)))
+
+                    if viewModel.showError {
+                        Text(LocalizedStrings.Verification.incorrectCodeTryAgain)
+                            .foregroundColor(Color.accent.danger)
+                            .font(.bodyText2(.regular))
+                    }
+                }
+                .padding(.top, 20)
+
+                Spacer()
 
                 WBButton(text: LocalizedStrings.Verification.requestCodeAgain, isFilled: false)  {
                     viewModel.generateVerificationCode()
                 }
+                .padding(.bottom, 60)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     WBBackButton(action: router.navigateBack)
                 }
             }
-            .onTapGesture {
-                viewModel.hideKeyboard()
-            }
-
+        }
+        .onTapGesture {
+            viewModel.hideKeyboard()
         }
         .onAppear {
             viewModel.generateVerificationCode()
@@ -61,21 +72,15 @@ struct CodeVerificationView: View {
         }
     }
 
-    private var errorView: some View {
-        Group {
-            if viewModel.showError {
-                Text(LocalizedStrings.Verification.incorrectCodeTryAgain)
-                    .foregroundColor(.red)
-                    .font(.bodyText1(.regular, size: 13))
-            }
-        }
-    }
-
     private func codeTextField(for index: Int) -> some View {
         TextField("", text: $viewModel.verificationCode[index])
+            .accentColor(.clear)
             .frame(width: 24, height: 24)
-            .background(viewModel.verificationCode[index].isEmpty ? Circle().fill(Color.CustomColors.textfield) : Circle().fill(Color.white))
-            .multilineTextAlignment(.center)
+            .background(
+                viewModel.verificationCode[index].isEmpty ?
+                    Circle().fill(Color.CustomColors.circle) :
+                    Circle().fill(Color.clear)
+            )
             .keyboardType(.numberPad)
             .font(.subheading1(.bold, size: 24))
             .onAppear {

@@ -22,7 +22,7 @@ struct SocialButton: View {
         .frame(width: 72, height: 40)
         .overlay(
             RoundedRectangle(cornerRadius: 25)
-                .stroke(Color.accent, lineWidth: 1.67)
+                .stroke(Color.accentColor, lineWidth: 1.67)
                 .opacity(url.isEmpty ? 0.5 : 1)
         )
         .disabled(url.isEmpty)

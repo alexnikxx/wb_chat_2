@@ -12,6 +12,13 @@ extension Color {
         public static let style1 = Gradient(colors: [Color("gradientStroke3"), Color("gradientStroke4")])
         public static let style2 = Gradient(colors: [Color("gradientStroke1"), Color("gradientStroke2")])
     }
+
+    public enum accent {
+        public static let danger = Color("danger")
+        public static let warning = Color("warning")
+        public static let success = Color("success")
+        public static let safe = Color("safe")
+    }
 }
 
 extension Color {
@@ -32,6 +39,8 @@ extension Color {
         public static let subheading2 = Color("subheading2")
         ///цвет текстфилда
         public static let textfield = Color("textfield")
+
+        public static let circle = Color("WBgray")
 
     }
 }
