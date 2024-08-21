@@ -22,22 +22,22 @@ final class OnboardingViewModel: ObservableObject {
 
     private let codeLength = 4
     let notificationManager: NotificationManager
-    
+
     init() {
         self.notificationManager = NotificationManager()
     }
-    
+
     func generateVerificationCode() {
         let randomDigitSequence = RandomDigitSequence(length: codeLength)
         generatedCode = randomDigitSequence.joined()
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.displayedCode = self.generatedCode
             self.notificationManager.scheduleNotification(code: self.generatedCode)
         }
         print("Сгенерированный код: \(generatedCode)")
     }
-    
+
     func checkCode() -> Bool {
         let enteredCode = verificationCode.joined()
         isCodeCorrect = (enteredCode == generatedCode)
@@ -48,22 +48,21 @@ final class OnboardingViewModel: ObservableObject {
             print("Проверка кода: Неудачно")
             showError = true
             UINotificationFeedbackGenerator().notificationOccurred(.error)
-            
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.showError = false
                 self.verificationCode = Array(repeating: "", count: 4)
                 // Вызов клавиатуры
                 UIApplication.shared.sendAction(#selector(UIResponder.becomeFirstResponder), to: nil, from: nil, for: nil)
-                
             }
             return false
         }
     }
-    
+
     func handleTextFieldChange(for index: Int, newValue: String) -> Int? {
         // Проверяем, что текущий текстовый поле находится в фокусе
         guard index < verificationCode.count else { return nil }
-        
+
         if newValue.isEmpty {
             // Если текущее поле пустое и это не первое поле, перемещаем фокус на предыдущее поле
             if index > 0 {
@@ -72,27 +71,28 @@ final class OnboardingViewModel: ObservableObject {
         } else if newValue.count > 1 {
             // Обработка вставки нескольких символов (например, при вставке)
             let endIndex = index + newValue.count
-            
+
             if endIndex <= verificationCode.count {
                 // Распределяем дополнительные символы по массиву
                 verificationCode.replaceSubrange(index..<endIndex, with: newValue.map { String($0) })
                 // Перемещаем фокус на последний вставленный символ
                 return endIndex - 1
-                
+
             } else {
                 // Если введённое значение содержит больше одного символа, оставляем только первый символ в текущем текстовом поле.
                 verificationCode[index] = String(newValue[newValue.startIndex])
             }
-            
+
         }
+
         // Если текущий индекс - последний и поле не пустое, проверяем код и скрываем клавиатуру
         if index == verificationCode.count - 1 && newValue.count == 1 {
             checkCode() ? hideKeyboard() : nil
         }
         return nil
     }
-    
-    private func hideKeyboard() {
+
+    func hideKeyboard() {
         let resign = #selector(UIResponder.resignFirstResponder)
         UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
     }

@@ -40,12 +40,14 @@ struct LocalizedStrings {
         static var continueButton: String { NSLocalizedString("continue", comment: "")}
     }
 
-    static var enterCode: String { NSLocalizedString("enter_code", comment: "") }
-    static var sentCodeToNumber: String { NSLocalizedString("sent_code_message", comment: "") }
-    static var yourCode: String { NSLocalizedString("your_code", comment: "") }
-    static var incorrectCodeTryAgain: String { NSLocalizedString("incorrect_code_try_again", comment: "") }
-    static var requestCodeAgain: String { NSLocalizedString("request_code_again", comment: "") }
-    
+    enum Verification {
+        static var enterCode: String { NSLocalizedString("enter_code", comment: "") }
+        static var sentCodeToNumber: String { NSLocalizedString("sent_code_message", comment: "") }
+        static var yourCode: String { NSLocalizedString("your_code", comment: "") }
+        static var incorrectCodeTryAgain: String { NSLocalizedString("incorrect_code_try_again", comment: "") }
+        static var requestCodeAgain: String { NSLocalizedString("request_code_again", comment: "") }
+    }
+
     static var saveButton: String { NSLocalizedString("save_button", comment: "")}
     static var chats: String { NSLocalizedString("chats", comment: "")}
     static var contacts: String { NSLocalizedString("contacts", comment: "")}

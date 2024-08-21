@@ -11,58 +11,39 @@ import UISystem
 struct CodeVerificationView: View {
     @EnvironmentObject var router: Router
     @StateObject private var viewModel = OnboardingViewModel()
+    @FocusState var focusedField: Int?
 
     let codeCountry: String
     let phoneNumber: String
-    @FocusState var focusedField: Int?
-    
+
     var body: some View {
+        BackgroundView {
             VStack {
-                headerView
+                OnboardingInfo(title: LocalizedStrings.Verification.enterCode, info: "\(LocalizedStrings.Verification.sentCodeToNumber) \n \(codeCountry) \(phoneNumber)")
+
                 codeInputView
                 errorView
-                
-                WBButton(text: LocalizedStrings.requestCodeAgain, isFilled: false)  {
+
+                WBButton(text: LocalizedStrings.Verification.requestCodeAgain, isFilled: false)  {
                     viewModel.generateVerificationCode()
                 }
-            }
-            .onTapGesture {
-                hideKeyboard()
-            }
-            .onAppear {
-                viewModel.generateVerificationCode()
-                viewModel.notificationManager.requestAuth()
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     WBBackButton(action: router.navigateBack)
                 }
             }
-            .padding(.top, 169)
-
-            Spacer()
-    }
-
-    private var headerView: some View {
-        VStack {
-            Text(LocalizedStrings.enterCode)
-                .font(.heading2(.bold, size: 24))
-                .padding(.bottom, 8)
-            Text(LocalizedStrings.sentCodeToNumber)
-                .font(.bodyText1(.regular, size: 14))
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 8)
-            HStack(spacing: 5) {
-                Text(codeCountry)
-                    .font(.bodyText1(.regular, size: 14))
-                Text(phoneNumber)
-                    .font(.bodyText1(.regular, size: 14))
-                    
+            .onTapGesture {
+                viewModel.hideKeyboard()
             }
-            .padding(.bottom, 49)
+
+        }
+        .onAppear {
+            viewModel.generateVerificationCode()
+            viewModel.notificationManager.requestAuth()
         }
     }
-    
+
     private var codeInputView: some View {
         HStack(spacing: 40) {
             ForEach(0..<viewModel.verificationCode.count, id: \.self) { index in
@@ -78,20 +59,18 @@ struct CodeVerificationView: View {
                     }
             }
         }
-        .padding(.horizontal, 24)
-        .padding(.bottom, 30)
     }
-    
+
     private var errorView: some View {
         Group {
             if viewModel.showError {
-                Text(LocalizedStrings.incorrectCodeTryAgain)
+                Text(LocalizedStrings.Verification.incorrectCodeTryAgain)
                     .foregroundColor(.red)
                     .font(.bodyText1(.regular, size: 13))
             }
         }
     }
-    
+
     private func codeTextField(for index: Int) -> some View {
         TextField("", text: $viewModel.verificationCode[index])
             .frame(width: 24, height: 24)
