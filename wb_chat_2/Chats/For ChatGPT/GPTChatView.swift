@@ -26,7 +26,7 @@ struct GPTChatView: View {
                             rightButtonIcon: "reload",
                             rightButtonAction: { viewModelGPT.clearHistory(modelContext: modelContext) },
                             backButtonAction: router.navigateBack,
-                            isSubtitle: true)
+                            isSubtitle: viewModelGPT.isLoading)
 
             ChatView(messages: viewModelGPT.messages, chatType: .conversation) { draft in
                 viewModelGPT.sendMessage(draftMessage: draft, modelContext: modelContext)
