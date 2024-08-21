@@ -51,7 +51,7 @@ struct CodeVerificationView: View {
         }
         .onAppear {
             viewModel.generateVerificationCode()
-            viewModel.notificationManager.requestAuth()
+            
         }
     }
 
