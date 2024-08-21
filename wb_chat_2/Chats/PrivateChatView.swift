@@ -1,59 +1,62 @@
 //
-//  GPTChatView.swift
+//  ChatView.swift
 //  wb_chat_2
 //
-//  Created by Tatiana Lazarenko on 8/18/24.
+//  Created by Aleksandra Nikiforova on 17/08/24.
 //
 
 import SwiftUI
-import OpenAIAPI
-import UISystem
 import ExyteChat
+import UISystem
 import SwiftData
 
-struct GPTChatView: View {
+struct PrivateChatView: View {
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var router: Router
-    @EnvironmentObject private var viewModelGPT: GPTViewModel
+    @StateObject var viewModel: GPTViewModel
     @Environment(\.modelContext) private var modelContext: ModelContext
-    
-    var chat: Chat
-    
+
+    let contact: Contact
+
+    init(viewModel: GPTViewModel = GPTViewModel(), contact: Contact) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+        self.contact = contact
+    }
+
     var body: some View {
-        VStack {
-            WBNavigationBar(title: chat.title, isBackButton: true, rightButtonIcon: "reload", rightButtonAction: {
-                viewModelGPT.clearHistory(modelContext: modelContext)
-            }, backButtonAction: router.navigateBack, isSubtitle: viewModelGPT.isLoading)
-            
-            ChatView(messages: viewModelGPT.messages, chatType: .conversation) { draft in
-                viewModelGPT.sendMessage(draftMessage: draft, modelContext: modelContext)
+        ZStack {
+            ChatView(messages: viewModel.messages) { draft in
+                viewModel.sendMessage(draftMessage: draft, modelContext: modelContext)
             } inputViewBuilder: { textBinding, attachments, inputViewState, inputViewStyle, inputViewActionClosure, dismissKeyboardClosure in
                 Group {
                     ZStack {
                         Rectangle()
-                            .foregroundStyle(Color.CustomColors.background)
+                            .foregroundStyle(Color("background"))
                             .frame(height: 60)
                             .shadow(
-                                color: Color.CustomColors.heading2.opacity(colorScheme == .light ? 0.04 : 0),
+                                color: Color("heading2").opacity(colorScheme == .light ? 0.04 : 0),
                                 radius: 12,
                                 x: 0,
                                 y: -1
                             )
-                        
+
                         Rectangle()
-                            .foregroundStyle(Color.CustomColors.background)
+                            .foregroundStyle(Color("background"))
                             .frame(height: 60)
                             .offset(x: 0, y: 40)
-                        
+
                         HStack(spacing: 12) {
+                            Button {
+
+                            } label: {
+                                Image("plus")
+                            }
+
                             WBTextField(placeholder: "Аа", text: textBinding)
-                            
+
                             Button {
                                 inputViewActionClosure(.send)
                             } label: {
                                 Image("send-alt-filled")
-                            
-                                
                             }
                             .disabled(textBinding.wrappedValue.isEmpty)
                         }
@@ -62,16 +65,16 @@ struct GPTChatView: View {
                 }
             }
             .chatTheme(colors: ChatTheme.Colors(
-                mainBackground: Color.CustomColors.textfield,
+                mainBackground: .textfield,
                 myMessage: .accent,
-                friendMessage: Color.CustomColors.background
+                friendMessage: .background
             ))
+
+            //            WBNavigationBar(
+            //                title: "contact.name",
+            //                isBackButton: true,
+            //                rightButtonIcon: "hamburger") { }
+            //                .frame(maxHeight: .infinity, alignment: .top)
         }
-        .onAppear {
-            viewModelGPT.switchToChat(chat)
-        }
-        .edgesIgnoringSafeArea(.top)
-        
     }
 }
-

@@ -18,12 +18,12 @@ struct ContactRowView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(contact.fullname)
                     .font(.bodyText1(.semiBold))
-                    .foregroundStyle(Color("heading2"))
+                    .foregroundStyle(Color.CustomColors.heading2)
                     .frame(height: 24)
 
                 Text(contact.onlineStatusMessage)
                     .font(.metadat1(.regular))
-                    .foregroundStyle(Color("metadata2"))
+                    .foregroundStyle(Color.CustomColors.metadata2)
                     .frame(height: 20)
 
                 Spacer()
@@ -57,7 +57,7 @@ struct AvatarView: View {
                 Text(initials(from: contact.fullname))
                     .foregroundStyle(.white)
                     .frame(width: 48, height: 48)
-                    .background(Color.button)
+                    .background(Color.CustomColors.mainWbColor)
                     .cornerRadius(16)
             }
 
@@ -69,7 +69,7 @@ struct AvatarView: View {
 //    private func setStories() -> some View {
 //        RoundedRectangle(cornerRadius: 18)
 //            .fill(LinearGradient(
-//                gradient: Gradient(colors: [Color("button"), Color("metadata2")]),
+//                gradient: Gradient(colors: [Color.CustomColors.mainWbColor, Color.CustomColors.metadata2]),
 //                startPoint: .leading,
 //                endPoint: .trailing))
 //            .frame(width: 56, height: 56)
@@ -83,7 +83,7 @@ struct AvatarView: View {
 //                .frame(width: 48, height: 48)
 //                .overlay(
 //                    RoundedRectangle(cornerRadius: 14)
-//                    .stroke(Color("background"), lineWidth: 2)
+//                    .stroke(Color.CustomColors.background, lineWidth: 2)
 //                )
 //            )
 //        } else {
@@ -93,8 +93,8 @@ struct AvatarView: View {
 //
 //            return AnyView(
 //                RoundedRectangle(cornerRadius: 16)
-//                    .fill(Color("button"))
-//                    .stroke(Color("background"), lineWidth: 2)
+//                    .fill(Color.CustomColors.mainWbColor)
+//                    .stroke(Color.CustomColors.background, lineWidth: 2)
 //                    .frame(width: 48, height: 48)
 //                    .overlay(
 //                        Text(initials)

@@ -20,8 +20,8 @@ struct ChatsGPTView: View {
             List {
                 ForEach(viewModelGPT.chats, id: \.self) { chat in
                     GPTChatRowView(chat: chat)
-                        .listRowBackground(Color("background"))
-                        .listRowSeparatorTint(Color("textfield"))
+                        .listRowBackground(Color.CustomColors.background)
+                        .listRowSeparatorTint(Color.CustomColors.textfield)
                         .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
                         .alignmentGuide(.listRowSeparatorTrailing) { separator in
                             separator.width - 2
@@ -43,7 +43,7 @@ struct ChatsGPTView: View {
             }
             
         }
-        .background(Color("background"))
+        .background(Color.CustomColors.background)
     }
 }
 

@@ -20,7 +20,7 @@ public struct WBNavigationBar: View {
         title: String,
         isBackButton: Bool,
         rightButtonIcon: String,
-        textColor: Color = Color(("heading2")),
+        textColor: Color = Color.CustomColors.heading2,
         rightButtonAction: (() -> Void)? = nil,
         backButtonAction: @escaping () -> Void,
         isSubtitle: Bool
@@ -38,7 +38,7 @@ public struct WBNavigationBar: View {
         Group {
             ZStack {
                 Rectangle()
-                    .foregroundStyle(Color("background"))
+                    .foregroundStyle(Color.CustomColors.background)
                     .frame(height: 90)
 
                 HStack(spacing: 0) {
@@ -94,7 +94,7 @@ public struct WBNavigationBar: View {
             Image(iconName)
                 .resizable()
                 .frame(width: 24, height: 24)
-                .foregroundStyle(Color("heading2"))
+                .foregroundStyle(Color.CustomColors.heading2)
                 .padding(.horizontal, 24)
         }
     }

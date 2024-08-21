@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PhotosUI
+import UISystem
 
 struct EditAvatarView: View {
     @Binding var selectedImage: UIImage?
@@ -27,7 +28,7 @@ struct EditAvatarView: View {
                         .scaledToFit()
                         .frame(width: 56, height: 56)
                         .padding(22)
-                        .background(Color.textfield)
+                        .background(Color.CustomColors.textfield)
                         .cornerRadius(100)
                 }
                 
@@ -37,7 +38,7 @@ struct EditAvatarView: View {
                     Image(systemName: "plus.circle.fill")
                         .resizable()
                         .frame(width: 24, height: 24)
-                        .foregroundStyle(.heading2)
+                        .foregroundStyle(Color.CustomColors.heading2)
                         .background(Color.white)
                         .clipShape(Circle())
                 }

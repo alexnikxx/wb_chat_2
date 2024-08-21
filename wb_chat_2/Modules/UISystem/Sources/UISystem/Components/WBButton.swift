@@ -17,7 +17,7 @@ public struct WBButton: View {
 
     public init(
         text: String,
-        color: Color = Color("button"),
+        color: Color = Color.CustomColors.mainWbColor,
         isDisabled: Bool = false,
         isFilled: Bool = true,
         isButton: Bool = true,

@@ -95,7 +95,7 @@ struct CodeVerificationView: View {
     private func codeTextField(for index: Int) -> some View {
         TextField("", text: $viewModel.verificationCode[index])
             .frame(width: 24, height: 24)
-            .background(viewModel.verificationCode[index].isEmpty ? Circle().fill(Color("textfield")) : Circle().fill(Color.white))
+            .background(viewModel.verificationCode[index].isEmpty ? Circle().fill(Color.CustomColors.textfield) : Circle().fill(Color.white))
             .multilineTextAlignment(.center)
             .keyboardType(.numberPad)
             .font(.subheading1(.bold, size: 24))
