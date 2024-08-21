@@ -12,11 +12,11 @@ import SwiftData
 struct NewContactView: View {
     @EnvironmentObject var router: Router
     @FocusState private var keyboardFocused: Bool
-    
+
     @StateObject private var viewModel = NewContactViewModel()
     @Environment(\.modelContext) private var modelContext: ModelContext
     @Environment(\.dismiss) private var dismiss
-    
+
     var body: some View {
         BackgroundView {
             VStack {
@@ -26,41 +26,25 @@ struct NewContactView: View {
                     rightButtonIcon: "",
                     backButtonAction: { router.navigateBack() }
                 )
-                
+
                 VStack(spacing: 16) {
                     VStack(spacing: 30) {
                         EditAvatarView(selectedImage: $viewModel.selectedImage)
                             .padding(.top, 46)
                         NameTextFieldsView(name: $viewModel.name, surname: $viewModel.surname)
+                            .modifier(ShakeAnimation(animatableData: CGFloat(viewModel.attempts)))
                             .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(viewModel.nameError ? Color.red.opacity(0.5) : Color.clear, lineWidth: 2)
-                                    .padding(.bottom, 50)
-                                    .animation(.easeInOut, value: viewModel.nameError))
-                            .overlay(
-                                viewModel.nameError ? Text("Обязательное поле")
-                                    .font(.caption)
-                                    .foregroundColor(.red)
-                                    .padding(.bottom, 50)
-                                    .padding(.trailing, 40)
-                                    .frame(maxWidth: .infinity, alignment: .trailing) : nil
+                                viewModel.nameError ? showErrorForName() : nil
                             )
                     }
+
                     Divider()
                     PhoneTextFieldView(phone: $viewModel.phoneNumber, selectedCountry: $viewModel.selectedCountry)
+                        .modifier(ShakeAnimation(animatableData: CGFloat(viewModel.attempts)))
                         .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(viewModel.phoneNumberError ? Color.red.opacity(0.5) : Color.clear, lineWidth: 2)
-                                .animation(.easeInOut, value: viewModel.phoneNumber))
-                        .overlay(
-                            viewModel.phoneNumberError ? Text("Обязательное поле")
-                                .font(.caption)
-                                .foregroundColor(.red)
-                                .padding(.top, 5)
-                                .padding(.trailing, 5)
-                                .frame(maxWidth: .infinity, alignment: .trailing) : nil
-                            
+                            viewModel.nameError ? showErrorForPhone() : nil
                         )
+
                     Divider()
                     SocialMediaTextFieldsView(
                         twitter: $viewModel.twitter,
@@ -70,20 +54,49 @@ struct NewContactView: View {
                     )
                 }
                 .padding(.horizontal, 24)
-                
+
                 Spacer()
-                
+
                 WBButton(text: LocalizedStrings.saveButton) {
                     viewModel.saveContact(modelContext: modelContext, dismiss: {
                         dismiss()
                     })
                 }
-                
+
                 .padding(.bottom, 16)
             }
             .edgesIgnoringSafeArea(.top)
             .frame(maxHeight: .infinity, alignment: .top)
         }
+    }
+
+    private func showErrorForName() -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 5)
+                .stroke(Color.accent.danger)
+
+            Text(LocalizedStrings.Registration.requiredField)
+                .font(.metadata1)
+                .foregroundStyle(Color.accent.danger)
+                .padding(.trailing, 8)
+                .frame(maxWidth: .infinity, alignment: .trailing)
+        }
+        .modifier(ShakeAnimation(animatableData: CGFloat(viewModel.attempts)))
+        .padding(.bottom, 50)
+    }
+
+    private func showErrorForPhone() -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 5)
+                .stroke(Color.accent.danger)
+
+            Text(LocalizedStrings.Registration.requiredField)
+                .font(.metadata1)
+                .foregroundStyle(Color.accent.danger)
+                .padding(.trailing, 8)
+                .frame(maxWidth: .infinity, alignment: .trailing)
+        }
+        .modifier(ShakeAnimation(animatableData: CGFloat(viewModel.attempts)))
     }
 }
 

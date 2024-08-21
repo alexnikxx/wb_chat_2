@@ -30,12 +30,12 @@ final class NewContactViewModel: ObservableObject {
     @Published var isImagePickerPresented = false
     @Published var errorTimer: Timer? = nil
     @Published var selectedItem: PhotosPickerItem? = nil
-    
+    @Published var attempts: Int = 0
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext: ModelContext
     
-    init(selectedCountry: Country = Country(name: "Russia", flag: "🇷🇺", code: "+7", digits: 10)) {
+    init(selectedCountry: Country = Country.countries[7]) {
         self.selectedCountry = selectedCountry
     }
     
@@ -43,9 +43,12 @@ final class NewContactViewModel: ObservableObject {
         var isValid = true
         
         if name.isEmpty {
-            nameError = true
-            isValid = false
-            startErrorTimer(for: .name)
+            withAnimation {
+                attempts += 1
+                nameError = true
+                isValid = false
+                startErrorTimer(for: .name)
+            }
         }
         
         if phoneNumber.isEmpty || !isPhoneNumberValid() {
