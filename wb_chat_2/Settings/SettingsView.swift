@@ -8,9 +8,11 @@ import SwiftUI
 import UISystem
 
 struct SettingsView: View {
-    @State private var darkMode = false
-    @State private var pushNotificationMode = true
-
+    @AppStorage("darkMode") private var darkMode = false
+    
+    @AppStorage("pushNotificationMode") private var pushNotificationMode = true
+    @Environment(\.colorScheme) var colorScheme
+    private let notificationManager = NotificationManager()
     var body: some View {
         BackgroundView {
             VStack {
@@ -20,16 +22,15 @@ struct SettingsView: View {
                     rightButtonIcon: "",
                     backButtonAction: { }
                 )
-
+                
                 VStack(spacing: 32) {
                     privateView
                         .padding(.top, 16)
-
                     VStack(spacing: 16) {
                         userView
                         chatsView
                     }
-
+                    
                     VStack(spacing: 16) {
                         themeView
                         pushView
@@ -43,6 +44,15 @@ struct SettingsView: View {
                 }
                 .padding(.horizontal, 16)
                 .frame(maxHeight: .infinity, alignment: .top)
+            }
+        }
+        .onChange(of: pushNotificationMode) {
+            if pushNotificationMode {
+                notificationManager.requestAuth()  // Запросить разрешение на уведомления
+            } else {
+                print("Off")
+                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()  // Отключить уведомления
+                
             }
         }
     }

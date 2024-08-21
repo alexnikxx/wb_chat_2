@@ -12,7 +12,7 @@ struct OnboardingView: View {
     @EnvironmentObject var router: Router
     @Environment(\.dismiss) var dismiss
     @State private var isShowingTerms = false
-
+    @StateObject private var viewModel = OnboardingViewModel()
     var body: some View {
         BackgroundView {
             VStack {
@@ -68,7 +68,12 @@ struct OnboardingView: View {
                     .frame(maxHeight: .infinity, alignment: .center)
             }
         }
+        .onAppear {
+           
+            viewModel.notificationManager.requestAuth()
+        }
     }
+    
 }
 
 #Preview {
