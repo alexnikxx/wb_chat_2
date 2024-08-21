@@ -66,6 +66,7 @@
 		6568BC232C71DF2300CD46F4 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6568BC222C71DF2300CD46F4 /* RegistrationViewModel.swift */; };
 		65C98F8D2C6777EB00E54C0E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 65C98F8B2C6777EB00E54C0E /* Localizable.strings */; };
 		65C98F902C677B4500E54C0E /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C98F8F2C677B4500E54C0E /* LocalizedStrings.swift */; };
+		65FBF6632C7545270095E2E2 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FBF6622C7545270095E2E2 /* ChatViewModel.swift */; };
 		E5477CA22C7360BE00CC024F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5477CA12C7360BE00CC024F /* SettingsView.swift */; };
 		E586DFA32C6CBEDD00220252 /* DetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586DFA22C6CBEDD00220252 /* DetailScreenView.swift */; };
 		E586DFA52C6CCA5800220252 /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E586DFA42C6CCA5800220252 /* SocialButton.swift */; };
@@ -132,6 +133,7 @@
 		65C98F8C2C6777EB00E54C0E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		65C98F8E2C67784200E54C0E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		65C98F8F2C677B4500E54C0E /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		65FBF6622C7545270095E2E2 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		E5477CA12C7360BE00CC024F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E586DFA22C6CBEDD00220252 /* DetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenView.swift; sourceTree = "<group>"; };
 		E586DFA42C6CCA5800220252 /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				2A3A82992C735B4E00DDA965 /* StoriesView.swift */,
 				2A3A829B2C735B6400DDA965 /* AddStoryView.swift */,
 				2A007CCA2C75413B00BFFE04 /* PrivateChatView.swift */,
+				65FBF6622C7545270095E2E2 /* ChatViewModel.swift */,
 				1A94048A2C720E7700331778 /* Models */,
 				1A6C5BC22C6CE5FD0095CB8F /* ChatsGPTView.swift */,
 				1A9404862C720C7600331778 /* GPTChatView.swift */,
@@ -528,6 +531,7 @@
 				2A3A82A02C735BD200DDA965 /* ChatListView.swift in Sources */,
 				E586DFA52C6CCA5800220252 /* SocialButton.swift in Sources */,
 				1A9404962C72206D00331778 /* GPTChatRowView.swift in Sources */,
+				65FBF6632C7545270095E2E2 /* ChatViewModel.swift in Sources */,
 				1A94048E2C720E9C00331778 /* GPTMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

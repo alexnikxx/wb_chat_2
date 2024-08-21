@@ -88,7 +88,7 @@ struct ContactsView: View {
                     Contact(
                         name: "Анастасия",
                         surname: "Иванова",
-                        avatar: "Анастасия Иванова",
+                        avatar: convertImageToBase64String(imageName: "Анастасия Иванова"),
                         phoneNumber: "+7 999 999-99-99",
                         hasMessages: true,
                         socialMediaLinks: [
@@ -100,7 +100,7 @@ struct ContactsView: View {
                     Contact(
                         name: "Петя",
                         surname: nil,
-                        avatar: "Петя",
+                        avatar: convertImageToBase64String(imageName: "Петя"),
                         phoneNumber: "+7 999 999-99-99",
                         hasMessages: true,
                         socialMediaLinks: [
@@ -125,10 +125,19 @@ struct ContactsView: View {
                 
                 contacts.forEach { modelContext.insert($0) }
                 try modelContext.save()
+                
             }
         } catch {
             print("Error fetching or saving contacts: \(error.localizedDescription)")
         }
+    }
+    
+    func convertImageToBase64String(imageName: String) -> String? {
+        if let image = UIImage(named: imageName),
+           let imageData = image.pngData() {
+            return imageData.base64EncodedString()
+        }
+        return nil
     }
 }
 
