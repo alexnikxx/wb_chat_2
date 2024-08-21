@@ -24,7 +24,7 @@ enum Route: Hashable {
 @MainActor
 final class Router: ObservableObject {
     @Published var startScreen: Route = .onboarding
-    @Published var selectedTabRoute: Tab = .chats
+    @Published var selectedTabRoute: Tab = .contacts
     
     @Published var path = NavigationPath()
     
