@@ -67,10 +67,10 @@ extension SettingsView {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Иван Иванов")
                         .foregroundStyle(Color.CustomColors.heading2)
-                        .font(.bodyText1(.semiBold))
+                        .font(.bodyText1)
 
                     Text("+7 999 888 77 66")
-                        .font(.bodyText2(.regular))
+                        .font(.metadata1)
                         .foregroundStyle(Color.CustomColors.metadata2)
                 }
             }
@@ -84,7 +84,7 @@ extension SettingsView {
         } label: {
             Image("usersmall")
             Text("Аккаунт")
-                .font(.bodyText1(.semiBold))
+                .font(.bodyText1)
                 .foregroundStyle(Color.CustomColors.heading2)
         }
         .accentColor(Color.CustomColors.heading2)
@@ -98,7 +98,7 @@ extension SettingsView {
                 .resizable()
                 .frame(width: 24, height: 24)
             Text("Чаты")
-                .font(.bodyText1(.semiBold))
+                .font(.bodyText1)
                 .foregroundStyle(Color.CustomColors.heading2)
         }
         .accentColor(Color.CustomColors.heading2)
@@ -110,7 +110,7 @@ extension SettingsView {
                 HStack {
                     Image("sun")
                     Text("Тема")
-                        .font(.bodyText1(.semiBold))
+                        .font(.bodyText1)
                         .foregroundStyle(Color.CustomColors.heading2)
                 }
             }
@@ -124,7 +124,7 @@ extension SettingsView {
                 HStack {
                     Image("notification")
                     Text("Уведомления")
-                        .font(.bodyText1(.semiBold))
+                        .font(.bodyText1)
                         .foregroundStyle(Color.CustomColors.heading2)
                 }
             }
@@ -138,7 +138,7 @@ extension SettingsView {
         } label: {
             Image("outline-privacy-tip")
             Text("Безопасность")
-                .font(.bodyText1(.semiBold))
+                .font(.bodyText1)
                 .foregroundStyle(Color.CustomColors.heading2)
         }
         .accentColor(Color.CustomColors.heading2)
@@ -150,7 +150,7 @@ extension SettingsView {
         } label: {
             Image("folder")
             Text("Память и ресурсы")
-                .font(.bodyText1(.semiBold))
+                .font(.bodyText1)
                 .foregroundStyle(Color.CustomColors.heading2)
         }
         .accentColor(Color.CustomColors.heading2)
@@ -162,7 +162,7 @@ extension SettingsView {
         } label: {
             Image("help-circle")
             Text("Помощь")
-                .font(.bodyText1(.semiBold))
+                .font(.bodyText1)
                 .foregroundStyle(Color.CustomColors.heading2)
         }
         .accentColor(.heading2)
@@ -174,7 +174,7 @@ extension SettingsView {
         } label: {
             Image("mail")
             Text("Пригласи друга")
-                .font(.bodyText1(.semiBold))
+                .font(.bodyText1)
                 .foregroundStyle(Color.CustomColors.heading2)
         }
         .accentColor(.heading2)

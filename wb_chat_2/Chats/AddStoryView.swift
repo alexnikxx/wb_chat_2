@@ -24,7 +24,7 @@ struct AddStoryView: View {
             }
 
             Text("Вы")
-                .font(.metadat1(.regular))
+                .font(.metadata2)
                 .foregroundStyle(Color.CustomColors.heading2)
         }
     }

@@ -49,16 +49,16 @@ struct DetailScreenView: View {
                     
                         .overlay(
                             Text(initials(from: contact.fullname) )
-                                .font(.heading1(.bold, size: 44))
+                                .font(.fontWB(size: 44, weight: .bold))
                                 .padding(.top, 90)
                                 .foregroundColor(.white) )
                         .padding(.trailing, 12)
                     
                     Text(contact.fullname)
-                        .font(.heading2(.semiBold))
+                        .font(.heading2)
                         .padding(.top, 20)
                     Text(contact.phoneNumber)
-                        .font(.metadat1(.regular, size: 16))
+                        .font(.fontWB(size: 16))
                         .foregroundColor(.body1)
                         .padding(.top, 6)
                     

@@ -22,7 +22,7 @@ struct SymbolView: View {
         case .digit:
             Text("\(symbol)")
                 .frame(width: 24, height: 24)
-                .font(.heading1(.regular))
+                .font(.heading1)
         case .dot:
             Circle()
                 .frame(width: 24, height: 24)

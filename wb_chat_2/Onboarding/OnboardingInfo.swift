@@ -15,10 +15,10 @@ struct OnboardingInfo: View {
     var body: some View {
         VStack(spacing: 12) {
             Text(title)
-                .font(.heading2(.bold))
+                .font(.heading2)
 
             Text(info)
-                .font(.bodyText1(.regular))
+                .font(.bodyText2)
                 .lineSpacing(8)
         }
         .multilineTextAlignment(.center)

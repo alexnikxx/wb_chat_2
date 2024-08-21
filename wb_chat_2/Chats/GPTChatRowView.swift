@@ -21,12 +21,12 @@ struct GPTChatRowView: View {
             
             VStack(alignment: .leading, spacing: 2) {
                 Text(chat.title)
-                    .font(.bodyText1(.semiBold))
+                    .font(.bodyText1)
                     .foregroundStyle(Color.CustomColors.heading2)
                     .frame(height: 24)
                 
                 Text(chat.messages.last?.text ?? "Still no messages...")
-                    .font(.metadat1(.regular))
+                    .font(.metadata2)
                     .foregroundStyle(Color.CustomColors.metadata2)
                     .frame(height: 20)
                 
@@ -36,7 +36,7 @@ struct GPTChatRowView: View {
             
             VStack {
                 Text(viewModelGPT.model.rawValue)
-                    .font(.metadat1(.bold))
+                    .font(.fontWB(size: 10, weight: .bold))
                     .foregroundStyle(Color.CustomColors.metadata2)
                     .frame(height: 20)
                 

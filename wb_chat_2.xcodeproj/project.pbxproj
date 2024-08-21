@@ -28,6 +28,9 @@
 		1AF8DDBF2C67AC2000C5F315 /* UISystem in Frameworks */ = {isa = PBXBuildFile; productRef = 1AF8DDBE2C67AC2000C5F315 /* UISystem */; };
 		2A007CCB2C75413B00BFFE04 /* PrivateChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A007CCA2C75413B00BFFE04 /* PrivateChatView.swift */; };
 		2A007CCD2C75684C00BFFE04 /* SymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A007CCC2C75684C00BFFE04 /* SymbolView.swift */; };
+		2A007CDB2C75EA6900BFFE04 /* SFProDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A007CD72C75EA6300BFFE04 /* SFProDisplay-Bold.otf */; };
+		2A007CDC2C75EA6D00BFFE04 /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A007CD82C75EA6300BFFE04 /* SFProDisplay-Regular.otf */; };
+		2A007CDD2C75EA7000BFFE04 /* SFProDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2A007CD92C75EA6300BFFE04 /* SFProDisplay-Semibold.otf */; };
 		2A1169C72C6E2111005BDBE4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1169C62C6E2111005BDBE4 /* RegistrationView.swift */; };
 		2A3A82962C7358A800DDA965 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A82952C7358A800DDA965 /* ChatView.swift */; };
 		2A3A82982C73596600DDA965 /* ContactsMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3A82972C73596600DDA965 /* ContactsMockData.swift */; };
@@ -93,6 +96,9 @@
 		1AF8DDBC2C67ABFE00C5F315 /* UISystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UISystem; path = wb_chat_2/Modules/UISystem; sourceTree = SOURCE_ROOT; };
 		2A007CCA2C75413B00BFFE04 /* PrivateChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateChatView.swift; sourceTree = "<group>"; };
 		2A007CCC2C75684C00BFFE04 /* SymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolView.swift; sourceTree = "<group>"; };
+		2A007CD72C75EA6300BFFE04 /* SFProDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.otf"; sourceTree = "<group>"; };
+		2A007CD82C75EA6300BFFE04 /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
+		2A007CD92C75EA6300BFFE04 /* SFProDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.otf"; sourceTree = "<group>"; };
 		2A1169C62C6E2111005BDBE4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		2A3A82952C7358A800DDA965 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		2A3A82972C73596600DDA965 /* ContactsMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsMockData.swift; sourceTree = "<group>"; };
@@ -218,6 +224,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2A007CDA2C75EA6300BFFE04 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2A007CD72C75EA6300BFFE04 /* SFProDisplay-Bold.otf */,
+				2A007CD82C75EA6300BFFE04 /* SFProDisplay-Regular.otf */,
+				2A007CD92C75EA6300BFFE04 /* SFProDisplay-Semibold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		2A1169C82C6E2147005BDBE4 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,7 +241,7 @@
 				6568BC222C71DF2300CD46F4 /* RegistrationViewModel.swift */,
 			);
 			name = Registration;
-			path = ..;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		2A93B4EE2C6FB6E1002C0DAA /* Components */ = {
@@ -244,6 +260,7 @@
 				650BF3002C68AA770046B496 /* OnboardingViewModel.swift */,
 				2AA033AE2C6BB66D00053071 /* LoginView */,
 				650BF2F92C68A59F0046B496 /* CodeVerification */,
+				2A1169C82C6E2147005BDBE4 /* Registration */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -293,12 +310,10 @@
 				1A9404842C720B8000331778 /* Modules */,
 				65C98F8A2C67746600E54C0E /* Localizable */,
 				6568BC112C6E0B7000CD46F4 /* Model */,
-				2A93B4EE2C6FB6E1002C0DAA /* Components */,
 				2AD0665C2C67DFF70015ECFB /* ShakeAnimation.swift */,
 				2AAC074E2C674DC400D712BF /* wb_chat_2App.swift */,
 				1A6C5BC72C6CE6FE0095CB8F /* ContentView.swift */,
 				2AA033AA2C6A7D9900053071 /* Onboarding */,
-				2A1169C82C6E2147005BDBE4 /* Registration */,
 				1AF8DDAB2C67A30500C5F315 /* Contacts */,
 				1A6C5BC12C6CE5EC0095CB8F /* Chats */,
 				1A6C5BC42C6CE6030095CB8F /* Settings */,
@@ -306,6 +321,8 @@
 				E586DFA12C6CBEB900220252 /* DetailScreen */,
 				650BF2FB2C68A6D20046B496 /* Services */,
 				2AAC07522C674DC500D712BF /* Assets.xcassets */,
+				2A93B4EE2C6FB6E1002C0DAA /* Components */,
+				2A007CDA2C75EA6300BFFE04 /* Fonts */,
 				E5D0AD852C68FABF00B62E5C /* wb-chat-2-Info.plist */,
 				2AAC07542C674DC500D712BF /* Preview Content */,
 			);
@@ -451,6 +468,9 @@
 			files = (
 				2AAC07562C674DC500D712BF /* Preview Assets.xcassets in Resources */,
 				65C98F8D2C6777EB00E54C0E /* Localizable.strings in Resources */,
+				2A007CDB2C75EA6900BFFE04 /* SFProDisplay-Bold.otf in Resources */,
+				2A007CDC2C75EA6D00BFFE04 /* SFProDisplay-Regular.otf in Resources */,
+				2A007CDD2C75EA7000BFFE04 /* SFProDisplay-Semibold.otf in Resources */,
 				2AAC07532C674DC500D712BF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,7 +34,7 @@ struct CountryView: View {
             .background(Color.CustomColors.textfield)
             .clipShape(RoundedRectangle(cornerRadius: 4))
         }
-        .font(.bodyText1(.semiBold))
+        .font(.bodyText1)
     }
 
     private func setImage(country: Country) -> some View {

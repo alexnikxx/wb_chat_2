@@ -20,7 +20,7 @@ struct StoriesView: View {
                     VStack(spacing: 8) {
                         AvatarView(contact: contact)
                         Text(contact.name)
-                            .font(.metadat1(.regular))
+                            .font(.metadata2)
                     }
                 }
             }

@@ -18,11 +18,11 @@ struct ChatContactCell: View {
 
             VStack(alignment: .leading, spacing: 8) {
                 Text(contact.fullname)
-                    .font(.bodyText1(.semiBold))
+                    .font(.bodyText1)
                     .foregroundStyle(Color.CustomColors.heading2)
 
                 Text(lastMessage)
-                    .font(.bodyText2(.regular))
+                    .font(.metadata1)
                     .foregroundStyle(Color.CustomColors.metadata2)
             }
 

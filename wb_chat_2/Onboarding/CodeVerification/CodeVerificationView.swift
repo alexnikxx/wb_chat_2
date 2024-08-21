@@ -28,7 +28,7 @@ struct CodeVerificationView: View {
                     if viewModel.showError {
                         Text(LocalizedStrings.Verification.incorrectCodeTryAgain)
                             .foregroundColor(Color.accent.danger)
-                            .font(.bodyText2(.regular))
+                            .font(.metadata1)
                     }
                 }
                 .padding(.top, 20)
@@ -82,7 +82,6 @@ struct CodeVerificationView: View {
                     Circle().fill(Color.clear)
             )
             .keyboardType(.numberPad)
-            .font(.subheading1(.bold, size: 24))
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     focusedField = index

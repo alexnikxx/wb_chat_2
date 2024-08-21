@@ -23,7 +23,7 @@ struct OnboardingView: View {
                         .padding(.horizontal, 56)
 
                     Text(LocalizedStrings.Onboarding.communicateWithFriends)
-                    .font(.heading2(.bold))
+                    .font(.heading2)
                     .foregroundStyle(Color.CustomColors.heading2)
                     .multilineTextAlignment(.center)
                 }
@@ -41,7 +41,7 @@ struct OnboardingView: View {
                                 .foregroundStyle(.accent)
                         }
                     }
-                    .font(.metadat1(.regular))
+                    .font(.metadata2)
                     .foregroundStyle(Color.CustomColors.metadata2)
 
                     WBButton(text: LocalizedStrings.Onboarding.startChatting) {
