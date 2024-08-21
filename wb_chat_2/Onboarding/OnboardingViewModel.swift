@@ -27,6 +27,11 @@ final class OnboardingViewModel: ObservableObject {
         self.notificationManager = NotificationManager()
     }
 
+    func hideKeyboard() {
+        let resign = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
+    }
+
     func generateVerificationCode() {
         let randomDigitSequence = RandomDigitSequence(length: codeLength)
         generatedCode = randomDigitSequence.joined()
@@ -93,10 +98,5 @@ final class OnboardingViewModel: ObservableObject {
             checkCode() ? hideKeyboard() : nil
         }
         return nil
-    }
-
-    func hideKeyboard() {
-        let resign = #selector(UIResponder.resignFirstResponder)
-        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
     }
 }

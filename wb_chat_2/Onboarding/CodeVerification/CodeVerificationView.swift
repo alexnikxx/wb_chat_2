@@ -74,14 +74,15 @@ struct CodeVerificationView: View {
 
     private func codeTextField(for index: Int) -> some View {
         TextField("", text: $viewModel.verificationCode[index])
-            .accentColor(.clear)
             .frame(width: 24, height: 24)
+            .font(.heading1)
+            .accentColor(.clear)
+            .keyboardType(.numberPad)
             .background(
                 viewModel.verificationCode[index].isEmpty ?
                     Circle().fill(Color.CustomColors.circle) :
                     Circle().fill(Color.clear)
             )
-            .keyboardType(.numberPad)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     focusedField = index

@@ -45,6 +45,9 @@ struct LoginView: View {
         .onAppear {
             keyboardFocused = true
         }
+        .onTapGesture {
+            viewModel.hideKeyboard()
+        }
     }
 }
 
