@@ -11,11 +11,16 @@ import UISystem
 struct NameTextFieldsView: View {
     @Binding var name: String
     @Binding var surname: String
+    @FocusState private var keyboardFocused: Bool
 
     var body: some View {
         VStack(spacing: 12) {
-            WBTextField(placeholder: LocalizedStrings.nameTF, text: $name)
-            WBTextField(placeholder: LocalizedStrings.surnameTF, text: $surname)
+            WBTextField(placeholder: LocalizedStrings.Registration.nameTF, text: $name)
+                .focused($keyboardFocused)
+                .onAppear {
+                    keyboardFocused = true
+                }
+            WBTextField(placeholder: LocalizedStrings.Registration.surnameTF, text: $surname)
         }
     }
 }

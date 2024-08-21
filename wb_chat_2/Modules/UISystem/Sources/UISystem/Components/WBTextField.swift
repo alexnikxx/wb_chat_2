@@ -24,6 +24,6 @@ public struct WBTextField: View {
             .foregroundStyle(Color.CustomColors.heading2)
             .background(Color.CustomColors.textfield)
             .clipShape(RoundedRectangle(cornerRadius: 4))
-            .font(.bodyText1(.semiBold))
+            .font(.bodyText1)
     }
 }

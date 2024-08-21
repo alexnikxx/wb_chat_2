@@ -7,32 +7,42 @@
 
 import SwiftUI
 
-final class CodeVerificationViewModel: ObservableObject {
+final class OnboardingViewModel: ObservableObject {
+    // LoginView
+    @Published var phone: String = ""
+    @Published var selectedCountry: Country = Country.countries[7]
+    @Published var attempts: Int = 0
+
+    // VerificationView
     @Published var verificationCode = Array(repeating: "", count: 4)
     @Published var generatedCode: String = ""
     @Published var isCodeCorrect: Bool = false
     @Published var showError: Bool = false
     @Published var displayedCode: String = ""
-    
+
     private let codeLength = 4
     let notificationManager: NotificationManager
-    
+
     init() {
         self.notificationManager = NotificationManager()
     }
-    
-    
+
+    func hideKeyboard() {
+        let resign = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
+    }
+
     func generateVerificationCode() {
         let randomDigitSequence = RandomDigitSequence(length: codeLength)
         generatedCode = randomDigitSequence.joined()
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.displayedCode = self.generatedCode
             self.notificationManager.scheduleNotification(code: self.generatedCode)
         }
         print("Сгенерированный код: \(generatedCode)")
     }
-    
+
     func checkCode() -> Bool {
         let enteredCode = verificationCode.joined()
         isCodeCorrect = (enteredCode == generatedCode)
@@ -41,24 +51,26 @@ final class CodeVerificationViewModel: ObservableObject {
             return true
         } else {
             print("Проверка кода: Неудачно")
-            showError = true
-            UINotificationFeedbackGenerator().notificationOccurred(.error)
-            
+            withAnimation {
+                attempts += 1
+                showError = true
+                UINotificationFeedbackGenerator().notificationOccurred(.error)
+            }
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.showError = false
                 self.verificationCode = Array(repeating: "", count: 4)
                 // Вызов клавиатуры
                 UIApplication.shared.sendAction(#selector(UIResponder.becomeFirstResponder), to: nil, from: nil, for: nil)
-                
             }
             return false
         }
     }
-    
+
     func handleTextFieldChange(for index: Int, newValue: String) -> Int? {
         // Проверяем, что текущий текстовый поле находится в фокусе
         guard index < verificationCode.count else { return nil }
-        
+
         if newValue.isEmpty {
             // Если текущее поле пустое и это не первое поле, перемещаем фокус на предыдущее поле
             if index > 0 {
@@ -67,28 +79,24 @@ final class CodeVerificationViewModel: ObservableObject {
         } else if newValue.count > 1 {
             // Обработка вставки нескольких символов (например, при вставке)
             let endIndex = index + newValue.count
-            
+
             if endIndex <= verificationCode.count {
                 // Распределяем дополнительные символы по массиву
                 verificationCode.replaceSubrange(index..<endIndex, with: newValue.map { String($0) })
                 // Перемещаем фокус на последний вставленный символ
                 return endIndex - 1
-                
+
             } else {
                 // Если введённое значение содержит больше одного символа, оставляем только первый символ в текущем текстовом поле.
                 verificationCode[index] = String(newValue[newValue.startIndex])
             }
-            
+
         }
+
         // Если текущий индекс - последний и поле не пустое, проверяем код и скрываем клавиатуру
         if index == verificationCode.count - 1 && newValue.count == 1 {
             checkCode() ? hideKeyboard() : nil
         }
         return nil
-    }
-    
-    private func hideKeyboard() {
-        let resign = #selector(UIResponder.resignFirstResponder)
-        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
     }
 }

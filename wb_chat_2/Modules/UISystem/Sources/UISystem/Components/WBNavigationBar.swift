@@ -81,7 +81,7 @@ public struct WBNavigationBar: View {
 
     public func title(_ text: String) -> some View {
         Text(text)
-            .font(.subheading1(.semiBold))
+            .font(.subheading1)
             .foregroundStyle(textColor)
     }
 

@@ -10,7 +10,7 @@ import UISystem
 
 struct CountryView: View {
     @Binding var selectedCountry: Country
-    
+
     var body: some View {
         Menu {
             ForEach(Country.countries) { country in
@@ -18,15 +18,15 @@ struct CountryView: View {
                     selectedCountry = country
                 }) {
                     HStack {
-                        Text("\(country.flag) \(country.name)   \(country.code)")
+                        setImage(country: country)
+                        Text("\(country.name) \(country.code)")
                     }
                 }
             }
         } label: {
             HStack {
-                Text(selectedCountry.flag)
+                setImage(country: selectedCountry)
                 Text(selectedCountry.code)
-                    .foregroundColor(Color.CustomColors.heading2)
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 10)
@@ -34,5 +34,13 @@ struct CountryView: View {
             .background(Color.CustomColors.textfield)
             .clipShape(RoundedRectangle(cornerRadius: 4))
         }
+        .font(.bodyText1)
+    }
+
+    private func setImage(country: Country) -> some View {
+        Image(country.flag)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 16, height: 16)
     }
 }

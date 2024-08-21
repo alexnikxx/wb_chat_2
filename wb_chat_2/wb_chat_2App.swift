@@ -13,10 +13,6 @@ import SwiftData
 struct wb_chat_2App: App {
     @StateObject private var viewModelGPT = GPTViewModel()
     
-    init() {
-        SFProDisplayFont.registerFonts()
-    }
-    
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -53,7 +53,7 @@ public struct WBButtonStyle: ButtonStyle {
 
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.subheading2(.semiBold))
+            .font(.subheading2)
             .foregroundColor(isFilled ? Color("buttonText") : color)
             .padding()
             .frame(width: UIScreen.main.bounds.width - 48)

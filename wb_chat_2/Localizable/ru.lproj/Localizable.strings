@@ -7,13 +7,30 @@
 */
 
 "communicate_with_friends" = "Общайтесь с друзьями \n и близкими легко";
-"pressing_button_continue" = "Нажимаю кнопку продолжить я соглашаюсь с";
-"privacy_policy" = "Политикой Конфиденциальности и Условиями Использования";
+"pressing_button_continue" = "Нажимая кнопку продолжить я соглашаюсь с";
+"privacy_policy" = "Политикой Конфиденциальности";
+"and" = " и ";
+"terms_of_use" = "Условиями Использования";
 "start_chatting" = "Начать общаться";
 
 "enter_phone_number" = "Введите номер телефона";
-"confirmation_code_message" = "Мы вышлем код подтверждения \n на указанный номер";
+"confirmation_phone_message" = "Мы вышлем код подтверждения \n на указанный номер";
 "continue" = "Продолжить";
+
+"armenia" = "Армения";
+"azerbaijan" = "Азербайджан";
+"belarus" = "Беларусь";
+"china" = "Китай";
+"uk" = "Великобритания";
+"kyrgyzstan" = "Киргизия";
+"kazakhstan" = "Казахстан";
+"russia" = "Россия";
+"usa" = "США";
+"uzbekistan" = "Узбекистан";
+"turkey" = "Турция";
+"georgia" = "Грузия";
+"south_korean" = "Южная Корея";
+"uae" = "ОАЭ";
 
 "enter_code" = "Введите код";
 "sent_code_message" = "Отправили код на номер";
@@ -21,14 +38,16 @@
 "incorrect_code_try_again" = "Неправильный код. Пожалуйста, попробуйте снова.";
 "request_code_again" = "Запросить код повторно";
 
+"name" = "Имя (обязательно)";
+"surname" = "Фамилия (опционально)";
+"required_field" = "Обязательное поле";
 "save_button" = "Сохранить";
+
 "contacts" = "Контакты";
 "chats" = "Чаты";
 "profile" = "Профиль";
 
 "new_contact" = "Новый контакт";
-"name" = "Имя(обязательно)";
-"surname" = "Фамилия(опционально)";
 
 "settings" = "Настройки";
 

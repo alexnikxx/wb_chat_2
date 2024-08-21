@@ -8,12 +8,29 @@
 
 "communicate_with_friends" = "Communicate with friends \n and loved ones easily";
 "pressing_button_continue" = "By pressing the continue button, I agree to the";
-"privacy_policy" = "Privacy Policy and Terms of User";
-"start_chatting" = "Start Chatting";
+"privacy_policy" = "Privacy Policy";
+"and" = " and ";
+"terms_of_use" = "Terms of Use";
+"start_chatting" = "Start сhatting";
 
 "enter_phone_number" = "Enter your phone number";
-"confirmation_code_message" = "We will send a confirmation code to the number provided";
+"confirmation_phone_message" = "We will send a confirmation code to the number provided";
 "continue" = "Continue";
+
+"armenia" = "Armenia";
+"azerbaijan" = "Azerbaijan";
+"belarus" = "Belarus";
+"china" = "China";
+"uk" = "UK";
+"kyrgyzstan" = "Kyrgyzstan";
+"kazakhstan" = "Kazakhstan";
+"russia" = "Russia";
+"usa" = "USA";
+"uzbekistan" = "Uzbekistan";
+"turkey" = "Turkey";
+"georgia" = "Georgia";
+"south_korean" = "South Korea";
+"uae" = "UAE";
 
 "enter_code" = "Enter the code";
 "sent_code_message" = "We sent the code to the number";
@@ -21,14 +38,17 @@
 "incorrect_code_try_again" = "Incorrect code. Please try again.";
 "request_code_again" = "Request the code again";
 
+"name" = "Name (required)";
+"surname" = "Surname (optional)";
+"required_field" = "Required field";
+
 "save_button" = "Save";
+
 "contacts" = "Contacts";
 "chats" = "Chats";
 "profile" = "Profile";
 
 "new_contact" = "New contact";
-"name" = "Name(required)";
-"surname" = "Surname(Optional)";
 
 "settings" = "Settings";
 

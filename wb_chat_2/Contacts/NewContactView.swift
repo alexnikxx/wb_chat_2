@@ -17,7 +17,6 @@ struct NewContactView: View {
     @Environment(\.modelContext) private var modelContext: ModelContext
     @Environment(\.dismiss) private var dismiss
     
-    
     var body: some View {
         BackgroundView {
             VStack {
@@ -48,7 +47,7 @@ struct NewContactView: View {
                             )
                     }
                     Divider()
-                    PhoneTextFieldView(phone: $viewModel.phoneNumber, selectedCountryCode: $viewModel.selectedCountry)
+                    PhoneTextFieldView(phone: $viewModel.phoneNumber, selectedCountry: $viewModel.selectedCountry)
                         .overlay(
                             RoundedRectangle(cornerRadius: 5)
                                 .stroke(viewModel.phoneNumberError ? Color.red.opacity(0.5) : Color.clear, lineWidth: 2)

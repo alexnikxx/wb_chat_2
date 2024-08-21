@@ -18,7 +18,6 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
     
     // Разрешение на отправку уведомлений
-    
     func requestAuth() {
         let option: UNAuthorizationOptions = [.alert, .sound, .badge]
         UNUserNotificationCenter.current().requestAuthorization(options: option) { success, error in

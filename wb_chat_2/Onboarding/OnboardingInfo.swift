@@ -15,10 +15,10 @@ struct OnboardingInfo: View {
     var body: some View {
         VStack(spacing: 12) {
             Text(title)
-                .font(.heading2(.bold))
+                .font(.heading2)
 
             Text(info)
-                .font(.bodyText1(.regular))
+                .font(.bodyText2)
                 .lineSpacing(8)
         }
         .multilineTextAlignment(.center)
@@ -26,14 +26,4 @@ struct OnboardingInfo: View {
         .padding(.bottom, 40)
         .padding(.top, 80)
     }
-}
-
-#Preview {
-    OnboardingInfo(
-        title: "Введите номер телефона",
-        info: """
-            Мы вышлем код подтверждения
-            на указанный номер
-            """
-    )
 }
