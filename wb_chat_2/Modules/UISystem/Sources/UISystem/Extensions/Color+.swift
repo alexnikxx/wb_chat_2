@@ -40,7 +40,7 @@ extension Color {
         ///цвет текстфилда
         public static let textfield = Color("textfield")
 
-        public static let circle = Color("WBgray")
+        public static let smallElements = Color("WBgray")
 
     }
 }

@@ -23,9 +23,9 @@ struct DetailScreenView: View {
                 isBackButton: true,
                 rightButtonIcon: "pensil",
                 rightButtonAction: { router.navigateTo(.editContact(contact: contact)) },
-                backButtonAction: { router.navigateBack() }, isSubtitle: false
+                backButtonAction: { router.navigateBack() }
             )
-            
+
             VStack(spacing: 0) {
                 if let imageString = contact.avatar,
                    let imageData = Data(base64Encoded: imageString),

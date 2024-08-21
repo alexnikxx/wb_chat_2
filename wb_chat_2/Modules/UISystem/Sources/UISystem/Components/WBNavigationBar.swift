@@ -23,7 +23,7 @@ public struct WBNavigationBar: View {
         textColor: Color = Color.CustomColors.heading2,
         rightButtonAction: (() -> Void)? = nil,
         backButtonAction: @escaping () -> Void,
-        isSubtitle: Bool
+        isSubtitle: Bool = false
     ) {
         self.title = title
         self.isBackButton = isBackButton

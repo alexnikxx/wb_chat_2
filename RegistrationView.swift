@@ -20,7 +20,6 @@ struct RegistrationView: View {
         BackgroundView {
             VStack(spacing: 30) {
                 EditAvatarView(selectedImage: $viewModel.selectedImage)
-                    .padding(.top, 46)
 
                 NameTextFieldsView(name: $viewModel.name, surname: $viewModel.surname)
                     .padding(.horizontal, 24)
@@ -41,8 +40,8 @@ struct RegistrationView: View {
                 .opacity(!viewModel.name.isEmpty ? 1 : 0.5)
                 .padding(.bottom, 16)
             }
+            .padding(.top, 90)
         }
-        .navigationBarItems(leading: WBBackButton(action: router.navigateBack))
         .onTapGesture {
             viewModel.hideKeyboard()
         }

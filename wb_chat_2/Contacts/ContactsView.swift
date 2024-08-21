@@ -10,72 +10,63 @@ import UISystem
 import SwiftData
 
 struct ContactsView: View {
+    @StateObject private var viewModel = ContactsViewModel()
     @EnvironmentObject var router: Router
-    @State private var inputText = ""
-    @Query var contacts: [Contact]
-    @State private var navigateToAccountEdit = false
-    @State private var showDeleteActionSheet = false
-    @State private var showDeleteAlert = false
-    @State private var contactToDelete: Contact?
     @Environment(\.modelContext) private var modelContext
     
+    @Query var contacts: [Contact]
+    
     private var filteredContacts: [Contact] {
-        inputText.isEmpty ? contacts : contacts.filter { $0.fullname.lowercased().contains(inputText.lowercased())
+        viewModel.inputText.isEmpty ? contacts : contacts.filter { $0.fullname.lowercased().contains(viewModel.inputText.lowercased())
         }
     }
     
     var body: some View {
-        VStack {
-            WBNavigationBar(
-                title: LocalizedStrings.contacts,
-                isBackButton: false,
-                rightButtonIcon: "plus",
-                rightButtonAction: { router.navigateTo(.newContact) },
-                backButtonAction: { }, isSubtitle: false
-            )
-            
-            WBSearchBarView(inputText: $inputText)
-                .padding(.horizontal, 24)
-                .padding(.top, 16)
-            
-            List(filteredContacts, id: \.self) { contact in
-                ContactRowView(contact: contact)
-                    .listRowBackground(Color.CustomColors.background)
-                    .listRowSeparatorTint(Color.CustomColors.textfield)
-                    .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
-                    .alignmentGuide(.listRowSeparatorTrailing) { separator in
-                        separator.width - 2
-                    }
-                    .padding(5)
-                    .onTapGesture {
-                        router.navigateTo(.contactDetails(contact: contact))
-                    }
-                    .contextMenu {
-                        Button("Удалить", role: .destructive) {
-                            contactToDelete = contact
-                            showDeleteAlert = true
-                        }
-                    }
-                    .alert("Удалить контакт?", isPresented: $showDeleteAlert, presenting: contactToDelete) { contact in
-                        Button("Удалить", role: .destructive) {
-                            deleteContact(contact)
-                        }
-                        Button("Отмена", role: .cancel) { }
-                    } message: { contact in
-                        Text("Вы действительно хотите удалить контакт \(contact.fullname)?")
-                    }
+        BackgroundView {
+            VStack {
+                WBNavigationBar(
+                    title: LocalizedStrings.contacts,
+                    isBackButton: false,
+                    rightButtonIcon: "plus",
+                    rightButtonAction: { router.navigateTo(.newContact) },
+                    backButtonAction: { }
+                )
                 
-                    
+                WBSearchBarView(inputText: $viewModel.inputText)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 16)
+                
+                List(filteredContacts, id: \.self) { contact in
+                    ContactRowView(contact: contact)
+                        .listRowInsets(EdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0))
+                        .listRowSeparator(.hidden)
+                        .contextMenu {
+                            Button("Удалить", role: .destructive) {
+                                viewModel.contactToDelete = contact
+                                viewModel.showDeleteAlert = true
+                            }
+                        }
+                        .alert("Удалить контакт?", isPresented: $viewModel.showDeleteAlert, presenting: viewModel.contactToDelete) { contact in
+                            Button("Удалить", role: .destructive) {
+                                deleteContact(contact)
+                            }
+                            Button("Отмена", role: .cancel) { }
+                        } message: { contact in
+                            Text("Вы действительно хотите удалить контакт \(contact.fullname)?")
+                        }
+                        .onTapGesture {
+                            router.navigateTo(.contactDetails(contact: contact))
+                        }
+                }
+                .padding(.horizontal, 24)
+                .listStyle(.plain)
             }
-            .listStyle(.plain)
-            .edgesIgnoringSafeArea(.top)
-            .background(Color.CustomColors.background)
         }
         .onAppear {
             createMockContacts()
         }
-        
     }
+    
     private func deleteContact(_ contact: Contact) {
         modelContext.delete(contact)
     }
@@ -139,11 +130,4 @@ struct ContactsView: View {
         }
         return nil
     }
-}
-
-    
-
-
-#Preview {
-    ContactsView()
 }

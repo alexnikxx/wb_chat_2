@@ -29,8 +29,13 @@ struct PrivateChatView: View {
         
         ZStack {
             VStack {
-                WBNavigationBar(title: contact.fullname, isBackButton: true, rightButtonIcon: "", backButtonAction: router.navigateBack, isSubtitle: false)
-                
+                WBNavigationBar(
+                    title: contact.fullname,
+                    isBackButton: true,
+                    rightButtonIcon: "",
+                    backButtonAction: router.navigateBack
+                )
+
                 ChatView(messages: viewModel.messages.map { $0.toChatMessage() }, chatType: .conversation) { draft in
                     viewModel.sendMessage(draftMessage: draft,modelContext: modelContext)
                 } inputViewBuilder: { textBinding, attachments, inputViewState, inputViewStyle, inputViewActionClosure, dismissKeyboardClosure in

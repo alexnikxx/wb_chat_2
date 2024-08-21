@@ -80,7 +80,7 @@ struct CodeVerificationView: View {
             .keyboardType(.numberPad)
             .background(
                 viewModel.verificationCode[index].isEmpty ?
-                    Circle().fill(Color.CustomColors.circle) :
+                    Circle().fill(Color.CustomColors.smallElements) :
                     Circle().fill(Color.clear)
             )
             .onAppear {
