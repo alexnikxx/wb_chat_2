@@ -23,4 +23,10 @@ extension View {
                     )
             )
     }
+
+    func initials(from name: String) -> String {
+        let names = name.split(separator: " ")
+        let initials = names.compactMap { $0.first }
+        return initials.map(String.init).joined()
+    }
 }
