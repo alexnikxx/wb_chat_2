@@ -131,7 +131,7 @@ extension SettingsView {
             Toggle(isOn: $darkMode) {
                 HStack {
                     Image("sun")
-                    Text("Тема")
+                    Text("Темная тема")
                         .font(.bodyText1)
                         .foregroundStyle(Color.CustomColors.heading2)
                 }
