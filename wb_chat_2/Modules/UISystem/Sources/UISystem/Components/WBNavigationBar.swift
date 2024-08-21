@@ -39,40 +39,42 @@ public struct WBNavigationBar: View {
             ZStack {
                 Rectangle()
                     .foregroundStyle(Color.CustomColors.background)
-                    .frame(height: 90)
+                    .frame(height: 120)
 
-                HStack {
-                    HStack(spacing: 8) {
-                        if isBackButton {
-                            backButton()
-                                .padding(.leading)
-                        }
-
-                        title(title)
-
-                        if isSubtitle {
-                            HStack {
-                                ProgressView()
-                                    .scaleEffect(0.7)
-                                    .progressViewStyle(.circular)
-                                Text("GPT is typing...")
-                                    .font(.system(size: 12))
-                                    .italic()
-                                    .padding(.leading, 4)
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack {
+                        HStack(spacing: 8) {
+                            if isBackButton {
+                                backButton()
+                                    .padding(.leading)
                             }
-                            .foregroundStyle(.gray)
+
+                            title(title)
+                        }
+                        .padding(.leading, isBackButton ? 2 : 24)
+
+                        Spacer()
+
+                        if rightButtonIcon != "" {
+                            button(iconName: rightButtonIcon) {
+                                rightButtonAction?()
+                            }
                         }
                     }
-                    .padding(.leading, isBackButton ? 2 : 24)
 
-                    Spacer()
-
-                    if rightButtonIcon != "" {
-                        button(iconName: rightButtonIcon) {
-                            rightButtonAction?()
+                    if isSubtitle {
+                        HStack {
+                            ProgressView()
+                                .scaleEffect(0.7)
+                                .progressViewStyle(.circular)
+                            Text("GPT is typing...")
+                                .font(.metadata1)
                         }
+                        .padding(.leading, 48)
+                        .foregroundStyle(Color.CustomColors.metadata2)
                     }
                 }
+                .padding(.bottom, isSubtitle ? 0 : 12)
                 .frame(height: 100, alignment: .bottom)
             }
             .frame(height: 100)

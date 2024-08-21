@@ -21,10 +21,9 @@ final class ChatViewModel: ObservableObject {
 
     init(chatId: UUID) {
         self.chatId = chatId
-       
     }
 
-     func loadMockMessages(modelContext: ModelContext) {
+    func loadMockMessages(modelContext: ModelContext) {
         if let messagesForChat = chatMessages[chatId] {
             self.messages = messagesForChat
         } else {
@@ -40,32 +39,32 @@ final class ChatViewModel: ObservableObject {
             sender: currentUser,
             createdAt: draftMessage.createdAt,
             text: draftMessage.text
-            
+
         )
-        
+
         modelContext.insert(newMessage)
-            do {
-                try modelContext.save()
-            } catch {
-                print("Failed to save message: \(error.localizedDescription)")
-            }
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to save message: \(error.localizedDescription)")
+        }
         DispatchQueue.main.async {
             self.messages.append(newMessage)
             self.chatMessages[self.chatId]?.append(newMessage)
         }
-       
+
     }
 
     private func createMockMessages(for chatId: UUID ,modelContext: ModelContext) -> [MockMessage] {
-        let user2 = MockUser(id: "2", role: .assistant, lastVisit: Date(), imageName: AssetExtractor.createLocalUrl(forImageNamed: "Анастасия Иванова") ?? URL(string: ""))
+        let user2 = MockUser(id: "2", role: .assistant, lastVisit: Date(), imageName: nil)
         let messagesCount = Int.random(in: 1...4)
         var messages: [MockMessage] = []
-        
+
         for _ in 0..<messagesCount {
             let sender = user2
             let randomTime = Date().addingTimeInterval(-Double.random(in: 0...3600))
             let randomText = "Random message \(Int.random(in: 1...10))"
-            
+
             let message = MockMessage(
                 uid: UUID().uuidString,
                 sender: sender,
@@ -74,16 +73,14 @@ final class ChatViewModel: ObservableObject {
             )
             messages.append(message)
             modelContext.insert(message)
-              }
+        }
 
-              do {
-                  try modelContext.save()
-              } catch {
-                  print("Failed to save random messages: \(error.localizedDescription)")
-              }
-          
-        
-        
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to save random messages: \(error.localizedDescription)")
+        }
+
         return messages
     }
 }

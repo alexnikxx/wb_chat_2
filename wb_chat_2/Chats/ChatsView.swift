@@ -48,6 +48,7 @@ struct ChatsView: View {
                             Button("Все чаты") {
                                 isChatGPT = false
                             }
+
                             Indicator()
                                 .opacity(isChatGPT ? 0 : 1)
                         }
@@ -67,6 +68,7 @@ struct ChatsView: View {
 
                     Divider()
                 }
+
                 if !isChatGPT {
                     ChatListView(
                         filteredContacts: filteredContacts,
@@ -83,9 +85,7 @@ struct ChatsView: View {
                     router.navigateTo(.chatWithContact(chatId: chatId, contact: contact))  // Переход к экрану чата с выбранным контактом
                 }
             }
-//            .ignoresSafeArea()
             .frame(maxHeight: .infinity, alignment: .top)
-            
         }
     }
 }
@@ -95,22 +95,3 @@ struct ChatsView: View {
         .environmentObject(GPTViewModel())
 }
 
-struct ContactsListView: View {
-    @Environment(\.dismiss) var dismiss
-    @Query var contacts: [Contact]
-    var onSelect: (Contact) -> Void
-    
-    var body: some View {
-        NavigationView {
-            List(contacts, id: \.id) { contact in
-                Button(action: {
-                    onSelect(contact)
-                    dismiss()
-                }) {
-                    Text(contact.fullname)
-                }
-            }
-            .navigationBarTitle("Выберите контакт", displayMode: .inline)
-        }
-    }
-}

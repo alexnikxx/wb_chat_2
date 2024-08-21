@@ -39,6 +39,7 @@ struct ContactsView: View {
                 List(filteredContacts, id: \.self) { contact in
                     ContactRowView(contact: contact)
                         .listRowInsets(EdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0))
+                        .listRowBackground(Color.CustomColors.background)
                         .listRowSeparator(.hidden)
                         .contextMenu {
                             Button("Удалить", role: .destructive) {
