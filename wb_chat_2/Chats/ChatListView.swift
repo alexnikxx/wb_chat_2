@@ -28,7 +28,7 @@ struct ChatListView: View {
                     }
                     .padding(5)
                     .onTapGesture {
-                        router.navigateTo(.chatWithContact(contact: contact))
+                        router.navigateTo(.chatWithContact(chatId: contact.id, contact: contact))
                     }
             }
             .listStyle(.plain)

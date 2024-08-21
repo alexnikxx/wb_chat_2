@@ -47,8 +47,9 @@ struct AvatarView: View {
                 }
             }
 
-            if let image = contact.avatar {
-                Image(image)
+            if let uiImage = contact.avatarImage {
+                Image(uiImage: uiImage)
+                
                     .resizable()
                     .scaledToFill()
                     .frame(width: 48, height: 48)

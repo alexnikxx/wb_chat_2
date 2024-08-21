@@ -10,11 +10,14 @@ import UISystem
 import SwiftData
 
 struct ChatsView: View {
+    @EnvironmentObject var router: Router
     @EnvironmentObject private var viewModelGPT: GPTViewModel
     @State var inputText = ""
     @State var isChatGPT: Bool = false
     @Environment(\.modelContext) private var modelContext: ModelContext
-    @Query let contacts: [Contact]
+    @Query var contacts: [Contact]
+    @State private var isShowingContacts = false
+    @State private var selectedContact: Contact?
     
     var filteredContacts: [Contact] { contacts.filter { $0.hasMessages } }
 
@@ -30,6 +33,8 @@ struct ChatsView: View {
                             withAnimation {
                                 viewModelGPT.addNewChat(modelContext: modelContext)
                             }
+                        } else {
+                            isShowingContacts = true
                         }
                     },
                     backButtonAction: { }, isSubtitle: false
@@ -71,8 +76,16 @@ struct ChatsView: View {
                     ChatsGPTView()
                 }
             }
+            .sheet(isPresented: $isShowingContacts) {
+                ContactsListView { contact in
+                    let chatId = UUID()
+                    selectedContact = contact
+                    router.navigateTo(.chatWithContact(chatId: chatId, contact: contact))  // Переход к экрану чата с выбранным контактом
+                }
+            }
 //            .ignoresSafeArea()
             .frame(maxHeight: .infinity, alignment: .top)
+            
         }
     }
 }
@@ -80,4 +93,24 @@ struct ChatsView: View {
 #Preview {
     ChatsView()
         .environmentObject(GPTViewModel())
+}
+
+struct ContactsListView: View {
+    @Environment(\.dismiss) var dismiss
+    @Query var contacts: [Contact]
+    var onSelect: (Contact) -> Void
+    
+    var body: some View {
+        NavigationView {
+            List(contacts, id: \.id) { contact in
+                Button(action: {
+                    onSelect(contact)
+                    dismiss()
+                }) {
+                    Text(contact.fullname)
+                }
+            }
+            .navigationBarTitle("Выберите контакт", displayMode: .inline)
+        }
+    }
 }

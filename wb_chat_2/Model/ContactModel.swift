@@ -7,7 +7,7 @@
 
 import SwiftData
 import Foundation
-
+import UIKit
 
 @Model
 final class Contact: Hashable {
@@ -29,6 +29,12 @@ final class Contact: Hashable {
         self.phoneNumber = phoneNumber
         self.hasMessages = hasMessages
         self.socialMediaLinks = socialMediaLinks
+    }
+    
+    var avatarImage: UIImage? {
+        guard let avatar = avatar,
+              let imageData = Data(base64Encoded: avatar) else { return nil }
+        return UIImage(data: imageData)
     }
     var fullname: String {
         "\(name) \(surname ?? "")"
@@ -57,6 +63,9 @@ final class Contact: Hashable {
         default:
             return "Last seen on \(onlineStatus.dateToString(date: onlineStatus))"
         }
+        
+        
+
     }
     static func randomOnlineStatus() -> Date {
         let secondsInOneDay: TimeInterval = 24 * 60 * 60
