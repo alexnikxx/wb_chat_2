@@ -6,10 +6,11 @@
 //
 import SwiftUI
 import UISystem
+import SwiftData
 
 struct SettingsView: View {
     @AppStorage("darkMode") private var darkMode = false
-    
+    @Query let userBase: [User]
     @AppStorage("pushNotificationMode") private var pushNotificationMode = true
     @Environment(\.colorScheme) var colorScheme
     private let notificationManager = NotificationManager()
@@ -68,15 +69,23 @@ extension SettingsView {
                     Circle()
                         .foregroundStyle(.wBgray)
                         .frame(width: 50, height: 50)
-
-                    Image("userBig")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 24, height: 24)
+                    if let uiImage = userBase.first?.avatarImage {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .clipShape(Circle())
+                           
+                        
+                    } else {
+                        Image("userBig")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                    }
                 }
 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Иван Иванов")
+                    Text(userBase.first?.name ?? "")
                         .foregroundStyle(Color.CustomColors.heading2)
                         .font(.bodyText1)
 
