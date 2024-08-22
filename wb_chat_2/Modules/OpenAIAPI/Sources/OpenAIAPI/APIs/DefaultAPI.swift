@@ -51,7 +51,7 @@ open class DefaultAPI {
         // Формируем заголовки, включая Authorization
         let localVariableNillableHeaders: [String: Any?] = [
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": ""
         ]
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
