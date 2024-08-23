@@ -96,3 +96,5 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 .DS_Store
+
+APIKey.swift
